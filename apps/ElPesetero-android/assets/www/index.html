@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>El Pesetero</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1, target-densityDpi=device-dpi"/>
+		<script type="text/javascript" charset="utf-8" src="js/cordova-2.1.0.js"></script>		
+		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.js"></script>
+		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.css" />
+	</head>
+
+	<div data-role="page">
+	
+		<div data-role="header">
+			<h1>El Pesetero</h1>
+		</div><!-- /header -->
+	
+		<div data-role="content">	
+			<p>Hello world</p>
+			<ul data-role="listview" data-inset="true" data-filter="true">
+				<li><a href="#">Acura</a></li>
+				<li><a href="#">Audi</a></li>
+				<li><a href="#">BMW</a></li>
+			</ul>
+			
+			<form>
+			   <label for="slider-0">Input slider:</label>
+			   <input type="range" name="slider" id="slider-0" value="25" min="0" max="100"  />
+			</form>			
+			
+			<a href="#" data-role="button" data-icon="star">Star button</a>
+			<a href="#" data-role="button" data-icon="star" data-theme="a">Button1</a>
+			<a href="#" data-role="button" data-icon="star" data-theme="b">Button2</a>
+			<a href="#" data-role="button" data-icon="star" data-theme="e">Button3</a>
+		</div><!-- /content -->
+		
+		<div data-role="footer">...</div> 
+	</div><!-- /page -->
+</html>
