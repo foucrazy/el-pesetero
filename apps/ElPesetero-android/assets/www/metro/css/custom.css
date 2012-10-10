@@ -1,11 +1,24 @@
-body{
-	padding-left:20px;
+h1, h1:hover {
+	color:white;
 }
 
-#page{
-	clear:both;
+.tile{
+	margin-left:5px;
+	margin-right:5px;
 }
-
-.page-region{
-	text-align:left;
+.tile.medium {
+  width: 70px;
+}
+.tile.medium .tile-content {
+  width: 70px;
+}
+.tile.medium-vertical {
+  height: 70px;
+  /*font-size: 15em;*/
+}
+.tile.medium-vertical .tile-content {
+  height: 70px;
+}
+.tile.medium .tile-content.full{
+  padding:0px;	
 }
