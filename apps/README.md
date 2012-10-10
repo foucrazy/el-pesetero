@@ -1,0 +1,1 @@
+Aplicaciones conectadas con el servidor base.

@@ -1,0 +1,1 @@
+Aplicación para plataforma Android.

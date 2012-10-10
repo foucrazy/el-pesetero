@@ -1,0 +1,15 @@
+#accesoRapido{	
+	height:150px;	
+	text-align:center;
+}
+
+#accesoRapido a.btnAccesoRapido{
+	margin: 0 auto;
+	width:115px;
+	height:122px;
+	text-decoration:none;
+}
+
+#panelGestion{
+	clear:both;
+}
