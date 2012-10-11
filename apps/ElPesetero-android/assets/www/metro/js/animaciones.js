@@ -1,39 +1,68 @@
+//http://www.disegnocentell.com.ar/notas2.php?id=239
+
 var tileSacarDinero = document.getElementById("tileSacarDinero");
+var iconSacarDinero = document.getElementById("iconSacarDinero");
 var contentTileSacarDinero = document.getElementById("contentTileSacarDinero");
 var contentExtTileSacarDinero = document.getElementById("contentExtTileSacarDinero");
+var btnCancelarSacarDinero = document.getElementById("btnCancelarSacarDinero");
 
 var tileNuevoGasto = document.getElementById("tileNuevoGasto");
+var iconNuevoGasto = document.getElementById("iconNuevoGasto");
 var contentTileNuevoGasto = document.getElementById("contentTileNuevoGasto");
 var contentExtTileNuevoGasto = document.getElementById("contentExtTileNuevoGasto");
+var btnCancelarNuevoGasto = document.getElementById("btnCancelarNuevoGasto");
 
-tileSacarDinero.onclick=function(){
-	expandirTile(tileSacarDinero,contentTileSacarDinero,contentExtTileSacarDinero);
+iconSacarDinero.onclick=function(){	
+	if(contentTileSacarDinero.style.height!="300px"){
+		expandirTile(tileSacarDinero,contentTileSacarDinero,contentExtTileSacarDinero);
+		if(contentTileNuevoGasto.style.height=="300px"){
+			contraerTile(tileNuevoGasto,contentTileNuevoGasto,contentExtTileNuevoGasto);
+		}
+	}else{
+		contraerTile(tileSacarDinero,contentTileSacarDinero,contentExtTileSacarDinero);
+	}
 }
 	
-tileNuevoGasto.onclick=function(){
-	expandirTile(tileNuevoGasto,contentTileNuevoGasto,contentExtTileNuevoGasto);
+iconNuevoGasto.onclick=function(){
+	if(contentTileNuevoGasto.style.height!="300px"){
+		expandirTile(tileNuevoGasto,contentTileNuevoGasto,contentExtTileNuevoGasto);
+		if(contentTileSacarDinero.style.height=="300px"){
+			contraerTile(tileSacarDinero,contentTileSacarDinero,contentExtTileSacarDinero);
+		}
+	}else{
+		contraerTile(tileNuevoGasto,contentTileNuevoGasto,contentExtTileNuevoGasto);
+	}
 }
 
-function expandirTile(tile,content,contentExt){	
-	if(content.style.height!="300px"){
-		fx(tile,[ 
-		{'inicio':0,'fin':310,'u':'px','propCSS':'width'}, 
-		{'inicio':0,'fin':310,'u':'px','propCSS':'height'}
-		],500,true,desacelerado); 
-							
-		contentExt.style.display="block";
-		content.style.height="300px";
-		content.style.width="300px";	
-	}else{
-		fx(tile,[ 
-		{'inicio':310,'fin':150,'u':'px','propCSS':'width'}, 
-		{'inicio':310,'fin':150,'u':'px','propCSS':'height'}
-		],300,true,desacelerado); 
-		
-		contentExt.style.display="none";
-		content.style.height="150px";
-		content.style.width="150px";	
-	}
+btnCancelarSacarDinero.onclick=function(){
+	contraerTile(tileSacarDinero,contentTileSacarDinero,contentExtTileSacarDinero);
+}
+
+btnCancelarNuevoGasto.onclick=function(){
+	contraerTile(tileNuevoGasto,contentTileNuevoGasto,contentExtTileNuevoGasto);
+}
+
+
+function expandirTile(tile,content,contentExt){		
+	fx(tile,[ 
+		{'inicio':150,'fin':310,'u':'px','propCSS':'width'}, 
+		{'inicio':150,'fin':310,'u':'px','propCSS':'height'}
+		],650,true,linear); 
+									
+	content.style.height="300px";
+	content.style.width="300px";
+	contentExt.style.display="block";
+}
+
+function contraerTile(tile,content,contentExt){
+	fx(tile,[ 
+	 		{'inicio':310,'fin':150,'u':'px','propCSS':'width'}, 
+	 		{'inicio':310,'fin':150,'u':'px','propCSS':'height'}
+	 		],400,true,linear); 
+	 		
+	contentExt.style.display="none";
+	content.style.height="150px";
+	content.style.width="150px";	
 }
 
 function transicion(curva,ms,callback){ 

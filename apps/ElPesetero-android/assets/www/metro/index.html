@@ -5,13 +5,13 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">		
 		<link href="css/modern.css" rel="stylesheet">
-		<link href="css/custom.css" rel="stylesheet">		
+		<link href="css/custom.css" rel="stylesheet">
 	</head>
 	<body class="bg-color-darken">
 		<div id="page">
 			<div id="page-header">
 				<div id="page-header-content">
-					<h1>El Pesetero</h1>
+					<h1>El pesetero</h1>
 				</div>
 			</div>
 			
@@ -22,9 +22,23 @@
 							<div class="name">Sacar dinero</div>
 						</div>					
 						<div id="contentTileSacarDinero" class="tile-content">
-							<img src="css/images/sacar.png" alt="Sacar dinero" title="Sacar dinero"/>
-							<div id="contentExtTileSacarDinero">
-								EXTENDIDO
+							<img id="iconSacarDinero" src="css/images/sacar.png" alt="Sacar dinero" title="Sacar dinero"/>
+							<div id="contentExtTileSacarDinero" class="tile-content-ext">
+								<form>
+									<div class="input-control select">
+								        <select>
+								        	<option>Tarjeta utilizada</option>
+								            <option>Tarjeta NX</option>
+								            <option>Tarjeta Azul</option>
+								            <option>CM Cool</option>
+								        </select>
+								    </div>								
+									<div class="input-control text">
+								        <label>Cantidad:</label><input type="text" maxlength="10"/>								        
+								    </div>
+								    <input type="button" value="Guardar"/>
+								    <input type="button" value="Cancelar" id="btnCancelarSacarDinero"/>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -33,18 +47,51 @@
 							<div class="name">Nuevo gasto</div>
 						</div>					
 						<div id="contentTileNuevoGasto" class="tile-content">
-							<img src="css/images/gasto.png" alt="Nuevo Gasto" title="Nuevo gasto"/>
-							<div id="contentExtTileNuevoGasto">
-								EXTENDIDO
+							<img id="iconNuevoGasto" src="css/images/gasto.png" alt="Nuevo Gasto" title="Nuevo gasto"/>
+							<div id="contentExtTileNuevoGasto"  class="tile-content-ext">
+								<form>
+									<div class="input-control select">
+								        <select>
+								        	<option>Fondo utilizado</option>
+								            <option>Efectivo</option>
+								            <option>Tarjeta Azul</option>
+								            <option>CM Cool</option>
+								            <option>Cuenta corriente 1</option>
+								            <option>Cuenta corriente 2</option>
+								            <option>Tickets</option>
+								        </select>
+								    </div>		
+									<div class="input-control select">
+								        <select>
+								        	<option>Tipo de gasto</option>
+								            <option>Comida</option>
+								            <option>Ocio</option>
+								            <option>Ropa</option>
+								            <option>Viajes</option>								            
+								            <option>Otros</option>
+								        </select>
+								    </div>										    						
+									<div class="input-control text">
+								        <label>Cantidad:</label><input type="text" maxlength="10"/>								        
+								    </div>
+								    <input type="button" value="Guardar"/>
+								    <input type="button" value="Cancelar" id="btnCancelarNuevoGasto"/>
+								</form>
 							</div>
 						</div>
 					</div>
-					<div class="tile medium-vertical bg-color-orangeDark">								
+					<div class="tile medium-vertical bg-color-orangeDark">
+						<div class="brand">							
+							<div class="badge">-157&euro;</div>
+						</div>													
 						<div class="tile-content">
 							<a href="#">Fondos disponibles</a>
 						</div>
 					</div>	
-					<div class="tile medium-vertical bg-color-orangeDark">								
+					<div class="tile medium-vertical bg-color-orangeDark">	
+						<div class="brand">
+							<div class="badge">32</div>
+						</div>		
 						<div class="tile-content">
 							<a href="#">Movimientos realizados</a>
 						</div>

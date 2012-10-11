@@ -1,24 +1,66 @@
-h1, h1:hover {
-	color:white;
+@media all and (max-width: 480px) {
+
+	h1, h1:hover {
+		color:white;
+		font-size: 3em;	
+		margin-left:10px;
+		margin-top:0px;	
+	}
+	
+	.tile{
+		margin-left:5px;
+		margin-right:5px;
+	}
+	.tile.medium {
+	  width: 70px;
+	}
+	.tile.medium .tile-content {
+	  width: 70px;
+	}
+	.tile.medium-vertical {
+	  height: 70px;
+	  /*font-size: 15em;*/
+	}
+	.tile.medium-vertical .tile-content {
+	  height: 70px;
+	}
+	.tile.medium .tile-content.full{
+	  padding:0px;	
+	}
+	
+	.input-control > select, .input-control option{
+		color:black;
+	}
+	
+	.input-control > input[type="text"] {
+		color:black;	
+	}
+	
+	.tile-content-ext{
+		margin-top:20px;
+		float:right;	
+		width:60%;
+	   	height: 100%;
+	}
+	
+	.tile .brand  > .badge{	
+		margin-right:5px;
+		margin-bottom:0px;
+		padding-bottom:0px;
+		height:23px;
+		width:58px;
+		font-weight:100;
+		text-align: right;
+	}
+
 }
 
-.tile{
-	margin-left:5px;
-	margin-right:5px;
-}
-.tile.medium {
-  width: 70px;
-}
-.tile.medium .tile-content {
-  width: 70px;
-}
-.tile.medium-vertical {
-  height: 70px;
-  /*font-size: 15em;*/
-}
-.tile.medium-vertical .tile-content {
-  height: 70px;
-}
-.tile.medium .tile-content.full{
-  padding:0px;	
-}
+@media all and (min-width: 481px) {
+	
+		h1, h1:hover {
+		color:red;
+		font-size: 3em;	
+		margin-left:10px;
+		margin-top:0px;	
+	}
+	
