@@ -1,4 +1,4 @@
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
 
 	h1, h1:hover {
 		color:white;
@@ -55,7 +55,7 @@
 
 }
 
-@media all and (min-width: 481px) {
+@media all and (min-width: 769px) {
 	
 		h1, h1:hover {
 		color:red;
