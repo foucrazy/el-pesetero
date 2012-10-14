@@ -5,10 +5,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 		<link href="css/modern.css" rel="stylesheet">
-		<link href="css/modern-responsive.css" rel="stylesheet">		
+		<link href="css/modern-responsive.css" rel="stylesheet">	
+		<link href="css/custom.css" rel="stylesheet">		
 	</head>
-	<body class="bg-color-orangeDark">
-		<div id="page" class="page snapped bg-color-darken">
+	<body class="bg-color-darken">
+		<div id="inicio" class="page snapped bg-color-darken">
 			<div id="page-header">
 				<div id="page-header-content">
 					<h1>El pesetero</h1>
@@ -17,20 +18,20 @@
 			
 			<div id="page-region">
 				<div id="page-region-content">
-					<div id="tileSacarDinero" class="tile bg-color-orange">		
+					<div class="tile bg-color-orange">		
 						<div class="brand">
 							<div class="name">Sacar dinero</div>
 						</div>					
-						<div id="contentTileSacarDinero" class="tile-content">
-							<img id="iconSacarDinero" src="css/images/sacar.png" alt="Sacar dinero" title="Sacar dinero"/>
+						<div class="tile-content">
+							<a href="#sacar"><img src="css/images/sacar.png" alt="Sacar dinero" title="Sacar dinero"/></a>
 						</div>
 					</div>
-					<div id="tileNuevoGasto" class="tile bg-color-orange">					
+					<div class="tile bg-color-orange">					
 						<div class="brand">
 							<div class="name">Nuevo gasto</div>
 						</div>					
-						<div id="contentTileNuevoGasto" class="tile-content">
-							<img id="iconNuevoGasto" src="css/images/gasto.png" alt="Nuevo Gasto" title="Nuevo gasto"/>
+						<div class="tile-content">
+							<a href="#gasto"><img src="css/images/gasto_320.png" alt="Nuevo Gasto" title="Nuevo gasto"/></a>
 						</div>
 					</div>
 					<div class="tile medium-vertical bg-color-orangeDark">
@@ -38,7 +39,7 @@
 							<div class="badge">-157&euro;</div>
 						</div>													
 						<div class="tile-content">
-							<a href="#">Fondos disponibles</a>
+							<a href="#fondos">Fondos disponibles</a>
 						</div>
 					</div>	
 					<div class="tile medium-vertical bg-color-orangeDark">	
@@ -46,32 +47,111 @@
 							<div class="badge">32</div>
 						</div>		
 						<div class="tile-content">
-							<a href="#">Movimientos realizados</a>
+							<a href="#movimientos">Movimientos realizados</a>
 						</div>
 					</div>	
 					<div class="tile medium-vertical bg-color-orangeDark">								
 						<div class="tile-content">
-							<a href="#">Tipos de gasto</a>
+							<a href="#tipos">Tipos de gasto</a>
 						</div>
 					</div>	
 					<div class="tile medium medium-vertical">								
 						<div class="tile-content full">
-							<a href="#"><img src="css/images/configure.png" alt="Configurar" title="Configurar"/></a>
+							<a href="#configurar"><img src="css/images/configure_320.png" alt="Configurar" title="Configurar"/></a>
 						</div>
 					</div>	
 					<div class="tile medium medium-vertical">								
 						<div class="tile-content full">
-							<a href="#"><img src="css/images/exit.png" alt="Salir" title="Salir"/></a>
+							<a href="#inicio"><img src="css/images/exit_320.png" alt="Salir" title="Salir"/></a>
 						</div>
 					</div>						
 				</div>
 			</div>
 		</div>
 		
-		<div class="page fill ">
-			...
+		<div id="sacar" class="page fill bg-color-orange">
+			<div id="page-header">
+				<div id="page-header-content">
+					<h1>Sacar dinero</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">
+					<a href="#inicio">Inicio</a>				
+				</div>
+			</div>
 		</div>
-	
+		
+		<div id="gasto" class="page fill bg-color-orangeDarken">
+			<div id="page-header">
+				<div id="page-header-content">
+					<h1>Nuevo Gasto</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">
+					<a href="#inicio">Inicio</a>				
+				</div>
+			</div>
+		</div>		
+		
+		<div id="fondos" class="page fill bg-color-orange">
+			<div id="page-header">
+				<div id="page-header-content">
+					<h1>Fondos disponibles</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">
+					<a href="#inicio">Inicio</a>				
+				</div>
+			</div>
+		</div>
+		
+		<div id="movimientos" class="page fill bg-color-orangeDarken">
+			<div id="page-header">
+				<div id="page-header-content">
+					<h1>Movimientos</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">
+					<a href="#inicio">Inicio</a>				
+				</div>
+			</div>
+		</div>			
+
+		<div id="tipos" class="page fill bg-color-orange">
+			<div id="page-header">
+				<div id="page-header-content">
+					<h1>Tipos de gasto</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">
+					<a href="#inicio">Inicio</a>				
+				</div>
+			</div>
+		</div>
+		
+		<div id="configurar" class="page fill bg-color-orangeDarken">
+			<div id="page-header">
+				<div id="page-header-content">
+					<h1>Configurar</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">
+					<a href="#inicio">Inicio</a>				
+				</div>
+			</div>
+		</div>			
 		<script src="js/animaciones.js"></script>		
 	</body>
 </html>
