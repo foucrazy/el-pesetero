@@ -16,6 +16,13 @@ class ExpenseLineController {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [expenseLineInstanceList: ExpenseLine.list(params), expenseLineInstanceTotal: ExpenseLine.count()]
     }
+	
+	def listUser() {
+		User user = session.user
+		def expenseList = Expense.findAllByUser(user)
+		def expenseLineInstance
+		render(view: "list", model: [expenseLineInstanceList: expenseLineInstance, expenseLineInstanceTotal: ExpenseLine.count()])
+	}
 
     def create() {
         [expenseLineInstance: new ExpenseLine(params), expenseInstance: new Expense()]

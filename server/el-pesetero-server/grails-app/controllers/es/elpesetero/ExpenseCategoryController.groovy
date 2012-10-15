@@ -3,9 +3,11 @@ package es.elpesetero
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 import grails.converters.XML
+import grails.plugins.springsecurity.Secured;
 
-class ExpenseCategoryController {
-
+@Secured(['ROLE_USER'])
+class ExpenseCategoryController extends BaseAuthController {
+	
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -14,15 +16,17 @@ class ExpenseCategoryController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [expenseCategoryInstanceList: ExpenseCategory.list(params), expenseCategoryInstanceTotal: ExpenseCategory.count()]
+		def expenseList = ExpenseCategory.findAllByUser(theUser,params)
+        [theUser: theUser,expenseCategoryInstanceList: expenseList, expenseCategoryInstanceTotal: ExpenseCategory.countByUser(theUser)]
     }
 
     def create() {
-        [expenseCategoryInstance: new ExpenseCategory(params)]
+        [theUser: theUser,expenseCategoryInstance: new ExpenseCategory(params)]
     }
 
     def save() {
         def expenseCategoryInstance = new ExpenseCategory(params)
+		expenseCategoryInstance.user = theUser
         if (!expenseCategoryInstance.save(flush: true)) {
             render(view: "create", model: [expenseCategoryInstance: expenseCategoryInstance])
             return

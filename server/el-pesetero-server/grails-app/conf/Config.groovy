@@ -10,6 +10,19 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+oauth {
+	providers {
+		google {
+			api = org.scribe.builder.api.GoogleApi
+			key = '427411777472.apps.googleusercontent.com'
+			secret = '5yt5vKfORZu-MAbhTbDH1IgT'
+			successUri = '/index'
+			failureUri = '/loginError'
+			scope = 'https://mail.google.com/mail/feed/atom/'
+		}
+	}
+	debug = true
+}
 
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
@@ -89,5 +102,16 @@ log4j = {
            'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
            'org.springframework',
            'org.hibernate',
-           'net.sf.ehcache.hibernate'
+           'net.sf.ehcache.hibernate'		   
 }
+
+
+es.elpesetero.openid.google.url='https://www.google.com/accounts/o8/id'
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'es.elpesetero.security.SecurityUser'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'es.elpesetero.security.UserRole'
+grails.plugins.springsecurity.authority.className = 'es.elpesetero.security.Role'
+grails.plugins.springsecurity.rememberMe.persistent = true
+grails.plugins.springsecurity.rememberMe.persistentToken.domainClassName = 'es.elpesetero.security.PersistentLogin'
+grails.plugins.springsecurity.openid.domainClass = 'es.elpesetero.security.OpenID'

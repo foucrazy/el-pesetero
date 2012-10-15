@@ -12,7 +12,7 @@ grails.project.dependency.resolution = {
         // uncomment to disable ehcache
         // excludes 'ehcache'
     }
-    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
 
     repositories {
@@ -22,6 +22,7 @@ grails.project.dependency.resolution = {
         grailsCentral()
         mavenCentral()
 
+        mavenRepo "http://guice-maven.googlecode.com/svn/trunk/"
         // uncomment these to enable remote dependency resolution from public Maven repositories
         //mavenCentral()
         //mavenLocal()
@@ -41,6 +42,8 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.7.1"
         runtime ":resources:1.1.6"
 
+		compile ":oauth:2.0.3"
+		compile ":spring-security-openid:1.0.4"
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"
