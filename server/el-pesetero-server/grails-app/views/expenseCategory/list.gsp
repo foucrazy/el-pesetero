@@ -10,8 +10,7 @@
 	<body>
 		<a href="#list-expenseCategory" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
-			<ul>
-				<li>User: ${theUser?.mail}</li>
+			<ul>							
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 				<li class="exit"><g:link class="exit" controller="logout">Logout</g:link></li>

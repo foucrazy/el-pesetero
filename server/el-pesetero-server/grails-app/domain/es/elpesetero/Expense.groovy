@@ -6,6 +6,7 @@ class Expense {
 		proRateType nullable: true
     }
 	
+	String name
 	double quantity
 	ExpenseCategory category
 	Fund from

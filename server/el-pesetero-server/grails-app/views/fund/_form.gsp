@@ -25,12 +25,3 @@
 	</label>
 	<g:select name="type" from="${es.elpesetero.FundType?.values()}" keys="${es.elpesetero.FundType.values()*.name()}" required="" value="${fundInstance?.type?.name()}"/>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: fundInstance, field: 'user', 'error')} required">
-	<label for="user">
-		<g:message code="fund.user.label" default="User" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="user" name="user.id" from="${es.elpesetero.User.list()}" optionKey="id" required="" value="${fundInstance?.user?.id}" class="many-to-one"/>
-</div>
-

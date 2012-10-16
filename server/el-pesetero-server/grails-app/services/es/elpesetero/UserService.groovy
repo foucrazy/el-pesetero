@@ -14,6 +14,9 @@ class UserService {
 			}
 			user.categories << userEC
 		}
+		user.funds = []
+		def fund = new Fund (user: user, name: 'Efectivo', type: FundType.cash)
+		user.funds << fund 
 		user.save(failOnError: true)
     }
 }

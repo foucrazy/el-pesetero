@@ -3,8 +3,11 @@ package es.elpesetero
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 import grails.converters.XML
+import grails.plugins.springsecurity.Secured;
 
-class PeriodicExpenseController {
+
+@Secured(['ROLE_USER'])
+class PeriodicExpenseController extends BaseAuthController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 

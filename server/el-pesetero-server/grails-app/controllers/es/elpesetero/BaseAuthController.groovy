@@ -9,6 +9,10 @@ class BaseAuthController {
 	def springSecurityService
 	
 	def beforeInterceptor = [action:this.&auth,except:'login']
+	
+	def afterInterceptor = { model ->
+		model.theUser = theUser
+	}
 	// defined as a regular method so its private
 	def auth() {
 		if (springSecurityService.isLoggedIn()) {
@@ -18,9 +22,19 @@ class BaseAuthController {
 			log.debug "Usuario $user.mail"
 			return true
 		} else {
-			redirect(controller:'openId',action:'auth')
+			redirect(controller:'login',action:'auth')
 			return false
 		}		 
+	}
+	
+	
+	private boolean checkProperty(domain) {
+		if (domain.user) 
+			if (domain.user != theUser) {
+				render(view: "/permissionError", model: [error: 'Cannot access'])
+				return false
+			}
+		return true
 	}
 
 }

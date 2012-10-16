@@ -28,7 +28,7 @@
 				<li class="fieldcontain">
 					<span id="expense-label" class="property-label"><g:message code="expenseLine.expense.label" default="Expense" /></span>
 					
-						<span class="property-value" aria-labelledby="expense-label"><g:link controller="expense" action="show" id="${expenseLineInstance?.expense?.id}">${expenseLineInstance?.expense?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="expense-label"><g:link controller="expense" action="show" id="${expenseLineInstance?.expense?.id}">${expenseLineInstance?.expense?.name?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

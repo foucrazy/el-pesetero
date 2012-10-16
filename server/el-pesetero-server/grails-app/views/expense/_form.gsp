@@ -1,13 +1,12 @@
 <%@ page import="es.elpesetero.Expense" %>
 
 
-
-<div class="fieldcontain ${hasErrors(bean: expenseInstance, field: 'proRateType', 'error')} ">
-	<label for="proRateType">
-		<g:message code="expense.proRateType.label" default="Pro Rate Type" />
+<div class="fieldcontain ${hasErrors(bean: expenseInstance, field: 'name', 'error')} ">
+	<label for="name">
+		<g:message code="expense.name.label" default="Name" />
 		
 	</label>
-	<g:select name="proRateType" from="${es.elpesetero.FrequencyType?.values()}" keys="${es.elpesetero.FrequencyType.values()*.name()}" value="${expenseInstance?.proRateType?.name()}" noSelection="['': '']"/>
+	<g:textField name="name" value="${expenseInstance?.name}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: expenseInstance, field: 'category', 'error')} required">
@@ -15,7 +14,7 @@
 		<g:message code="expense.category.label" default="Category" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="category" name="category.id" from="${es.elpesetero.ExpenseCategory.list()}" optionKey="id" required="" value="${expenseInstance?.category?.id}" class="many-to-one"/>
+	<g:select id="category" name="category.id" from="${es.elpesetero.ExpenseCategory.findAllByUser(theUser)}" optionKey="id" required="" value="${expenseInstance?.category?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: expenseInstance, field: 'from', 'error')} required">
@@ -23,7 +22,7 @@
 		<g:message code="expense.from.label" default="From" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="from" name="from.id" from="${es.elpesetero.Fund.list()}" optionKey="id" required="" value="${expenseInstance?.from?.id}" class="many-to-one"/>
+	<g:select id="from" name="from.id" from="${es.elpesetero.Fund.findAllByUser(theUser)}" optionKey="id" required="" value="${expenseInstance?.from?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: expenseInstance, field: 'quantity', 'error')} required">
@@ -34,3 +33,10 @@
 	<g:field type="number" name="quantity" step="any" required="" value="${expenseInstance.quantity}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: expenseInstance, field: 'proRateType', 'error')} ">
+	<label for="proRateType">
+		<g:message code="expense.proRateType.label" default="Pro Rate Type" />
+		
+	</label>
+	<g:select name="proRateType" from="${es.elpesetero.FrequencyType?.values()}" keys="${es.elpesetero.FrequencyType.values()*.name()}" value="${expenseInstance?.proRateType?.name()}" noSelection="['': '']"/>
+</div>

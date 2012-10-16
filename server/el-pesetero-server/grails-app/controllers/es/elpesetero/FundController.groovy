@@ -3,8 +3,11 @@ package es.elpesetero
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 import grails.converters.XML
+import grails.plugins.springsecurity.Secured;
 
-class FundController {
+
+@Secured(['ROLE_USER'])
+class FundController extends BaseAuthController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -14,7 +17,8 @@ class FundController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [fundInstanceList: Fund.list(params), fundInstanceTotal: Fund.count()]
+        def fundList = Fund.findAllByUser(theUser,params)
+        [fundInstanceList: fundList, fundInstanceTotal: Fund.findAllByUser(theUser).size()]
     }
 
     def create() {
@@ -23,6 +27,7 @@ class FundController {
 
     def save() {
         def fundInstance = new Fund(params)
+		fundInstance.user = theUser
         if (!fundInstance.save(flush: true)) {
             render(view: "create", model: [fundInstance: fundInstance])
             return
@@ -46,12 +51,15 @@ class FundController {
 			}			
             return
         }
-		withFormat {
-			html {
-				[fundInstance: fundInstance]
-			}
-			json {
-				render fundInstance as JSON
+		
+		if (checkProperty(fundInstance)) {				
+			withFormat {
+				html {
+					[fundInstance: fundInstance]
+				}
+				json {
+					render fundInstance as JSON
+				}
 			}
 		}
         
@@ -65,11 +73,11 @@ class FundController {
             return
         }
 
-        [fundInstance: fundInstance]
+        [ fundInstance: fundInstance]
     }
 
     def update() {
-        def fundInstance = Fund.get(params.id)
+        def fundInstance = Fund.get(params.id)		
         if (!fundInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'fund.label', default: 'Fund'), params.id])
             redirect(action: "list")
@@ -82,7 +90,7 @@ class FundController {
                 fundInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
                           [message(code: 'fund.label', default: 'Fund')] as Object[],
                           "Another user has updated this Fund while you were editing")
-                render(view: "edit", model: [fundInstance: fundInstance])
+                render(view: "edit", model: [ fundInstance: fundInstance])
                 return
             }
         }
@@ -90,7 +98,7 @@ class FundController {
         fundInstance.properties = params
 
         if (!fundInstance.save(flush: true)) {
-            render(view: "edit", model: [fundInstance: fundInstance])
+            render(view: "edit", model: [ fundInstance: fundInstance])
             return
         }
 

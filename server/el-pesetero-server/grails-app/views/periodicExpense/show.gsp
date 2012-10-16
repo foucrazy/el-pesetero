@@ -45,6 +45,15 @@
 			</ol>
 			<ol class="property-list expense">
 				<g:set var="expenseInstance" value="${periodicExpenseInstance?.expense}"/>
+				
+				<g:if test="${expenseInstance?.name}">
+				<li class="fieldcontain">
+					<span id="name-label" class="property-label"><g:message code="expense.name.label" default="Name" /></span>
+					
+						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${expenseInstance}" field="name"/></span>
+					
+				</li>
+				</g:if>
 				<g:if test="${expenseInstance?.proRateType}">
 				<li class="fieldcontain">
 					<span id="proRateType-label" class="property-label"><g:message code="expense.proRateType.label" default="Pro Rate Type" /></span>

@@ -3,8 +3,11 @@ package es.elpesetero
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 import grails.converters.XML
+import grails.plugins.springsecurity.Secured;
 
-class ExpenseLineController {
+
+@Secured(['ROLE_USER'])
+class ExpenseLineController extends BaseAuthController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -16,6 +19,19 @@ class ExpenseLineController {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [expenseLineInstanceList: ExpenseLine.list(params), expenseLineInstanceTotal: ExpenseLine.count()]
     }
+	
+	def listByCategory() {
+		long categoryId = params.category 
+		def category = ExpenseCategory.get(params.category)
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		def expenses = Expense.findAllByCategory(category)
+		def expenseLines = []
+		expenses.each { expense ->
+			expenseLines << ExpenseLine.findByExpense(expense)
+		}
+		println "Expense lines: $expenseLines"
+		render(view: "list", model:[expenseLineInstanceList: expenseLines, expenseLineInstanceTotal: ExpenseLine.count(), category: category])
+	}
 	
 	def listUser() {
 		User user = session.user

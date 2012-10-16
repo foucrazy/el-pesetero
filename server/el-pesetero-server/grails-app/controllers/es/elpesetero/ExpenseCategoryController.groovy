@@ -17,11 +17,11 @@ class ExpenseCategoryController extends BaseAuthController {
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		def expenseList = ExpenseCategory.findAllByUser(theUser,params)
-        [theUser: theUser,expenseCategoryInstanceList: expenseList, expenseCategoryInstanceTotal: ExpenseCategory.countByUser(theUser)]
+        [expenseCategoryInstanceList: expenseList, expenseCategoryInstanceTotal: ExpenseCategory.countByUser(theUser)]
     }
 
     def create() {
-        [theUser: theUser,expenseCategoryInstance: new ExpenseCategory(params)]
+        [expenseCategoryInstance: new ExpenseCategory(params)]
     }
 
     def save() {
@@ -38,6 +38,7 @@ class ExpenseCategoryController extends BaseAuthController {
 
     def show() {
         def expenseCategoryInstance = ExpenseCategory.get(params.id)
+		
         if (!expenseCategoryInstance) {
 			withFormat {
 				html {
@@ -45,15 +46,19 @@ class ExpenseCategoryController extends BaseAuthController {
 					redirect(action: "list")
 				}
 				json {
-					render "errror" as JSON
+					render "error" as JSON
 				}
 			}
             return
         }
+		
+		if (expenseCategoryInstance.user != theUser) {
+			redirect("/error.gsp")
+		}
 
 		withFormat {
 			html {
-				[expenseCategoryInstance: expenseCategoryInstance]
+				[ expenseCategoryInstance: expenseCategoryInstance]
 			}
 			json {
 				render expenseCategoryInstance as JSON
@@ -69,6 +74,9 @@ class ExpenseCategoryController extends BaseAuthController {
             redirect(action: "list")
             return
         }
+		
+		if (expenseCategoryInstance.user != theUser)
+			redirect("/error.gsp")
 
         [expenseCategoryInstance: expenseCategoryInstance]
     }
@@ -80,6 +88,9 @@ class ExpenseCategoryController extends BaseAuthController {
             redirect(action: "list")
             return
         }
+		
+		if (expenseCategoryInstance.user != theUser)
+			redirect("/error.gsp")
 
         if (params.version) {
             def version = params.version.toLong()
@@ -110,6 +121,9 @@ class ExpenseCategoryController extends BaseAuthController {
             redirect(action: "list")
             return
         }
+		
+		if (expenseCategoryInstance.user != theUser)
+			redirect("/error.gsp")
 
         try {
             expenseCategoryInstance.delete(flush: true)

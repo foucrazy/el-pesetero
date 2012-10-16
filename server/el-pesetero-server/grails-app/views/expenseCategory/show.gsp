@@ -37,7 +37,7 @@
 				<li class="fieldcontain">
 					<span id="user-label" class="property-label"><g:message code="expenseCategory.user.label" default="User" /></span>
 					
-						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${expenseCategoryInstance?.user?.id}">${expenseCategoryInstance?.user?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${expenseCategoryInstance?.user?.id}">${expenseCategoryInstance?.user?.mail?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
