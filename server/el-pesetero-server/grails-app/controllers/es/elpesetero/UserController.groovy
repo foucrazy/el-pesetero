@@ -1,12 +1,16 @@
 package es.elpesetero
 
 import org.springframework.dao.DataIntegrityViolationException
+
+import es.elpesetero.security.SecurityUser;
 import grails.converters.JSON
 import grails.converters.XML
 import grails.plugins.springsecurity.Secured;
 
-@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_USER'])
 class UserController {
+	
+	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -14,15 +18,18 @@ class UserController {
         redirect(action: "list", params: params)
     }
 
+	@Secured(['ROLE_ADMIN'])
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [userInstanceList: User.list(params), userInstanceTotal: User.count()]
     }
 
+	@Secured(['ROLE_ADMIN'])
     def create() {
         [userInstance: new User(params)]
     }
 
+	@Secured(['ROLE_ADMIN'])
     def save() {
         def userInstance = new User(params)
         if (!userInstance.save(flush: true)) {
@@ -50,20 +57,27 @@ class UserController {
 			}
             return
         }
-		withFormat {
-			html {
+		SecurityUser securityUser = SecurityUser.findByUsername(springSecurityService.authentication.name)
+		User user = User.findBySecurityUser(securityUser)
+		
+		if (userInstance==user) {
+			withFormat {
+				html {
 				[userInstance: userInstance]
+				}
+				json {
+					render userInstance as grails.converters.deep.JSON
+				}
+				xml {
+					render userInstance as XML
+				}
 			}
-			json {
-				render userInstance as grails.converters.deep.JSON
-			}
-			xml {
-				render userInstance as XML
-			}
-		}
+		} else redirect(controller:'login', action: 'denied')
+			
         
     }
 
+	@Secured(['ROLE_ADMIN'])
     def edit() {
         def userInstance = User.get(params.id)
         if (!userInstance) {
@@ -75,6 +89,7 @@ class UserController {
         [userInstance: userInstance]
     }
 
+	@Secured(['ROLE_ADMIN'])
     def update() {
         def userInstance = User.get(params.id)
         if (!userInstance) {
@@ -105,6 +120,7 @@ class UserController {
         redirect(action: "show", id: userInstance.id)
     }
 
+	@Secured(['ROLE_ADMIN'])
     def delete() {
         def userInstance = User.get(params.id)
         if (!userInstance) {

@@ -3,6 +3,7 @@ package es.elpesetero.security
 import org.springframework.dao.DataIntegrityViolationException
 import grails.plugins.springsecurity.Secured;
 
+
 class OpenIDController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -11,15 +12,18 @@ class OpenIDController {
         redirect(action: "list", params: params)
     }
 
+	@Secured(['ROLE_ADMIN'])
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [openIDInstanceList: OpenID.list(params), openIDInstanceTotal: OpenID.count()]
     }
 
+	@Secured(['ROLE_ADMIN'])
     def create() {
         [openIDInstance: new OpenID(params)]
     }
 
+	@Secured(['ROLE_ADMIN'])
     def save() {
         def openIDInstance = new OpenID(params)
         if (!openIDInstance.save(flush: true)) {
@@ -31,6 +35,7 @@ class OpenIDController {
         redirect(action: "show", id: openIDInstance.id)
     }
 
+	@Secured(['ROLE_ADMIN'])
     def show() {
         def openIDInstance = OpenID.get(params.id)
         if (!openIDInstance) {
@@ -42,6 +47,7 @@ class OpenIDController {
         [openIDInstance: openIDInstance]
     }
 
+	@Secured(['ROLE_ADMIN'])
     def edit() {
         def openIDInstance = OpenID.get(params.id)
         if (!openIDInstance) {
@@ -53,6 +59,7 @@ class OpenIDController {
         [openIDInstance: openIDInstance]
     }
 
+	@Secured(['ROLE_ADMIN'])
     def update() {
         def openIDInstance = OpenID.get(params.id)
         if (!openIDInstance) {
@@ -83,6 +90,7 @@ class OpenIDController {
         redirect(action: "show", id: openIDInstance.id)
     }
 
+	@Secured(['ROLE_ADMIN'])
     def delete() {
         def openIDInstance = OpenID.get(params.id)
         if (!openIDInstance) {

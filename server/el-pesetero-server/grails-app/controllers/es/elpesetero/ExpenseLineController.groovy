@@ -34,10 +34,8 @@ class ExpenseLineController extends BaseAuthController {
 	}
 	
 	def listUser() {
-		User user = session.user
-		def expenseList = Expense.findAllByUser(user)
-		def expenseLineInstance
-		render(view: "list", model: [expenseLineInstanceList: expenseLineInstance, expenseLineInstanceTotal: ExpenseLine.count()])
+		def expenseLineList = ExpenseLine.findAllByUser(theUser, params)
+		render(view: "list", model: [expenseLineInstanceList: expenseLineList, expenseLineInstanceTotal: ExpenseLine.count()])
 	}
 
     def create() {
@@ -45,12 +43,13 @@ class ExpenseLineController extends BaseAuthController {
     }
 
     def save() {
-		def expenseInstance = new Expense(params)
+		def expenseInstance = new Expense(params)	
 		if (!expenseInstance.save(flush: true)) {
 			render(view: "create", model: [expenseLineInstance: expenseLineInstance])
 			return
 		}
 		def expenseLineInstance = new ExpenseLine(expense:expenseInstance, expenseDate: params.expenseDate)
+		expenseLineInstance.user = theUser
         if (!expenseLineInstance.save(flush: true)) {
             render(view: "create", model: [expenseLineInstance: expenseLineInstance, , expenseInstance: expenseInstance])
             return
@@ -75,12 +74,14 @@ class ExpenseLineController extends BaseAuthController {
             return
         }
 
-		withFormat {
-			html {
-				[expenseLineInstance: expenseLineInstance]
-			}
-			json {
-				render expenseLineInstance as JSON
+		if (checkOwnership(expenseLineInstance)) {
+			withFormat {
+				html {
+					[expenseLineInstance: expenseLineInstance]
+				}
+				json {
+					render expenseLineInstance as JSON
+				}
 			}
 		}
         
@@ -94,7 +95,8 @@ class ExpenseLineController extends BaseAuthController {
             return
         }
 
-        [expenseLineInstance: expenseLineInstance]
+		if (checkOwnership(expenseLineInstance))
+			[expenseLineInstance: expenseLineInstance]
     }
 
     def update() {
@@ -105,26 +107,28 @@ class ExpenseLineController extends BaseAuthController {
             return
         }
 
-        if (params.version) {
-            def version = params.version.toLong()
-            if (expenseLineInstance.version > version) {
-                expenseLineInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'expenseLine.label', default: 'ExpenseLine')] as Object[],
-                          "Another user has updated this ExpenseLine while you were editing")
-                render(view: "edit", model: [expenseLineInstance: expenseLineInstance])
-                return
-            }
-        }
-
-        expenseLineInstance.properties = params
-
-        if (!expenseLineInstance.save(flush: true)) {
-            render(view: "edit", model: [expenseLineInstance: expenseLineInstance])
-            return
-        }
-
-		flash.message = message(code: 'default.updated.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), expenseLineInstance.id])
-        redirect(action: "show", id: expenseLineInstance.id)
+		if (checkOwnership(expenseLineInstance)) {
+	        if (params.version) {
+	            def version = params.version.toLong()
+	            if (expenseLineInstance.version > version) {
+	                expenseLineInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
+	                          [message(code: 'expenseLine.label', default: 'ExpenseLine')] as Object[],
+	                          "Another user has updated this ExpenseLine while you were editing")
+	                render(view: "edit", model: [expenseLineInstance: expenseLineInstance])
+	                return
+	            }
+	        }
+	
+	        expenseLineInstance.properties = params
+	
+	        if (!expenseLineInstance.save(flush: true)) {
+	            render(view: "edit", model: [expenseLineInstance: expenseLineInstance])
+	            return
+	        }
+	
+			flash.message = message(code: 'default.updated.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), expenseLineInstance.id])
+	        redirect(action: "show", id: expenseLineInstance.id)
+		}
     }
 
     def delete() {
@@ -135,14 +139,16 @@ class ExpenseLineController extends BaseAuthController {
             return
         }
 
-        try {
-            expenseLineInstance.delete(flush: true)
-			flash.message = message(code: 'default.deleted.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), params.id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), params.id])
-            redirect(action: "show", id: params.id)
-        }
+		if (checkOwnership(expenseLineInstance)) {
+	        try {
+	            expenseLineInstance.delete(flush: true)
+				flash.message = message(code: 'default.deleted.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), params.id])
+	            redirect(action: "list")
+	        }
+	        catch (DataIntegrityViolationException e) {
+				flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), params.id])
+	            redirect(action: "show", id: params.id)
+	        }
+		}
     }
 }

@@ -7,5 +7,6 @@ class ExpenseLine {
 	
 	Date expenseDate
 	Expense expense
+	User user
 	
 }

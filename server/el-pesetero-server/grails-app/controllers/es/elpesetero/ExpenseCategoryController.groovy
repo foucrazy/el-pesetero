@@ -52,17 +52,15 @@ class ExpenseCategoryController extends BaseAuthController {
             return
         }
 		
-		if (expenseCategoryInstance.user != theUser) {
-			redirect("/error.gsp")
-		}
-
-		withFormat {
-			html {
-				[ expenseCategoryInstance: expenseCategoryInstance]
+		if (checkOwnership(expenseCategoryInstance)) {		
+			withFormat {
+				html {
+					[ expenseCategoryInstance: expenseCategoryInstance]
+				}
+				json {
+					render expenseCategoryInstance as JSON
+				}			
 			}
-			json {
-				render expenseCategoryInstance as JSON
-			}			
 		}
         
     }
@@ -75,10 +73,8 @@ class ExpenseCategoryController extends BaseAuthController {
             return
         }
 		
-		if (expenseCategoryInstance.user != theUser)
-			redirect("/error.gsp")
-
-        [expenseCategoryInstance: expenseCategoryInstance]
+		if (checkOwnership(expenseCategoryInstance)) 
+			[expenseCategoryInstance: expenseCategoryInstance]
     }
 
     def update() {
@@ -89,29 +85,28 @@ class ExpenseCategoryController extends BaseAuthController {
             return
         }
 		
-		if (expenseCategoryInstance.user != theUser)
-			redirect("/error.gsp")
-
-        if (params.version) {
-            def version = params.version.toLong()
-            if (expenseCategoryInstance.version > version) {
-                expenseCategoryInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'expenseCategory.label', default: 'ExpenseCategory')] as Object[],
-                          "Another user has updated this ExpenseCategory while you were editing")
-                render(view: "edit", model: [expenseCategoryInstance: expenseCategoryInstance])
-                return
-            }
-        }
-
-        expenseCategoryInstance.properties = params
-
-        if (!expenseCategoryInstance.save(flush: true)) {
-            render(view: "edit", model: [expenseCategoryInstance: expenseCategoryInstance])
-            return
-        }
-
-		flash.message = message(code: 'default.updated.message', args: [message(code: 'expenseCategory.label', default: 'ExpenseCategory'), expenseCategoryInstance.id])
-        redirect(action: "show", id: expenseCategoryInstance.id)
+		if (checkOwnership(expenseCategoryInstance)) {
+	        if (params.version) {
+	            def version = params.version.toLong()
+	            if (expenseCategoryInstance.version > version) {
+	                expenseCategoryInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
+	                          [message(code: 'expenseCategory.label', default: 'ExpenseCategory')] as Object[],
+	                          "Another user has updated this ExpenseCategory while you were editing")
+	                render(view: "edit", model: [expenseCategoryInstance: expenseCategoryInstance])
+	                return
+	            }
+	        }
+	
+	        expenseCategoryInstance.properties = params
+	
+	        if (!expenseCategoryInstance.save(flush: true)) {
+	            render(view: "edit", model: [expenseCategoryInstance: expenseCategoryInstance])
+	            return
+	        }
+	
+			flash.message = message(code: 'default.updated.message', args: [message(code: 'expenseCategory.label', default: 'ExpenseCategory'), expenseCategoryInstance.id])
+	        redirect(action: "show", id: expenseCategoryInstance.id)
+		}
     }
 
     def delete() {
@@ -122,17 +117,17 @@ class ExpenseCategoryController extends BaseAuthController {
             return
         }
 		
-		if (expenseCategoryInstance.user != theUser)
-			redirect("/error.gsp")
-
-        try {
-            expenseCategoryInstance.delete(flush: true)
-			flash.message = message(code: 'default.deleted.message', args: [message(code: 'expenseCategory.label', default: 'ExpenseCategory'), params.id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'expenseCategory.label', default: 'ExpenseCategory'), params.id])
-            redirect(action: "show", id: params.id)
-        }
+		if (checkOwnership(expenseCategoryInstance)) {
+		
+	        try {
+	            expenseCategoryInstance.delete(flush: true)
+				flash.message = message(code: 'default.deleted.message', args: [message(code: 'expenseCategory.label', default: 'ExpenseCategory'), params.id])
+	            redirect(action: "list")
+	        }
+	        catch (DataIntegrityViolationException e) {
+				flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'expenseCategory.label', default: 'ExpenseCategory'), params.id])
+	            redirect(action: "show", id: params.id)
+	        }
+		}
     }
 }

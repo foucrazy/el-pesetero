@@ -1,8 +1,13 @@
 package es.elpesetero.security
 
+import grails.plugins.springsecurity.Secured;
+
 import org.springframework.dao.DataIntegrityViolationException
 
+@Secured(['ROLE_ADMIN'])
 class SecurityUserController {
+	
+	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -36,7 +41,7 @@ class SecurityUserController {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'securityUser.label', default: 'SecurityUser'), params.id])
             redirect(action: "list")
             return
-        }
+        }		
 
         [securityUserInstance: securityUserInstance]
     }

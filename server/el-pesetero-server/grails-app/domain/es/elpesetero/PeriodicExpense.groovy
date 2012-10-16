@@ -8,5 +8,6 @@ class PeriodicExpense {
 	Expense expense
 	FrequencyType frequency
 	int day
+	User user
 	
 }

@@ -67,6 +67,12 @@
 		text-align: left;
 		width: 200px
 	}
+	
+	#connect_with_google {
+		background: url("/el-pesetero-server/images/connect-google.png") no-repeat scroll left center transparent;
+    	padding-left: 24px;
+    }
+    	 
 
 	#login .inner .login_message {
 		padding: 6px 25px 20px 25px;
@@ -157,14 +163,14 @@
 
 			<div id='openidLogin'>
 				<form action='${openIdPostUrl}' method='POST' autocomplete='off' name='openIdLoginForm'>
-				<input type="hidden" name="${openidIdentifier}" class="openid-identifier" value="https://www.google.com/accounts/o8/id"/>
-				<p id="remember_me_holder">
-					<input type='checkbox' name='${rememberMeParameter}' id='remember_me'/>
-					<label for='remember_me'>Remember me</label>
-				</p>
-				<p>
+				<input type="hidden" name="${openidIdentifier}" class="openid-identifier" value="https://www.google.com/accounts/o8/id"/>				
+				<p id="connect_with_google"> 
 				<!-- <input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>-->
 					<input type='submit' id="submit" value='Login con Google'/>
+				</p>
+				<p id="remember_me_holder">
+					<input type='checkbox' name='${rememberMeParameter}' id='remember_me'/>
+					<label for='remember_me'>Recuerda me</label>
 				</p>
 				<!--  table class="openid-loginbox-userpass">
 					<tr>

@@ -52,7 +52,7 @@ class FundController extends BaseAuthController {
             return
         }
 		
-		if (checkProperty(fundInstance)) {				
+		if (checkOwnership(fundInstance)) {				
 			withFormat {
 				html {
 					[fundInstance: fundInstance]
@@ -72,8 +72,9 @@ class FundController extends BaseAuthController {
             redirect(action: "list")
             return
         }
-
-        [ fundInstance: fundInstance]
+		
+		if (checkOwnership(fundInstance))
+        	[ fundInstance: fundInstance]
     }
 
     def update() {
@@ -83,6 +84,9 @@ class FundController extends BaseAuthController {
             redirect(action: "list")
             return
         }
+		
+		if (!checkOwnership(fundInstance))
+			return
 
         if (params.version) {
             def version = params.version.toLong()
@@ -114,14 +118,16 @@ class FundController extends BaseAuthController {
             return
         }
 
-        try {
-            fundInstance.delete(flush: true)
-			flash.message = message(code: 'default.deleted.message', args: [message(code: 'fund.label', default: 'Fund'), params.id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'fund.label', default: 'Fund'), params.id])
-            redirect(action: "show", id: params.id)
-        }
+		if (checkOwnership(fundInstance)) {
+			try {
+				fundInstance.delete(flush: true)
+				flash.message = message(code: 'default.deleted.message', args: [message(code: 'fund.label', default: 'Fund'), params.id])
+				redirect(action: "list")
+			}
+			catch (DataIntegrityViolationException e) {
+				flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'fund.label', default: 'Fund'), params.id])
+				redirect(action: "show", id: params.id)
+			}
+		}
     }
 }

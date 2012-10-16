@@ -13,4 +13,9 @@ class User {
 	String mail
 	SecurityUser securityUser
 	
+	def getTotalBalance() {
+		funds.inject(0) { result, it -> result+it.quantity}
+	} 
+	
+	
 }

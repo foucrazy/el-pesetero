@@ -25,12 +25,13 @@ class PeriodicExpenseController extends BaseAuthController {
     }
 
     def save() {
-		def expenseInstance = new Expense(params)
+		def expenseInstance = new Expense(params)		
 		if (!expenseInstance.save(flush: true)) {
 			render(view: "create", model: [expenseInstance: expenseInstance])
 			return
-		}
+		}		
         def periodicExpenseInstance = new PeriodicExpense(expense: expenseInstance, frequency: params.frequency, day:params.day)
+		
         if (!periodicExpenseInstance.save(flush: true)) {
             render(view: "create", model: [periodicExpenseInstance: periodicExpenseInstance, expenseInstance: expenseInstance])
             return
@@ -55,12 +56,14 @@ class PeriodicExpenseController extends BaseAuthController {
             return
         }
 
-		withFormat {
-			html {
-				[periodicExpenseInstance: periodicExpenseInstance]
-			}
-			json {
-				render periodicExpenseInstance as JSON
+		if (checkOwnership(periodicExpenseInstance)) {
+			withFormat {
+				html {
+					[periodicExpenseInstance: periodicExpenseInstance]
+				}
+				json {
+					render periodicExpenseInstance as JSON
+				}
 			}
 		}
         
@@ -73,8 +76,8 @@ class PeriodicExpenseController extends BaseAuthController {
             redirect(action: "list")
             return
         }
-
-        [periodicExpenseInstance: periodicExpenseInstance]
+		if (checkOwnership(periodicExpenseInstance))
+			[periodicExpenseInstance: periodicExpenseInstance]
     }
 
     def update() {
@@ -85,26 +88,28 @@ class PeriodicExpenseController extends BaseAuthController {
             return
         }
 
-        if (params.version) {
-            def version = params.version.toLong()
-            if (periodicExpenseInstance.version > version) {
-                periodicExpenseInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'periodicExpense.label', default: 'PeriodicExpense')] as Object[],
-                          "Another user has updated this PeriodicExpense while you were editing")
-                render(view: "edit", model: [periodicExpenseInstance: periodicExpenseInstance])
-                return
-            }
-        }
-
-        periodicExpenseInstance.properties = params
-
-        if (!periodicExpenseInstance.save(flush: true)) {
-            render(view: "edit", model: [periodicExpenseInstance: periodicExpenseInstance])
-            return
-        }
-
-		flash.message = message(code: 'default.updated.message', args: [message(code: 'periodicExpense.label', default: 'PeriodicExpense'), periodicExpenseInstance.id])
-        redirect(action: "show", id: periodicExpenseInstance.id)
+		if (checkOwnership(periodicExpenseInstance)) {
+	        if (params.version) {
+	            def version = params.version.toLong()
+	            if (periodicExpenseInstance.version > version) {
+	                periodicExpenseInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
+	                          [message(code: 'periodicExpense.label', default: 'PeriodicExpense')] as Object[],
+	                          "Another user has updated this PeriodicExpense while you were editing")
+	                render(view: "edit", model: [periodicExpenseInstance: periodicExpenseInstance])
+	                return
+	            }
+	        }
+	
+	        periodicExpenseInstance.properties = params
+	
+	        if (!periodicExpenseInstance.save(flush: true)) {
+	            render(view: "edit", model: [periodicExpenseInstance: periodicExpenseInstance])
+	            return
+	        }
+	
+			flash.message = message(code: 'default.updated.message', args: [message(code: 'periodicExpense.label', default: 'PeriodicExpense'), periodicExpenseInstance.id])
+	        redirect(action: "show", id: periodicExpenseInstance.id)
+		}
     }
 
     def delete() {
@@ -115,14 +120,16 @@ class PeriodicExpenseController extends BaseAuthController {
             return
         }
 
-        try {
-            periodicExpenseInstance.delete(flush: true)
-			flash.message = message(code: 'default.deleted.message', args: [message(code: 'periodicExpense.label', default: 'PeriodicExpense'), params.id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'periodicExpense.label', default: 'PeriodicExpense'), params.id])
-            redirect(action: "show", id: params.id)
-        }
+		if (checkOwnership(periodicExpenseInstance)) {
+	        try {
+	            periodicExpenseInstance.delete(flush: true)
+				flash.message = message(code: 'default.deleted.message', args: [message(code: 'periodicExpense.label', default: 'PeriodicExpense'), params.id])
+	            redirect(action: "list")
+	        }
+	        catch (DataIntegrityViolationException e) {
+				flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'periodicExpense.label', default: 'PeriodicExpense'), params.id])
+	            redirect(action: "show", id: params.id)
+	        }
+		}
     }
 }
