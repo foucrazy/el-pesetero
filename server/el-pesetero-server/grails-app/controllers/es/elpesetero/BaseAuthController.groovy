@@ -28,10 +28,10 @@ class BaseAuthController {
 	}
 	
 	
-	private boolean checkProperty(domain) {
+	private boolean checkOwnership(domain) {
 		if (domain.user) 
 			if (domain.user != theUser) {
-				render(view: "/permissionError", model: [error: 'Cannot access'])
+				redirect(controller: "login", action: "denied")
 				return false
 			}
 		return true
