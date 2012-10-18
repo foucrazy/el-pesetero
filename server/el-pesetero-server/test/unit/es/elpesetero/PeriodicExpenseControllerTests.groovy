@@ -1,9 +1,7 @@
 package es.elpesetero
 
-
-
-import org.junit.*
-import grails.test.mixin.*
+import grails.test.mixin.TestFor
+import grails.test.mixin.Mock
 
 @TestFor(PeriodicExpenseController)
 @Mock(PeriodicExpense)

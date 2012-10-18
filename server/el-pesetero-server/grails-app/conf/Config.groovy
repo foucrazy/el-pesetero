@@ -115,3 +115,6 @@ grails.plugins.springsecurity.authority.className = 'es.elpesetero.security.Role
 grails.plugins.springsecurity.rememberMe.persistent = true
 grails.plugins.springsecurity.rememberMe.persistentToken.domainClassName = 'es.elpesetero.security.PersistentLogin'
 grails.plugins.springsecurity.openid.domainClass = 'es.elpesetero.security.OpenID'
+
+openid.registration.requiredAttributes=[email: 'http://axschema.org/contact/email']
+openid.registration.optionalAttributes=[language: 'http://axschema.org/pref/language']

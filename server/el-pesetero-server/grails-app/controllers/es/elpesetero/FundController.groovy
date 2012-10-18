@@ -8,8 +8,8 @@ import grails.plugins.springsecurity.Secured;
 
 @Secured(['ROLE_USER'])
 class FundController extends BaseAuthController {
-
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST", withdrawCash: "GET"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -130,4 +130,59 @@ class FundController extends BaseAuthController {
 			}
 		}
     }
+	
+	def withdrawCash() {
+		def fromFund = Fund.get(params.from)
+		if (!params.quantity || params.double('quantity')<0) {
+			def message = message(code: 'funds.withdrawCash.incorrect.quantity', args: [params.quantity])
+			flash.message = message
+			withFormat {
+				html {
+					redirect(action: "list")
+				}
+				json {					
+					render jsonError(message)
+				}
+			}
+			return			
+		}
+		
+		def quantity = params.double('quantity')
+		try {
+			if (!fromFund) {
+				theUser.withdrawCash(quantity)
+			} else {
+				theUser.withdrawCash(fromFund, quantity)
+			}
+		} catch (FundException e) {
+			def message = message(code: 'funds.withdrawCash.fund.error', args: [e.message])
+			flash.message = message 
+			withFormat {
+				html {
+					redirect(action: "list")
+				}
+				json {
+					render jsonError(message)
+				}
+			}			
+			return
+		}
+		def message = message(code: 'funds.withdrawCash.correct', args: [params.quantity])
+		flash.message = message
+		withFormat {
+			html {
+				redirect(action: "list")
+			} json {
+				render jsonSuccess(message, quantity)
+			}
+		}
+	}
+	
+	private jsonError(message) {
+		[error: message] as JSON
+	}
+	
+	private jsonSuccess(message, quantity) {
+		[success: message, quantity: quantity] as JSON
+	}
 }

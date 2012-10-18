@@ -44,6 +44,7 @@ grails.project.dependency.resolution = {
 
 		compile ":oauth:2.0.3"
 		compile ":spring-security-openid:1.0.4"
+		compile ":eclipse-scripts:1.0.6"
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"

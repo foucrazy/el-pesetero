@@ -2,6 +2,10 @@ class UrlMappings {
 
 	static mappings = {
 		
+		"/login/authP" {
+			controller = 'login'
+			action = 'auth'
+		 }
 		"/login/auth" {
 			controller = 'openId'
 			action = 'auth'

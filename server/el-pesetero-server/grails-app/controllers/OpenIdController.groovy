@@ -247,6 +247,7 @@ class OpenIdController {
 	protected void copyFromAttributeExchange(OpenIdRegisterCommand command) {
 		List attributes = session[OIAFH.LAST_OPENID_ATTRIBUTES] ?: []
 		for (attribute in attributes) {
+			println "Attribute $attribute"
 			// TODO document
 			String name = attribute.name
 			if (command.hasProperty(name)) {

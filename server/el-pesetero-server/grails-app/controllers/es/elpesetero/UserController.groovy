@@ -66,7 +66,7 @@ class UserController {
 				[userInstance: userInstance]
 				}
 				json {
-					render userInstance as grails.converters.deep.JSON
+					render userInstance as JSON
 				}
 				xml {
 					render userInstance as XML

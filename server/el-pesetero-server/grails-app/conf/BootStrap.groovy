@@ -7,22 +7,26 @@ import es.elpesetero.security.SecurityUser
 import es.elpesetero.security.Role
 import es.elpesetero.security.UserRole
 import grails.converters.JSON
+import es.elpesetero.security.OpenID
 
 class BootStrap {
 	
 	UserService userService
 
-    def init = { servletContext ->		
+    def init = { servletContext ->
+		JSON.registerObjectMarshaller(User) {
+			it.properties.findAll {k,v -> 
+				k != 'securityUser' && k != 'securityUserId' && k!= 'categories' && k != 'userService' 
+			}
+		}		
+		JSON.registerObjectMarshaller(ExpenseCategory) {
+			it.properties.findAll {k,v -> k!='user' && k!='userId' && k!='parent' && k!='parentId'}			
+		}
 		if (!User.count()) {
-			SecurityUser admin = initSpringSecurity()
 			ExpenseCategory vivienda = new ExpenseCategory(name: "Vivienda")
 			vivienda.subCategories = [new ExpenseCategory(parent: vivienda, name: "Alquiler/Hipoteca")]
 			vivienda = vivienda.save(failOnError: true)
-			println "Vivienda subcategories: $vivienda.subCategories"
-			User kortatu = new User(username: 'kortatu', mail: "kortatu@gmail.com", securityUser: admin);
-			kortatu = userService.addUser(kortatu);
-			def onlyParentCategories = kortatu.categories.grep({it.parent==null})
-			new Fund(user: kortatu, name: "Cuenta ahorro", type: FundType.bankAccount, quantity: 3100).save(failOnError: true)
+			initSpringSecurity()
 		}
 		
     }
@@ -32,9 +36,20 @@ class BootStrap {
 		def roleAdmin = new Role(authority: 'ROLE_ADMIN').save()
 		def roleUser = new Role(authority: 'ROLE_USER').save()
 		def admin = new SecurityUser(username: 'kortatu', password: password, enabled: true).save()		
+		def user = new SecurityUser(username: 'agonzalez', password: password, enabled: true).save()
+		def openIdKortatu = new OpenID(url: "https://www.google.com/accounts/o8/id?id=AItOawl8ZHaySfc5NMiHaVUTsHNCEr133vT38II")
+		admin.addToOpenIds(openIdKortatu)
+		admin.save()
+		def openIdAgonzalez = new OpenID(url: "https://www.google.com/accounts/o8/id?id=AItOawmffd3FFhgl6ffmsncINHn55m8MckIhtE0")
+		user.addToOpenIds(openIdAgonzalez)
+		user.save()
+		UserRole.create user, roleUser
 		UserRole.create admin, roleUser 
 		UserRole.create admin, roleAdmin, true
-		admin
+		User kortatu = new User(username: 'kortatu', mail: "kortatu@gmail.com", securityUser: admin)
+		kortatu = userService.addUser(kortatu);
+		userService.addUser(new User(username: 'agonzalez', mail:'agonzalez@germinus.com', securityUser: user))
+		println kortatu.encodeAsJSON()
 	}
 	
     def destroy = {

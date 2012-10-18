@@ -13,9 +13,9 @@ class Fund {
 	
 	def transferTo = { Fund toFund, double transferQuantity ->
 		if (toFund.user != user)
-			throw new RuntimeException("Funds user are not the same!")
+			throw new FundException("Funds user are not the same!")
 		if (quantity<transferQuantity)
-			throw new Exception("Transfered quantity is higher than curent funds")
+			throw new FundException("Transfered quantity is higher than curent funds")
 		this.quantity-=transferQuantity
 		toFund.quantity+=transferQuantity
 	}
@@ -23,4 +23,5 @@ class Fund {
 	public String toString() {
 		name
 	}
+	
 }
