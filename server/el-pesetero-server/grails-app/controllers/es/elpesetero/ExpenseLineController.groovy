@@ -10,6 +10,8 @@ import grails.plugins.springsecurity.Secured;
 class ExpenseLineController extends BaseAuthController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def expenseLineService
 
     def index() {
         redirect(action: "list", params: params)
@@ -43,20 +45,48 @@ class ExpenseLineController extends BaseAuthController {
     }
 
     def save() {
+		log.info "Entrying save"
 		def expenseInstance = new Expense(params)	
-		if (!expenseInstance.save(flush: true)) {
-			render(view: "create", model: [expenseLineInstance: expenseLineInstance])
-			return
-		}
 		def expenseLineInstance = new ExpenseLine(expense:expenseInstance, expenseDate: params.expenseDate)
 		expenseLineInstance.user = theUser
-        if (!expenseLineInstance.save(flush: true)) {
-            render(view: "create", model: [expenseLineInstance: expenseLineInstance, , expenseInstance: expenseInstance])
-            return
-        }
-
-		flash.message = message(code: 'default.created.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), expenseLineInstance.id])
-        redirect(action: "show", id: expenseLineInstance.id)
+		log.info "saving expenseLineInstance"
+		try {
+			if (!expenseLineService.addExpenseLine(expenseLineInstance)) {
+				log.info "Not saved!!"
+				withFormat {
+					html {
+						render(view: "create", model: [expenseLineInstance: expenseLineInstance])
+						return					
+					}
+					json {
+						render jsonError(expenseLineInstance.errors)
+					}
+				}
+				
+			}
+			log.info "Saved"
+			withFormat {
+				html {
+					flash.message = message(code: 'default.created.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), expenseLineInstance.id])
+					redirect(action: "show", id: expenseLineInstance.id)
+				}
+				json {
+					render jsonSuccess(message(code: 'default.created.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), expenseLineInstance.id]), 'expenseLine',expenseLineInstance)
+				}
+			}		
+		} catch (RuntimeException e) {
+			def message = message(code: 'funds.withdrawCash.fund.error', args: [e.message])
+			flash.message = message 
+			withFormat {
+				html {
+					redirect(action: "list")
+				}
+				json {
+					render jsonError(message)
+				}
+			}
+		
+		}
     }
 
     def show() {

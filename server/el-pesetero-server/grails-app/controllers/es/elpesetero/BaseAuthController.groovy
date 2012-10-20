@@ -1,7 +1,7 @@
 package es.elpesetero
 
-import es.elpesetero.security.SecurityUser;
-
+import es.elpesetero.security.SecurityUser
+import grails.converters.JSON
 class BaseAuthController {
 	
 	def User theUser
@@ -35,6 +35,14 @@ class BaseAuthController {
 				return false
 			}
 		return true
+	}
+	
+	protected jsonError(message) {
+		[error: message] as JSON
+	}
+	
+	protected jsonSuccess(message,modelName, model) {
+		[success: message, "$modelName": model] as JSON
 	}
 
 }

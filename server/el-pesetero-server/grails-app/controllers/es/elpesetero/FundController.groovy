@@ -9,7 +9,7 @@ import grails.plugins.springsecurity.Secured;
 @Secured(['ROLE_USER'])
 class FundController extends BaseAuthController {
 	
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST", withdrawCash: "GET"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST", withdrawCash: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -18,7 +18,14 @@ class FundController extends BaseAuthController {
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         def fundList = Fund.findAllByUser(theUser,params)
-        [fundInstanceList: fundList, fundInstanceTotal: Fund.findAllByUser(theUser).size()]
+		withFormat {
+			html {
+				[fundInstanceList: fundList, fundInstanceTotal: Fund.findAllByUser(theUser).size()]
+			}
+			json {
+				render fundList as JSON
+			}
+        }
     }
 
     def create() {
@@ -29,12 +36,28 @@ class FundController extends BaseAuthController {
         def fundInstance = new Fund(params)
 		fundInstance.user = theUser
         if (!fundInstance.save(flush: true)) {
-            render(view: "create", model: [fundInstance: fundInstance])
-            return
+			withFormat {
+				html {
+					render(view: "create", model: [fundInstance: fundInstance])
+					return
+				}
+				json {
+					render jsonError(fundInstance.errors)
+					return
+				}
+			}
         }
-
+		
 		flash.message = message(code: 'default.created.message', args: [message(code: 'fund.label', default: 'Fund'), fundInstance.id])
-        redirect(action: "show", id: fundInstance.id)
+		withFormat {
+			html {
+				redirect(action: "show", id: fundInstance.id)
+			}
+			json {
+				render jsonSuccess(flash.message, "fund",fundInstance)
+			}
+		}
+        
     }
 
     def show() {
@@ -178,9 +201,6 @@ class FundController extends BaseAuthController {
 		}
 	}
 	
-	private jsonError(message) {
-		[error: message] as JSON
-	}
 	
 	private jsonSuccess(message, quantity) {
 		[success: message, quantity: quantity] as JSON
