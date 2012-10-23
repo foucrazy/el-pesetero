@@ -7,7 +7,7 @@
 
 <div class='body'>
 
-	<h4>Enter your username and password to link with this OpenID</h4>
+	<h4><g:message code="openId.link.account.enter.username.and.password"/></h4>
 
 	<g:hasErrors bean="${command}">
 	<div class="errors">
@@ -34,12 +34,12 @@
 		</tr>
 
 		<tr>
-			<td><label for='username'>Username:</label></td>
+			<td><label for='username'><g:message code="user.username.label" default="Username" />:</label></td>
 			<td><g:textField name='username' value='${command?.username}'/></td>
 		</tr>
 
 		<tr>
-			<td><label for='password'>Password:</label></td>
+			<td><label for='password'><g:message code="user.password.label" default="Password" />:</label></td>
 			<td><g:passwordField name='password' value='${command?.password}'/></td>
 		</tr>
 

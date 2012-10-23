@@ -20,6 +20,7 @@ class SecurityUser {
 
 	static mapping = {
 		password column: '`password`'
+		openIds cascade: 'all'
 	}
 
 	Set<Role> getAuthorities() {

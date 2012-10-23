@@ -9,6 +9,10 @@ class User {
     static constraints = {
 		mail email: true		
     }
+	static mapping = {
+		funds cascade: 'all-delete-orphan'
+		categories cascade : 'all'
+	}
 	
 	def userService
 	

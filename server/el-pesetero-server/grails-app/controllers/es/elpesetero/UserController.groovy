@@ -7,6 +7,8 @@ import grails.converters.JSON
 import grails.converters.XML
 import grails.plugins.springsecurity.Secured;
 
+import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils;
+
 @Secured(['ROLE_USER'])
 class UserController {
 	
@@ -57,13 +59,11 @@ class UserController {
 			}
             return
         }
-		SecurityUser securityUser = SecurityUser.findByUsername(springSecurityService.authentication.name)
-		User user = User.findBySecurityUser(securityUser)
 		
-		if (userInstance==user) {
+		if (userInstance == authenticatedUser() || isAdmin()) {
 			withFormat {
 				html {
-				[userInstance: userInstance]
+					[userInstance: userInstance]
 				}
 				json {
 					render userInstance as JSON
@@ -73,9 +73,17 @@ class UserController {
 				}
 			}
 		} else redirect(controller:'login', action: 'denied')
-			
         
     }
+
+	private authenticatedUser() {
+		SecurityUser securityUser = SecurityUser.findByUsername(springSecurityService.authentication.name)
+		User.findBySecurityUser(securityUser)
+	}
+
+	private isAdmin() {
+		def isAdmin = SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')
+	}
 
 	@Secured(['ROLE_ADMIN'])
     def edit() {
@@ -130,12 +138,13 @@ class UserController {
         }
 
         try {
+			SecurityUser securityUser = userInstance.securityUser
             userInstance.delete(flush: true)
+			securityUser.delete(flush: true)
 			flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), params.id])
             redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'user.label', default: 'User'), params.id])
+        } catch (DataIntegrityViolationException e) {
+			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'user.label', default: 'User'), userInstance.username])
             redirect(action: "show", id: params.id)
         }
     }

@@ -64,6 +64,10 @@ body {
 	height: 100%;
 }
 
+.body {
+	padding: 0.5em 1.25em;
+}
+
 a:link, a:visited, a:hover {
 	color: #48802c;
 }

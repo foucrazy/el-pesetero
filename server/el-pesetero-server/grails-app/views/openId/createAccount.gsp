@@ -7,14 +7,9 @@
 
 <div class='body'>
 
-	<h4>No user was found with that OpenID but you can register now and associate your OpenID with that account.</h4>
+	<h4><g:message code="openId.not.found.you.can.register" args="[command.email]" /></h4>
 
 	<br/>
-
-	<g:if test='${openId}'>
-	Or if you're already a user you can <g:link action='linkAccount'>link this OpenID</g:link> to your account<br/>
-	<br/>
-	</g:if>
 
 	<g:hasErrors bean="${command}">
 	<div class="errors">
@@ -35,7 +30,7 @@
 		</tr>
 
 		<tr>
-			<td><label for='username'>Username:</label></td>
+			<td><label for='username'><g:message code="user.username.label" default="Username" />:</label></td>
 			<td><g:textField name='username' value='${command.username}'/></td>
 		</tr>
 
@@ -49,6 +44,13 @@
 		<input type='submit' value='Register'/>
 
 	</g:form>
+	
+	<g:if test='${openId}'>
+	<br/>
+	<g:message code="openId.you.can.link.init"/>
+	<g:link action='linkAccount'><g:message code="openId.link.this.googleAccount"/></g:link>
+	<g:message code="openId.you.can.link.end"/>
+	</g:if>
 </div>
 
 </body>

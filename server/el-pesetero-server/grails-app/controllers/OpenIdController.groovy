@@ -246,6 +246,7 @@ class OpenIdController {
 	 */
 	protected void copyFromAttributeExchange(OpenIdRegisterCommand command) {
 		List attributes = session[OIAFH.LAST_OPENID_ATTRIBUTES] ?: []
+		print "Copying from attribute exchange $attributes"
 		for (attribute in attributes) {
 			println "Attribute $attribute"
 			// TODO document
@@ -253,6 +254,11 @@ class OpenIdController {
 			if (command.hasProperty(name)) {
 				println "Copying $name"
 				command."$name" = attribute.values[0]
+				if (name=='email') {
+					def email = attribute.values[0]
+					def username = email.substring(0, email.indexOf('@'))
+					command.username = username
+				}
 			}
 		}
 	}

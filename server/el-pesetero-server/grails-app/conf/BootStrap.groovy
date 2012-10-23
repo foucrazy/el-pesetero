@@ -36,19 +36,20 @@ class BootStrap {
 		def roleAdmin = new Role(authority: 'ROLE_ADMIN').save()
 		def roleUser = new Role(authority: 'ROLE_USER').save()
 		def admin = new SecurityUser(username: 'kortatu', password: password, enabled: true).save()		
-		def user = new SecurityUser(username: 'agonzalez', password: password, enabled: true).save()
 		def openIdKortatu = new OpenID(url: "https://www.google.com/accounts/o8/id?id=AItOawl8ZHaySfc5NMiHaVUTsHNCEr133vT38II")
 		admin.addToOpenIds(openIdKortatu)
 		admin.save()
-		def openIdAgonzalez = new OpenID(url: "https://www.google.com/accounts/o8/id?id=AItOawmffd3FFhgl6ffmsncINHn55m8MckIhtE0")
-		user.addToOpenIds(openIdAgonzalez)
-		user.save()
-		UserRole.create user, roleUser
 		UserRole.create admin, roleUser 
 		UserRole.create admin, roleAdmin, true
 		User kortatu = new User(username: 'kortatu', mail: "kortatu@gmail.com", securityUser: admin)
 		kortatu = userService.addUser(kortatu);
-		userService.addUser(new User(username: 'agonzalez', mail:'agonzalez@germinus.com', securityUser: user))
+
+//		def user = new SecurityUser(username: 'agonzalez', password: password, enabled: true).save()
+//		def openIdAgonzalez = new OpenID(url: "https://www.google.com/accounts/o8/id?id=AItOawmffd3FFhgl6ffmsncINHn55m8MckIhtE0")
+//		user.addToOpenIds(openIdAgonzalez)
+//		user.save()
+//		UserRole.create user, roleUser
+//		userService.addUser(new User(username: 'agonzalez', mail:'agonzalez@germinus.com', securityUser: user))
 		println kortatu.encodeAsJSON()
 	}
 	
