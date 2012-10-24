@@ -47,8 +47,7 @@ class ExpenseLineController extends BaseAuthController {
     def save() {
 		log.info "Entrying save"
 		def expenseInstance = new Expense(params)	
-		def expenseLineInstance = new ExpenseLine(expense:expenseInstance, expenseDate: params.expenseDate)
-		expenseLineInstance.user = theUser
+		def expenseLineInstance = new ExpenseLine(expense:expenseInstance, expenseDate: params.expenseDate, user: theUser)
 		log.info "saving expenseLineInstance"
 		try {
 			if (!expenseLineService.addExpenseLine(expenseLineInstance)) {

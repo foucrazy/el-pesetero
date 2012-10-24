@@ -22,6 +22,9 @@ grails.project.dependency.resolution = {
         grailsCentral()
         mavenCentral()
 
+		
+		
+		mavenRepo "http://grails.org/plugins"
         mavenRepo "http://guice-maven.googlecode.com/svn/trunk/"
         // uncomment these to enable remote dependency resolution from public Maven repositories
         //mavenCentral()
@@ -45,6 +48,7 @@ grails.project.dependency.resolution = {
 		compile ":oauth:2.0.3"
 		compile ":spring-security-openid:1.0.4"
 		compile ":eclipse-scripts:1.0.6"
+		compile ":quartz:1.0-RC2"	
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"

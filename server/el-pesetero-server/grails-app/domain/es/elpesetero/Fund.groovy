@@ -11,17 +11,27 @@ class Fund {
 	double quantity
 	FundType type
 	
-	def transferTo = { Fund toFund, double transferQuantity ->
-		if (toFund.user != user)
-			throw new FundException("Funds user are not the same!")
-		if (quantity<transferQuantity)
-			throw new FundException("Transfered quantity is higher than curent funds")
+	def transferTo(Fund toFund, double transferQuantity) {
+		validateFundForWithdraw(toFund.user, transferQuantity)		
 		this.quantity-=transferQuantity
 		toFund.quantity+=transferQuantity
 	}
 	
-	public String toString() {
-		name
+	public executeExpense(User user, double expenseQuantity) {		
+		validateFundForWithdraw(user, expenseQuantity)		
+		this.quantity-=expenseQuantity
 	}
+	
+	public String toString() {
+		"$name [$quantity]€"
+	}
+	
+	private validateFundForWithdraw(User expenseUser, double expenseQuantity) {		
+		if (this.user!=expenseUser)
+			throw new UserPermissionException("Fund[$this] does not belong to user[$expenseUser]")
+		if (this.quantity<expenseQuantity)
+			throw new FundException("Fund[$this] does not have enough quantity:[$expenseQuantity > $quantity]")
+	}
+
 	
 }

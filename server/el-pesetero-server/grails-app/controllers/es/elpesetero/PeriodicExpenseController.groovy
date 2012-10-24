@@ -25,13 +25,13 @@ class PeriodicExpenseController extends BaseAuthController {
     }
 
     def save() {
-		def expenseInstance = new Expense(params)		
+		def expenseInstance = new Expense(params)
 		if (!expenseInstance.save(flush: true)) {
 			render(view: "create", model: [expenseInstance: expenseInstance])
 			return
 		}		
         def periodicExpenseInstance = new PeriodicExpense(expense: expenseInstance, frequency: params.frequency, day:params.day)
-		
+		periodicExpenseInstance.user = theUser
         if (!periodicExpenseInstance.save(flush: true)) {
             render(view: "create", model: [periodicExpenseInstance: periodicExpenseInstance, expenseInstance: expenseInstance])
             return

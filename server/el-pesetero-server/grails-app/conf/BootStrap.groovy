@@ -1,4 +1,7 @@
 import es.elpesetero.ExpenseCategory
+import es.elpesetero.Expense
+import es.elpesetero.FrequencyType;
+import es.elpesetero.PeriodicExpense
 import es.elpesetero.User
 import es.elpesetero.FundType
 import es.elpesetero.Fund
@@ -43,14 +46,40 @@ class BootStrap {
 		UserRole.create admin, roleAdmin, true
 		User kortatu = new User(username: 'kortatu', mail: "kortatu@gmail.com", securityUser: admin)
 		kortatu = userService.addUser(kortatu);
-
-//		def user = new SecurityUser(username: 'agonzalez', password: password, enabled: true).save()
-//		def openIdAgonzalez = new OpenID(url: "https://www.google.com/accounts/o8/id?id=AItOawmffd3FFhgl6ffmsncINHn55m8MckIhtE0")
-//		user.addToOpenIds(openIdAgonzalez)
-//		user.save()
-//		UserRole.create user, roleUser
-//		userService.addUser(new User(username: 'agonzalez', mail:'agonzalez@germinus.com', securityUser: user))
+		initFund(kortatu)
+		testExpenses(kortatu)
+		
+		//addUser(password, roleUser)
 		println kortatu.encodeAsJSON()
+	}
+
+	private addUser(String password, Role roleUser) {
+		def user = new SecurityUser(username: 'agonzalez', password: password, enabled: true).save()
+		def openIdAgonzalez = new OpenID(url: "https://www.google.com/accounts/o8/id?id=AItOawmffd3FFhgl6ffmsncINHn55m8MckIhtE0")
+		user.addToOpenIds(openIdAgonzalez)
+		user.save()
+		UserRole.create user, roleUser
+		userService.addUser(new User(username: 'agonzalez', mail:'agonzalez@germinus.com', securityUser: user))
+	}
+
+	private initFund(User kortatu) {
+		Fund fund = kortatu.funds.find()
+		println "Fund $fund"
+		fund.quantity = 20
+		fund.save(flush: true)
+	}
+
+	private testExpenses(User kortatu) {
+		def fund = kortatu.funds.find {it}		
+		println "Fund $fund"
+		def category = kortatu.categories.find{it}
+		println "Category $category"
+		def expenseInstance = new Expense(name: 'semanal', quantity: 10, from: fund,
+				category: category)		
+		expenseInstance = expenseInstance.save(flush: true)
+		def periodicExpenseInstance = new PeriodicExpense(expense: expenseInstance,
+				frequency: FrequencyType.weekly, day: 4, user: kortatu)
+		periodicExpenseInstance.save(flush: true)
 	}
 	
     def destroy = {

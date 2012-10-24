@@ -11,4 +11,8 @@ class Expense {
 	ExpenseCategory category
 	Fund from
 	FrequencyType proRateType
+	
+	def executeExpense(User user) {
+		from.executeExpense(user, quantity)
+	}
 }
