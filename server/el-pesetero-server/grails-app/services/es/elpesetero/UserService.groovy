@@ -1,8 +1,21 @@
 package es.elpesetero
 
+import es.elpesetero.security.SecurityUser;
+
 class UserService {
 	
 	def fundService
+	def springSecurityService
+	
+	def checkAuthUser() {
+		User user
+		if (springSecurityService.isLoggedIn()) {
+			SecurityUser securityUser = SecurityUser.findByUsername(springSecurityService.authentication.name)
+			user = User.findBySecurityUser(securityUser)
+			println "Usuario $user.mail"
+		}
+		return user
+	}
 	
     def addUser(User user) {
 		def categories =  ExpenseCategory.findAllByUserAndParent(null,null)

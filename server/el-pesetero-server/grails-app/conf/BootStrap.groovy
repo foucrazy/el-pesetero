@@ -47,7 +47,7 @@ class BootStrap {
 		User kortatu = new User(username: 'kortatu', mail: "kortatu@gmail.com", securityUser: admin)
 		kortatu = userService.addUser(kortatu);
 		initFund(kortatu)
-		testExpenses(kortatu)
+		//testExpenses(kortatu)
 		
 		//addUser(password, roleUser)
 		println kortatu.encodeAsJSON()

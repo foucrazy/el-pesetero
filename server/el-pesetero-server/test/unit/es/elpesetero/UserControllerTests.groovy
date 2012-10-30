@@ -1,9 +1,8 @@
 package es.elpesetero
 
+import grails.test.mixin.Mock;
+import grails.test.mixin.TestFor;
 
-
-import org.junit.*
-import grails.test.mixin.*
 
 @TestFor(UserController)
 @Mock(User)

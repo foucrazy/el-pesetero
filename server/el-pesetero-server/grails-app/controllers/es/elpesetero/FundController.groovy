@@ -17,7 +17,7 @@ class FundController extends BaseAuthController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        def fundList = Fund.findAllByUser(theUser,params)
+        def fundList = Fund.findAllByUser(theUser, params)
 		withFormat {
 			html {
 				[fundInstanceList: fundList, fundInstanceTotal: Fund.findAllByUser(theUser).size()]
@@ -36,6 +36,7 @@ class FundController extends BaseAuthController {
         def fundInstance = new Fund(params)
 		fundInstance.user = theUser
         if (!fundInstance.save(flush: true)) {
+			println fundInstance.errors
 			withFormat {
 				html {
 					render(view: "create", model: [fundInstance: fundInstance])
@@ -46,7 +47,9 @@ class FundController extends BaseAuthController {
 					return
 				}
 			}
+			return
         }
+		println "Fund saved: $fundInstance.id"
 		
 		flash.message = message(code: 'default.created.message', args: [message(code: 'fund.label', default: 'Fund'), fundInstance.id])
 		withFormat {

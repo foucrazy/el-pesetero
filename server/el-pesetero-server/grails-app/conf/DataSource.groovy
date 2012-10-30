@@ -23,10 +23,23 @@ environments {
             url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
     }
+	preproduction {
+		dataSource {
+			dbCreate = "update"
+			driver = org.postgresql.Driver
+			pooled = true
+			properties {
+			   maxActive = 8
+			   minEvictableIdleTimeMillis=1800000
+			   timeBetweenEvictionRunsMillis=1800000
+			   numTestsPerEvictionRun=3			
+			}
+		}
+	}
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+			driver = org.postgresql.Driver 
             pooled = true
             properties {
                maxActive = -1

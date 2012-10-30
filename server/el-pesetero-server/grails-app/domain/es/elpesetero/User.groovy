@@ -10,6 +10,8 @@ class User {
 		mail email: true		
     }
 	static mapping = {
+		table 'user_'
+		mail column: "mail_"
 		funds cascade: 'all-delete-orphan'
 		categories cascade : 'all'
 	}
@@ -40,5 +42,8 @@ class User {
 		userService.withdrawCash(this, from, to, quantity)
 	}
 	
+	def lastExpenses() {
+		ExpenseLine.findAllByUser(this).sort {it.expenseDate}
+	}
 	
 }

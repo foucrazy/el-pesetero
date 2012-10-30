@@ -7,7 +7,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><g:layoutTitle default="Grails"/></title>
+		<title><g:layoutTitle default="El Pesetero"/></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
@@ -19,8 +19,11 @@
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner">
-			<a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a>
-			<span>${theUser?.mail} : ${theUser?.totalBalance}</span>
+			<img src="${resource(dir: 'images', file: 'empty-gold-coin-icon.png')}" alt="Coins"/>
+			<a href="/"><img src="${resource(dir: 'images', file: 'pesetero-banner-nn1.png')}" alt="Grails"/></a>
+			<g:if test="${theUser}">
+				<span>${theUser?.mail}: <g:formatNumber number="${theUser?.totalBalance}" type="currency" currencyCode="EUR" /></span>
+			</g:if>
 		</div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>

@@ -66,13 +66,7 @@
 		margin-left: 0;
 		text-align: left;
 		width: 200px
-	}
-	
-	#connect_with_google {
-		background: url("/el-pesetero-server/images/connect-google.png") no-repeat scroll left center transparent;
-    	padding-left: 24px;
-    }
-    	 
+	}	 
 
 	#login .inner .login_message {
 		padding: 6px 25px 20px 25px;
@@ -97,7 +91,7 @@
 
 	.openid-loginbox-inner {
 		width: 450px;
-		border: 1px blue solid;
+		border: 2px solid #B0B0B0;
 	}
 
 	td.openid-loginbox-title {
@@ -148,16 +142,15 @@
 </head>
 
 <body>
-
-<div class="openid-loginbox">
+<img src="${resource(dir: 'images', file: 'coins-banner2.png')}" alt="Coins"/>
+<div class="openid-loginbox">	
 	<div class='inner'>
-		<div class='fheader'><g:message code="springSecurity.login.header"/></div>
+		<h1 class='fheader'><g:message code="springSecurity.login.header"/></h1>
 		<g:if test='${flash.message}'>
 			<div class='login_message'>${flash.message}</div>
 		</g:if>
 
 	<table class='openid-loginbox-inner' cellpadding="0" cellspacing="0">
-		
 		<tr>
 			<td>
 

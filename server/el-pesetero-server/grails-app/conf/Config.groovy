@@ -72,6 +72,11 @@ grails.exceptionresolver.params.exclude = ['password']
 // enable query caching by default
 grails.hibernate.cache.queries = true
 
+grails.gorm.default.mapping = {
+//	"user-type" type: PersistentDateTime, class: org.joda.time.DateTime
+//	"user-type" type: org.jadira.usertype.dateandtime.joda.PersistentLocalDate, class: org.joda.time.LocalDate 
+}
+
 // set per-environment serverURL stem for creating absolute links
 environments {
     development {
@@ -79,6 +84,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
+		
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }

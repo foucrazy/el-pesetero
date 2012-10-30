@@ -1,9 +1,8 @@
 package es.elpesetero
 
+import grails.test.mixin.Mock;
+import grails.test.mixin.TestFor;
 
-
-import org.junit.*
-import grails.test.mixin.*
 
 @TestFor(FundController)
 @Mock(Fund)
@@ -13,16 +12,19 @@ class FundControllerTests {
     def populateValidParams(params) {
       assert params != null
       // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
+	  params["name"] = 'Efectivo'
+	  params["quantity"] = '2300'
+	  params["type"] = 'bankAccount'
     }
 
     void testIndex() {
+		setUser(controller)
         controller.index()
         assert "/fund/list" == response.redirectedUrl
     }
 
     void testList() {
-
+		setUser(controller)
         def model = controller.list()
 
         assert model.fundInstanceList.size() == 0
@@ -30,18 +32,23 @@ class FundControllerTests {
     }
 
     void testCreate() {
+		setUser(controller)
        def model = controller.create()
 
        assert model.fundInstance != null
     }
 
     void testSave() {
+		setUser(controller)
+		response.format = 'html'
         controller.save()
 
         assert model.fundInstance != null
         assert view == '/fund/create'
 
         response.reset()
+		setUser(controller)
+        response.format = 'html'
 
         populateValidParams(params)
         controller.save()
@@ -52,6 +59,7 @@ class FundControllerTests {
     }
 
     void testShow() {
+		setUser(controller)
         controller.show()
 
         assert flash.message != null
@@ -60,15 +68,27 @@ class FundControllerTests {
 
         populateValidParams(params)
         def fund = new Fund(params)
-
+		fund.user = testUser()
+		
         assert fund.save() != null
 
         params.id = fund.id
 
+		response.format = 'html'
+		setUser(controller)
         def model = controller.show()
 
         assert model.fundInstance == fund
     }
+
+	private setUser(FundController controller) {
+		def user = testUser()
+		controller.theUser = user
+	}
+
+	private testUser() {
+		new User(username: 'kort', id: new Long(1l))
+	}
 
     void testEdit() {
         controller.edit()

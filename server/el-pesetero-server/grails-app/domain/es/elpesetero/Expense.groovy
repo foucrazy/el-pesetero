@@ -15,4 +15,8 @@ class Expense {
 	def executeExpense(User user) {
 		from.executeExpense(user, quantity)
 	}
+	
+	public String toString() {
+		"$name : $quantity € en categoría $category de $from"
+	}
 }

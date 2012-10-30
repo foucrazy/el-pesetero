@@ -2,22 +2,37 @@ package es.elpesetero
 
 import org.springframework.dao.DataIntegrityViolationException
 
-import es.elpesetero.security.SecurityUser;
+import es.elpesetero.security.SecurityUser
 import grails.converters.JSON
 import grails.converters.XML
-import grails.plugins.springsecurity.Secured;
+import grails.plugins.springsecurity.Secured
 
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils;
 
-@Secured(['ROLE_USER'])
-class UserController {
+
+class UserController extends BaseAuthController{
 	
 	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-        redirect(action: "list", params: params)
+		def user = authenticatedUser()
+		if (!user) {
+			redirect(action:"auth", controller:"openId")
+		} else {
+			withFormat {
+				html {
+					render(view: "/index", model: [userInstance: user])
+				}
+				json {
+					render userInstance as JSON
+				}
+				xml {
+					render userInstance as XML
+				}
+			}
+		}        
     }
 
 	@Secured(['ROLE_ADMIN'])
@@ -43,6 +58,7 @@ class UserController {
         redirect(action: "show", id: userInstance.id)
     }
 
+	@Secured(['ROLE_USER'])
     def show() {
         def userInstance = User.get(params.id)
         if (!userInstance) {
@@ -77,8 +93,12 @@ class UserController {
     }
 
 	private authenticatedUser() {
-		SecurityUser securityUser = SecurityUser.findByUsername(springSecurityService.authentication.name)
-		User.findBySecurityUser(securityUser)
+		def securityUserName = springSecurityService.authentication.name
+		if (securityUserName) {
+			SecurityUser securityUser = SecurityUser.findByUsername(securityUserName)
+			if (securityUser)
+				User.findBySecurityUser(securityUser)
+		}
 	}
 
 	private isAdmin() {

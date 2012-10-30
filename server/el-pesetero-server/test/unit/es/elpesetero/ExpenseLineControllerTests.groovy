@@ -1,9 +1,7 @@
 package es.elpesetero
 
-
-
-import org.junit.*
-import grails.test.mixin.*
+import grails.test.mixin.Mock
+import grails.test.mixin.TestFor
 
 @TestFor(ExpenseLineController)
 @Mock(ExpenseLine)
@@ -13,7 +11,7 @@ class ExpenseLineControllerTests {
     def populateValidParams(params) {
       assert params != null
       // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
+      params["name"] = 'someValidName'
     }
 
     void testIndex() {

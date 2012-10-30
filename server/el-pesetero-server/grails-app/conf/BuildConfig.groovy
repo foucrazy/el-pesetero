@@ -31,13 +31,13 @@ grails.project.dependency.resolution = {
         //mavenLocal()
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
+        mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-
         // runtime 'mysql:mysql-connector-java:5.1.16'
+		runtime "postgresql:postgresql:9.0-801.jdbc3"
     }
 
     plugins {
@@ -48,12 +48,15 @@ grails.project.dependency.resolution = {
 		compile ":oauth:2.0.3"
 		compile ":spring-security-openid:1.0.4"
 		compile ":eclipse-scripts:1.0.6"
-		compile ":quartz:1.0-RC2"	
+		compile ":quartz:1.0-RC2"
+		compile ":joda-time:1.4"
+			
         // Uncomment these (or add new ones) to enable additional resources capabilities
-        //runtime ":zipped-resources:1.0"
+        runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"
-        //runtime ":yui-minify-resources:0.1.4"
+        runtime ":yui-minify-resources:0.1.4"
 
         build ":tomcat:$grailsVersion"
     }
+	
 }

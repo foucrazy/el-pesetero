@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>Bienvenido a El Pesetero</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -81,6 +81,7 @@
 		</style>
 	</head>
 	<body>
+		<img src="${resource(dir: 'images', file: 'coins-banner3.png')}" alt="Coins"/>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
 			<h1>Application Status</h1>
@@ -101,14 +102,46 @@
 					<li>${plugin.name} - ${plugin.version}</li>
 				</g:each>
 			</ul>
-		</div>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
-
+		</div>				
+		<div id="page-body" role="main">			
+			<g:if test="${!userInstance}">
+				<p>Bienvenido al pesetero si tienes una cuenta en google puedes <g:link controller="openId">logarte</g:link> en El Pesetero</p>				
+			</g:if>
+			<g:if test="${userInstance}">
+				<h1>Bienvenido, ${userInstance.username}</h1>
+				<div id="summary">
+					<div id="userData" class="summaryBox">
+						<strong>Balance</strong> <g:formatNumber number="${userInstance?.totalBalance}" type="currency" currencyCode="EUR" />
+						<p><strong>Fondos:</strong>
+						<ul>						
+							<g:each var="fund" in="${userInstance.funds}">
+							<li>${fund} <g:link elementClass="link" controller="fund" action="show" id="${fund.id}">Ver></g:link></li>
+							</g:each>
+						</ul>
+						</p>
+					</div>
+					<div  class="summaryBox">
+						<strong>Categorías:</strong>
+							<ul>
+								<g:each var="category" in="${userInstance.topCategories }">
+									<li>${category} <g:link elementClass="link" controller="expenseCategory" action="show" id="${category.id}">Ver></g:link></li>
+								</g:each>
+							</ul>
+					</div>
+					<div id="expenseSummary" class="summaryBox">
+						<strong>Últimos gastos</strong>			
+						<ul>	
+							<g:each var="line" in="${userInstance.lastExpenses()}">
+								<li class="controller">
+									${line} <g:link elementClass="link" controller="expenseLine" action="show" id="${line.id}">Ver></g:link>
+								</li>
+							</g:each>
+						</ul>
+					</div>
+				</div>
+				 
+			</g:if>
+	
 			<div id="controller-list" role="navigation">
 				<h2>Available Controllers:</h2>
 				<ul>

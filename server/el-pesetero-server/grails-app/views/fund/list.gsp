@@ -41,7 +41,7 @@
 					
 						<td><g:link action="show" id="${fundInstance.id}">${fieldValue(bean: fundInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: fundInstance, field: "quantity")}</td>
+						<td><g:formatNumber number="${fundInstance.quantity}" type="currency" currencyCode="EUR" /></td>
 					
 						<td>${fieldValue(bean: fundInstance, field: "type")}</td>
 					

@@ -1,7 +1,10 @@
 /* FONT STACK */
+/* http://www.secretescapes.com/ */
 body,
 input, select, textarea {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family:  "Sans Bold", "Georgia", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 15px;
+	font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -11,6 +14,10 @@ h1, h2, h3, h4, h5, h6 {
 /* BASE LAYOUT */
 
 html {
+	/*background-image: url('http://demo.onedesigns.com/pinboard/wp-content/themes/pinboard/images/bg.jpg');*/
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-attachment: fixed;
 	background-color: #ddd;
 	background-image: -moz-linear-gradient(center top, #aaa, #ddd);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
@@ -25,7 +32,7 @@ html {
 }
 
 html.no-cssgradients {
-	background-color: #aaa;
+	background-color: #aaa;	
 }
 
 .ie6 html {
@@ -33,22 +40,34 @@ html.no-cssgradients {
 }
 
 html * {
-	margin: 0;
+	margin: 0;	
 }
 
+
 body {
-	background: #ffffff;
+	background: #ffffff;		
 	color: #333333;
 	margin: 0 auto;
 	max-width: 960px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-	   -moz-box-shadow: 0 0 0.3em #255b17;
-	-webkit-box-shadow: 0 0 0.3em #255b17;
-	        box-shadow: 0 0 0.3em #255b17;
+	   -moz-box-shadow: 0 0 0.3em #3C3D3E;
+	-webkit-box-shadow: 0 0 0.3em #3C3D3E;
+	        box-shadow: 0 0 0.3em #3C3D3E;
 }
 
 #grailsLogo {
-	background-color: #abbf78;
+	background-color: #000000;
+}
+
+#grailsLogo img {
+	margin-left: 2px;
+}
+
+#grailsLogo span {
+	color: #B0B0B0;
+	float: right;
+	margin: 10px
+	
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -69,7 +88,8 @@ body {
 }
 
 a:link, a:visited, a:hover {
-	color: #48802c;
+	color: #FF8C00;
+	text-decoration: none;
 }
 
 a:hover, a:active {
@@ -77,7 +97,7 @@ a:hover, a:active {
 }
 
 h1 {
-	color: #48802c;
+	color: darkOrange;
 	font-weight: normal;
 	font-size: 1.25em;
 	margin: 0.8em 0 0.3em 0;
@@ -93,9 +113,11 @@ img {
 
 /* GENERAL */
 
+
+
 #grailsLogo a {
 	display: inline-block;
-	margin: 1em;
+	margin: 0px;
 }
 
 .content {
@@ -112,7 +134,7 @@ img {
 }
 
 .footer {
-	background: #abbf78;
+	background: #000000;
 	color: #000;
 	clear: both;
 	font-size: 0.8em;
@@ -139,12 +161,13 @@ img {
 /* NAVIGATION MENU */
 
 .nav {
-	background-color: #efefef;
+	background: none repeat scroll 0 0 #DCDDDE;	
 	padding: 0.5em 0.75em;
 	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
 	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
 	        box-shadow: 0 0 3px 1px #aaaaaa;
 	zoom: 1;
+/* 	margin-top: -4px; */
 }
 
 .nav ul {
@@ -183,7 +206,7 @@ img {
 	background-color: #999999;
 	color: #ffffff;
 	outline: none;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);	
 }
 
 .no-borderradius .nav a:focus, .no-borderradius .nav a:hover {
@@ -488,7 +511,7 @@ th.desc a {
 }
 
 th:hover, tr:hover {
-	background: #E1F2B6;
+	background: #B0B0B0;
 }
 
 /* PAGINATION */
@@ -600,4 +623,40 @@ th:hover, tr:hover {
 a.skip {
 	position: absolute;
 	left: -9999px;
+}
+
+#connect_with_google {
+		background: url("../images/connect-google.png") no-repeat scroll left center transparent;
+    	padding-left: 24px;
+}
+
+#summary {
+/*     background: none repeat scroll 0 0 #2D2D2D; */
+    margin: 0 auto;
+    padding: 8px;   
+    content: ".";
+    display: block;        
+}
+
+.summaryBox {
+	background: none repeat scroll 0 0 #DCDDDE;
+	border-radius: 2px 2px 2px 2px;
+	margin-bottom: 20px;
+	padding: 10px;	
+	height: auto;
+	background-repeat: no-repeat;
+/* 	border-color: darkOrange; */
+	border-style: solid;
+	border-width: 1px 1px;
+}
+.summaryBox ul {
+	padding-top: 5px;
+	padding-left: 10px;
+}
+.summaryBox li {
+	list-style: none;
+}
+.summaryBox .link {
+	float: right;
+	
 }
