@@ -81,7 +81,7 @@
 		</style>
 	</head>
 	<body>
-		<img src="${resource(dir: 'images', file: 'coins-banner3.png')}" alt="Coins"/>
+		<img class="banner" src="${resource(dir: 'images', file: 'coins-banner3.png')}" alt="Coins"/>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
 			<h1>Application Status</h1>

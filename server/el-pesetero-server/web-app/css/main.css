@@ -158,6 +158,10 @@ img {
 	text-indent: -9999px;
 }
 
+.banner {
+	box-shadow: 0px 0px 10px #222;
+}
+
 /* NAVIGATION MENU */
 
 .nav {

@@ -142,7 +142,7 @@
 </head>
 
 <body>
-<img src="${resource(dir: 'images', file: 'coins-banner2.png')}" alt="Coins"/>
+<img class="banner" src="${resource(dir: 'images', file: 'coins-banner2.png')}" alt="Coins"/>
 <div class="openid-loginbox">	
 	<div class='inner'>
 		<h1 class='fheader'><g:message code="springSecurity.login.header"/></h1>
