@@ -84,17 +84,9 @@
 		<img class="banner" src="${resource(dir: 'images', file: 'coins-banner3.png')}" alt="Coins"/>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
-			<h1>Application Status</h1>
+			<h1>Acciones rápidas</h1>
 			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${org.codehaus.groovy.runtime.InvokerHelper.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
+				<li><i class="foundicon-cart"></i>Nuevo gasto</li>
 			</ul>
 			<h1>Installed Plugins</h1>
 			<ul>
@@ -138,10 +130,10 @@
 							</g:each>
 						</ul>
 					</div>
-				</div>
+				</div>								
 				 
 			</g:if>
-	
+			
 			<div id="controller-list" role="navigation">
 				<h2>Available Controllers:</h2>
 				<ul>

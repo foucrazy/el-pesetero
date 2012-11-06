@@ -57,10 +57,14 @@ body {
 
 #grailsLogo {
 	background-color: #000000;
+	
 }
 
 #grailsLogo img {
 	margin-left: 2px;
+	margin-bottom: 2px;
+	margin-left: 15px;
+	margin-top: 5px;
 }
 
 #grailsLogo span {

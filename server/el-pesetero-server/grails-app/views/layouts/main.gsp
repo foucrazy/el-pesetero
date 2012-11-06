@@ -14,13 +14,15 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
+<%--		<link rel="stylesheet" href="${resource(dir: 'css', file: 'general_enclosed_foundicons.css')}" type="text/css">--%>
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'general_foundicons.css')}" type="text/css">			
 		<g:layoutHead/>
         <r:layoutResources />
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner">
-			<img src="${resource(dir: 'images', file: 'empty-gold-coin-icon.png')}" alt="Coins"/>
-			<a href="/"><img src="${resource(dir: 'images', file: 'pesetero-banner-nn1.png')}" alt="Grails"/></a>
+			<!--img src="${resource(dir: 'images', file: 'empty-gold-coin-icon.png')}" alt="Coins"/-->
+			<a href="/"><img src="${resource(dir: 'images', file: 'pesetero-dolar-1.png')}" alt="Grails"/></a>
 			<g:if test="${theUser}">
 				<span>${theUser?.mail}: <g:formatNumber number="${theUser?.totalBalance}" type="currency" currencyCode="EUR" /></span>
 			</g:if>

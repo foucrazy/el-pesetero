@@ -22,6 +22,7 @@ class UrlMappings {
 		}
 
 		"/"(controller:"user", action:"index")
+		"/icons"(view:"/icons")
 		"500"(view:'/error')
 	}
 }
