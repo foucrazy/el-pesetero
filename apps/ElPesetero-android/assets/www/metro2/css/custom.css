@@ -19,6 +19,23 @@ body{
 	width: 30px !important;
 }
 
+#page-header-content h1{
+	margin-left:50px;
+}
+
+.back-button.big {
+    height: 48px;
+  	top: 5px;
+  	left: 5px;
+    width: 48px;
+}
+
+.page-back {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
 /* Large desktop */
 @media (min-width: 979px) {
 	  h1, h1:hover {
@@ -149,6 +166,13 @@ body{
 
 /* Landscape phones and down and Small phones portrait */
 @media (max-width: 480px) {
+	
+	.back-button.big {
+	    height: 30px;
+	  	top: 10px;
+	  	left: 10px;
+	    width: 30px;
+	}
 	
 	.page.snapped {
 	  width: 100%;
