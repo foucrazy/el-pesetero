@@ -1,5 +1,5 @@
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS v 0.1.5
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  */
@@ -450,7 +450,7 @@ table {
   border-spacing: 0;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -524,7 +524,7 @@ table {
   float: none !important;
 }
 .as-inline-block {
-  display: inline-blockblock;
+  display: inline-block;
 }
 .nlm {
   margin-left: 0 !important;
@@ -554,6 +554,9 @@ table {
 }
 .padding20 {
   padding: 20px;
+}
+.padding30 {
+  padding: 30px;
 }
 .padding40 {
   padding: 40px;
@@ -585,7 +588,7 @@ table {
   z-index: 2000;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -598,7 +601,7 @@ table {
   color: #44a3aa !important;
 }
 .fg-color-blueDark {
-  color: #0a5ac2 !important;
+  color: #2b5797 !important;
 }
 .fg-color-green {
   color: #00a300 !important;
@@ -607,7 +610,7 @@ table {
   color: #99b433 !important;
 }
 .fg-color-greenDark {
-  color: #005200 !important;
+  color: #1e7145 !important;
 }
 .fg-color-red {
   color: #b91d47 !important;
@@ -622,10 +625,10 @@ table {
   color: #da532c !important;
 }
 .fg-color-pink {
-  color: #c3325f !important;
+  color: #9f00a7 !important;
 }
 .fg-color-pinkDark {
-  color: #9f00a7 !important;
+  color: #7e3878 !important;
 }
 .fg-color-purple {
   color: #603cba !important;
@@ -646,7 +649,7 @@ table {
   background-color: #44a3aa !important;
 }
 .bg-color-blueDark {
-  background-color: #0a5ac2 !important;
+  background-color: #2b5797 !important;
 }
 .bg-color-green {
   background-color: #00a300 !important;
@@ -655,7 +658,7 @@ table {
   background-color: #99b433 !important;
 }
 .bg-color-greenDark {
-  background-color: #005200 !important;
+  background-color: #1e7145 !important;
 }
 .bg-color-red {
   background-color: #b91d47 !important;
@@ -670,10 +673,10 @@ table {
   background-color: #da532c !important;
 }
 .bg-color-pink {
-  background-color: #c3325f !important;
+  background-color: #9f00a7 !important;
 }
 .bg-color-pinkDark {
-  background-color: #9f00a7 !important;
+  background-color: #7e3878 !important;
 }
 .bg-color-purple {
   background-color: #603cba !important;
@@ -687,8 +690,1094 @@ table {
 .bg-color-grayDark {
   background-color: #525252 !important;
 }
+[class*=border-color] {
+  border: 2px solid;
+}
+.border-color-blue {
+  border-color: #2d89ef !important;
+}
+.border-color-blueLight {
+  border-color: #44a3aa !important;
+}
+.border-color-blueDark {
+  border-color: #2b5797 !important;
+}
+.border-color-green {
+  border-color: #00a300 !important;
+}
+.border-color-greenLight {
+  border-color: #99b433 !important;
+}
+.border-color-greenDark {
+  border-color: #1e7145 !important;
+}
+.border-color-red {
+  border-color: #b91d47 !important;
+}
+.border-color-yellow {
+  border-color: #ffc40d !important;
+}
+.border-color-orange {
+  border-color: #e3a21a !important;
+}
+.border-color-orangeDark {
+  border-color: #da532c !important;
+}
+.border-color-pink {
+  border-color: #9f00a7 !important;
+}
+.border-color-pinkDark {
+  border-color: #7e3878 !important;
+}
+.border-color-purple {
+  border-color: #603cba !important;
+}
+.border-color-darken {
+  border-color: #1d1d1d !important;
+}
+.border-color-white {
+  border-color: #ffffff !important;
+}
+.border-color-grayDark {
+  border-color: #525252 !important;
+}
 /*
- * Metro UI CSS v 0.1.1
+Icon Set:	Broccolidry -- http://dribbble.com/shots/587469-Free-16px-Broccolidryiconsaniconsetitisfullof-icons
+License:	Aribitrary -- http://licence.visualidiot.com/
+
+
+Icon Set:	Meteocons -- http://www.alessioatzeni.com/meteocons/
+License:	Arbitrary -- http://www.alessioatzeni.com/meteocons/#about
+
+
+Icon Set:	IcoMoon - Free -- http://keyamoon.com/icomoon/
+License:	CC BY-SA 3.0 -- http://creativecommons.org/licenses/by-sa/3.0/
+*/
+@font-face {
+  font-family: 'iconFont';
+  src: url('../fonts/iconFont.eot');
+  src: url('../fonts/iconFont.eot?#iefix') format('embedded-opentype'), url('../fonts/iconFont.svg#iconFont') format('svg'), url('../fonts/iconFont.woff') format('woff'), url('../fonts/iconFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'iconFont';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'iconFont';
+  font-style: normal;
+  speak: none;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+.icon-home:before {
+  content: "\21";
+}
+.icon-newspaper:before {
+  content: "\23";
+}
+.icon-pencil:before {
+  content: "\24";
+}
+.icon-droplet:before {
+  content: "\26";
+}
+.icon-pictures:before {
+  content: "\27";
+}
+.icon-camera:before {
+  content: "\29";
+}
+.icon-music:before {
+  content: "\2a";
+}
+.icon-film:before {
+  content: "\2c";
+}
+.icon-camera-2:before {
+  content: "\2d";
+}
+.icon-spades:before {
+  content: "\2e";
+}
+.icon-clubs:before {
+  content: "\2f";
+}
+.icon-diamonds:before {
+  content: "\30";
+}
+.icon-broadcast:before {
+  content: "\31";
+}
+.icon-mic:before {
+  content: "\32";
+}
+.icon-book:before {
+  content: "\33";
+}
+.icon-file:before {
+  content: "\35";
+}
+.icon-new:before {
+  content: "\36";
+}
+.icon-copy:before {
+  content: "\37";
+}
+.icon-folder:before {
+  content: "\38";
+}
+.icon-folder-2:before {
+  content: "\39";
+}
+.icon-tag:before {
+  content: "\3a";
+}
+.icon-cart:before {
+  content: "\3b";
+}
+.icon-basket:before {
+  content: "\3c";
+}
+.icon-calculate:before {
+  content: "\3d";
+}
+.icon-support:before {
+  content: "\3e";
+}
+.icon-phone:before {
+  content: "\3f";
+}
+.icon-mail:before {
+  content: "\40";
+}
+.icon-location:before {
+  content: "\41";
+}
+.icon-compass:before {
+  content: "\42";
+}
+.icon-history:before {
+  content: "\43";
+}
+.icon-clock:before {
+  content: "\44";
+}
+.icon-bell:before {
+  content: "\45";
+}
+.icon-calendar:before {
+  content: "\46";
+}
+.icon-printer:before {
+  content: "\47";
+}
+.icon-mouse:before {
+  content: "\48";
+}
+.icon-screen:before {
+  content: "\49";
+}
+.icon-laptop:before {
+  content: "\4a";
+}
+.icon-mobile:before {
+  content: "\4b";
+}
+.icon-cabinet:before {
+  content: "\4c";
+}
+.icon-drawer:before {
+  content: "\4d";
+}
+.icon-drawer-2:before {
+  content: "\4e";
+}
+.icon-box:before {
+  content: "\4f";
+}
+.icon-box-add:before {
+  content: "\50";
+}
+.icon-box-remove:before {
+  content: "\51";
+}
+.icon-download:before {
+  content: "\52";
+}
+.icon-upload:before {
+  content: "\53";
+}
+.icon-database:before {
+  content: "\54";
+}
+.icon-flip:before {
+  content: "\55";
+}
+.icon-flip-2:before {
+  content: "\56";
+}
+.icon-undo:before {
+  content: "\57";
+}
+.icon-redo:before {
+  content: "\58";
+}
+.icon-forward:before {
+  content: "\59";
+}
+.icon-reply:before {
+  content: "\5a";
+}
+.icon-reply-2:before {
+  content: "\5b";
+}
+.icon-comments:before {
+  content: "\5c";
+}
+.icon-comments-2:before {
+  content: "\5d";
+}
+.icon-comments-3:before {
+  content: "\5e";
+}
+.icon-comments-4:before {
+  content: "\5f";
+}
+.icon-comments-5:before {
+  content: "\60";
+}
+.icon-user:before {
+  content: "\61";
+}
+.icon-user-2:before {
+  content: "\62";
+}
+.icon-user-3:before {
+  content: "\63";
+}
+.icon-busy:before {
+  content: "\64";
+}
+.icon-loading:before {
+  content: "\65";
+}
+.icon-loading-2:before {
+  content: "\66";
+}
+.icon-search:before {
+  content: "\67";
+}
+.icon-zoom-in:before {
+  content: "\68";
+}
+.icon-zoom-out:before {
+  content: "\69";
+}
+.icon-key:before {
+  content: "\6a";
+}
+.icon-key-2:before {
+  content: "\6b";
+}
+.icon-locked:before {
+  content: "\6c";
+}
+.icon-unlocked:before {
+  content: "\6d";
+}
+.icon-wrench:before {
+  content: "\6e";
+}
+.icon-equalizer:before {
+  content: "\6f";
+}
+.icon-cog:before {
+  content: "\70";
+}
+.icon-pie:before {
+  content: "\71";
+}
+.icon-bars:before {
+  content: "\72";
+}
+.icon-stats-up:before {
+  content: "\73";
+}
+.icon-gift:before {
+  content: "\74";
+}
+.icon-trophy:before {
+  content: "\75";
+}
+.icon-diamond:before {
+  content: "\76";
+}
+.icon-coffee:before {
+  content: "\77";
+}
+.icon-rocket:before {
+  content: "\78";
+}
+.icon-meter-slow:before {
+  content: "\79";
+}
+.icon-meter-medium:before {
+  content: "\7a";
+}
+.icon-meter-fast:before {
+  content: "\7b";
+}
+.icon-dashboard:before {
+  content: "\7c";
+}
+.icon-fire:before {
+  content: "\7d";
+}
+.icon-lab:before {
+  content: "\e000";
+}
+.icon-remove:before {
+  content: "\e003";
+}
+.icon-briefcase:before {
+  content: "\e004";
+}
+.icon-briefcase-2:before {
+  content: "\e005";
+}
+.icon-cars:before {
+  content: "\e006";
+}
+.icon-bus:before {
+  content: "\e007";
+}
+.icon-cube:before {
+  content: "\e008";
+}
+.icon-cube-2:before {
+  content: "\e009";
+}
+.icon-puzzle:before {
+  content: "\e00a";
+}
+.icon-glasses:before {
+  content: "\e00b";
+}
+.icon-glasses-2:before {
+  content: "\e00c";
+}
+.icon-accessibility:before {
+  content: "\e00d";
+}
+.icon-accessibility-2:before {
+  content: "\e00e";
+}
+.icon-target:before {
+  content: "\e00f";
+}
+.icon-target-2:before {
+  content: "\e010";
+}
+.icon-lightning:before {
+  content: "\e011";
+}
+.icon-power:before {
+  content: "\e012";
+}
+.icon-power-2:before {
+  content: "\e013";
+}
+.icon-clipboard:before {
+  content: "\e014";
+}
+.icon-clipboard-2:before {
+  content: "\e015";
+}
+.icon-playlist:before {
+  content: "\e016";
+}
+.icon-grid-view:before {
+  content: "\e017";
+}
+.icon-tree-view:before {
+  content: "\e018";
+}
+.icon-cloud:before {
+  content: "\e019";
+}
+.icon-cloud-2:before {
+  content: "\e01a";
+}
+.icon-download-2:before {
+  content: "\e01b";
+}
+.icon-upload-2:before {
+  content: "\e01c";
+}
+.icon-upload-3:before {
+  content: "\e01d";
+}
+.icon-link:before {
+  content: "\e01e";
+}
+.icon-link-2:before {
+  content: "\e01f";
+}
+.icon-flag:before {
+  content: "\e020";
+}
+.icon-flag-2:before {
+  content: "\e021";
+}
+.icon-attachment:before {
+  content: "\e022";
+}
+.icon-eye:before {
+  content: "\e024";
+}
+.icon-bookmark:before {
+  content: "\e025";
+}
+.icon-bookmark-2:before {
+  content: "\e026";
+}
+.icon-star:before {
+  content: "\e027";
+}
+.icon-star-2:before {
+  content: "\e028";
+}
+.icon-star-3:before {
+  content: "\e029";
+}
+.icon-heart:before {
+  content: "\e02a";
+}
+.icon-heart-2:before {
+  content: "\e02b";
+}
+.icon-thumbs-up:before {
+  content: "\e02c";
+}
+.icon-thumbs-down:before {
+  content: "\e02d";
+}
+.icon-plus:before {
+  content: "\e031";
+}
+.icon-minus:before {
+  content: "\e032";
+}
+.icon-help:before {
+  content: "\e033";
+}
+.icon-help-2:before {
+  content: "\e034";
+}
+.icon-blocked:before {
+  content: "\e035";
+}
+.icon-cancel:before {
+  content: "\e036";
+}
+.icon-cancel-2:before {
+  content: "\e037";
+}
+.icon-checkmark:before {
+  content: "\e038";
+}
+.icon-minus-2:before {
+  content: "\e039";
+}
+.icon-plus-2:before {
+  content: "\e03a";
+}
+.icon-enter:before {
+  content: "\e03b";
+}
+.icon-exit:before {
+  content: "\e03c";
+}
+.icon-loop:before {
+  content: "\e03d";
+}
+.icon-arrow-up-left:before {
+  content: "\e04e";
+}
+.icon-arrow-up:before {
+  content: "\e04f";
+}
+.icon-arrow-up-right:before {
+  content: "\e050";
+}
+.icon-arrow-right:before {
+  content: "\e051";
+}
+.icon-arrow-down-right:before {
+  content: "\e052";
+}
+.icon-arrow-down:before {
+  content: "\e053";
+}
+.icon-arrow-down-left:before {
+  content: "\e054";
+}
+.icon-arrow-left:before {
+  content: "\e055";
+}
+.icon-arrow-up-2:before {
+  content: "\e05a";
+}
+.icon-arrow-right-2:before {
+  content: "\e05b";
+}
+.icon-arrow-down-2:before {
+  content: "\e05c";
+}
+.icon-arrow-left-2:before {
+  content: "\e05d";
+}
+.icon-arrow-up-3:before {
+  content: "\e05e";
+}
+.icon-arrow-right-3:before {
+  content: "\e05f";
+}
+.icon-arrow-down-3:before {
+  content: "\e060";
+}
+.icon-arrow-left-3:before {
+  content: "\e061";
+}
+.icon-menu:before {
+  content: "\e062";
+}
+.icon-enter-2:before {
+  content: "\e063";
+}
+.icon-backspace:before {
+  content: "\e064";
+}
+.icon-backspace-2:before {
+  content: "\e065";
+}
+.icon-tab:before {
+  content: "\e066";
+}
+.icon-tab-2:before {
+  content: "\e067";
+}
+.icon-checkbox:before {
+  content: "\e068";
+}
+.icon-checkbox-unchecked:before {
+  content: "\e069";
+}
+.icon-checkbox-partial:before {
+  content: "\e06a";
+}
+.icon-radio-checked:before {
+  content: "\e06b";
+}
+.icon-radio-unchecked:before {
+  content: "\e06c";
+}
+.icon-font:before {
+  content: "\e06d";
+}
+.icon-paragraph-left:before {
+  content: "\e06e";
+}
+.icon-paragraph-center:before {
+  content: "\e06f";
+}
+.icon-paragraph-right:before {
+  content: "\e070";
+}
+.icon-paragraph-justify:before {
+  content: "\e071";
+}
+.icon-left-to-right:before {
+  content: "\e072";
+}
+.icon-right-to-left:before {
+  content: "\e073";
+}
+.icon-share:before {
+  content: "\e074";
+}
+.icon-new-tab:before {
+  content: "\e075";
+}
+.icon-new-tab-2:before {
+  content: "\e076";
+}
+.icon-embed:before {
+  content: "\e077";
+}
+.icon-code:before {
+  content: "\e078";
+}
+.icon-bluetooth:before {
+  content: "\e079";
+}
+.icon-share-2:before {
+  content: "\e07a";
+}
+.icon-share-3:before {
+  content: "\e07b";
+}
+.icon-mail-2:before {
+  content: "\e07d";
+}
+.icon-google:before {
+  content: "\e07f";
+}
+.icon-google-plus:before {
+  content: "\e080";
+}
+.icon-google-drive:before {
+  content: "\e084";
+}
+.icon-facebook:before {
+  content: "\e085";
+}
+.icon-instagram:before {
+  content: "\e088";
+}
+.icon-twitter:before {
+  content: "\e089";
+}
+.icon-feed:before {
+  content: "\e08c";
+}
+.icon-youtube:before {
+  content: "\e090";
+}
+.icon-vimeo:before {
+  content: "\e091";
+}
+.icon-flickr:before {
+  content: "\e093";
+}
+.icon-picassa:before {
+  content: "\e096";
+}
+.icon-dribbble:before {
+  content: "\e098";
+}
+.icon-deviantart:before {
+  content: "\e09d";
+}
+.icon-github:before {
+  content: "\e09f";
+}
+.icon-github-2:before {
+  content: "\e0a0";
+}
+.icon-github-3:before {
+  content: "\e0a1";
+}
+.icon-github-4:before {
+  content: "\e0a2";
+}
+.icon-github-5:before {
+  content: "\e0a3";
+}
+.icon-git:before {
+  content: "\e0a5";
+}
+.icon-github-6:before {
+  content: "\e0a6";
+}
+.icon-wordpress:before {
+  content: "\e0a7";
+}
+.icon-joomla:before {
+  content: "\e0a9";
+}
+.icon-blogger:before {
+  content: "\e0aa";
+}
+.icon-tumblr:before {
+  content: "\e0ac";
+}
+.icon-yahoo:before {
+  content: "\e0ae";
+}
+.icon-amazon:before {
+  content: "\e0b0";
+}
+.icon-tux:before {
+  content: "\e0b2";
+}
+.icon-apple:before {
+  content: "\e0b3";
+}
+.icon-finder:before {
+  content: "\e0b4";
+}
+.icon-android:before {
+  content: "\e0b5";
+}
+.icon-windows:before {
+  content: "\e0b6";
+}
+.icon-soundcloud:before {
+  content: "\e0b7";
+}
+.icon-skype:before {
+  content: "\e0b9";
+}
+.icon-reddit:before {
+  content: "\e0ba";
+}
+.icon-linkedin:before {
+  content: "\e0bb";
+}
+.icon-lastfm:before {
+  content: "\e0bd";
+}
+.icon-delicious:before {
+  content: "\e0bf";
+}
+.icon-stumbleupon:before {
+  content: "\e0c0";
+}
+.icon-pinterest:before {
+  content: "\e0c2";
+}
+.icon-xing:before {
+  content: "\e0c5";
+}
+.icon-flattr:before {
+  content: "\e0c6";
+}
+.icon-foursquare:before {
+  content: "\e0c8";
+}
+.icon-paypal:before {
+  content: "\e0c9";
+}
+.icon-yelp:before {
+  content: "\e0cc";
+}
+.icon-libreoffice:before {
+  content: "\e0cd";
+}
+.icon-file-pdf:before {
+  content: "\e0ce";
+}
+.icon-file-openoffice:before {
+  content: "\e0cf";
+}
+.icon-file-word:before {
+  content: "\e0d0";
+}
+.icon-file-excel:before {
+  content: "\e0d1";
+}
+.icon-file-powerpoint:before {
+  content: "\e0d2";
+}
+.icon-file-zip:before {
+  content: "\e0d3";
+}
+.icon-file-xml:before {
+  content: "\e0d4";
+}
+.icon-file-css:before {
+  content: "\e0d5";
+}
+.icon-html5:before {
+  content: "\e0d6";
+}
+.icon-html5-2:before {
+  content: "\e0d7";
+}
+.icon-css3:before {
+  content: "\e0d8";
+}
+.icon-chrome:before {
+  content: "\e0d9";
+}
+.icon-firefox:before {
+  content: "\e0da";
+}
+.icon-IE:before {
+  content: "\e0db";
+}
+.icon-opera:before {
+  content: "\e0dc";
+}
+.icon-safari:before {
+  content: "\e0dd";
+}
+.icon-IcoMoon:before {
+  content: "\e0de";
+}
+.icon-sunrise:before {
+  content: "\7e";
+}
+.icon-sun:before {
+  content: "\e0df";
+}
+.icon-moon:before {
+  content: "\e0e0";
+}
+.icon-sun-2:before {
+  content: "\e0e1";
+}
+.icon-windy:before {
+  content: "\e0e2";
+}
+.icon-wind:before {
+  content: "\e0e3";
+}
+.icon-snowflake:before {
+  content: "\e0e4";
+}
+.icon-cloudy:before {
+  content: "\e0e5";
+}
+.icon-cloud-3:before {
+  content: "\e0e6";
+}
+.icon-weather:before {
+  content: "\e0e7";
+}
+.icon-weather-2:before {
+  content: "\e0e8";
+}
+.icon-weather-3:before {
+  content: "\e0e9";
+}
+.icon-lines:before {
+  content: "\e0ea";
+}
+.icon-cloud-4:before {
+  content: "\e0eb";
+}
+.icon-lightning-2:before {
+  content: "\e0ec";
+}
+.icon-lightning-3:before {
+  content: "\e0ed";
+}
+.icon-rainy:before {
+  content: "\e0ee";
+}
+.icon-rainy-2:before {
+  content: "\e0ef";
+}
+.icon-windy-2:before {
+  content: "\e0f0";
+}
+.icon-windy-3:before {
+  content: "\e0f1";
+}
+.icon-snowy:before {
+  content: "\e0f2";
+}
+.icon-snowy-2:before {
+  content: "\e0f3";
+}
+.icon-snowy-3:before {
+  content: "\e0f4";
+}
+.icon-weather-4:before {
+  content: "\e0f5";
+}
+.icon-cloudy-2:before {
+  content: "\e0f6";
+}
+.icon-cloud-5:before {
+  content: "\e0f7";
+}
+.icon-lightning-4:before {
+  content: "\e0f8";
+}
+.icon-sun-3:before {
+  content: "\e0f9";
+}
+.icon-moon-2:before {
+  content: "\e0fa";
+}
+.icon-cloudy-3:before {
+  content: "\e0fb";
+}
+.icon-cloud-6:before {
+  content: "\e0fc";
+}
+.icon-cloud-7:before {
+  content: "\e0fd";
+}
+.icon-lightning-5:before {
+  content: "\e0fe";
+}
+.icon-rainy-3:before {
+  content: "\e0ff";
+}
+.icon-rainy-4:before {
+  content: "\e100";
+}
+.icon-windy-4:before {
+  content: "\e101";
+}
+.icon-windy-5:before {
+  content: "\e102";
+}
+.icon-snowy-4:before {
+  content: "\e103";
+}
+.icon-snowy-5:before {
+  content: "\e104";
+}
+.icon-weather-5:before {
+  content: "\e105";
+}
+.icon-cloudy-4:before {
+  content: "\e106";
+}
+.icon-lightning-6:before {
+  content: "\e107";
+}
+.icon-thermometer:before {
+  content: "\e108";
+}
+.icon-compass-2:before {
+  content: "\e109";
+}
+.icon-none:before {
+  content: "\e10a";
+}
+.icon-Celsius:before {
+  content: "\e10b";
+}
+.icon-Fahrenheit:before {
+  content: "\e10c";
+}
+.icon-forrst:before {
+  content: "\e09b";
+}
+.icon-headphones:before {
+  content: "\e002";
+}
+.icon-bug:before {
+  content: "\e03e";
+}
+.icon-cart-2:before {
+  content: "\e03f";
+}
+.icon-earth:before {
+  content: "\e040";
+}
+.icon-battery:before {
+  content: "\e041";
+}
+.icon-list:before {
+  content: "\e042";
+}
+.icon-grid:before {
+  content: "\e043";
+}
+.icon-alarm:before {
+  content: "\e044";
+}
+.icon-location-2:before {
+  content: "\e045";
+}
+.icon-pointer:before {
+  content: "\e046";
+}
+.icon-diary:before {
+  content: "\e047";
+}
+.icon-eye-2:before {
+  content: "\e048";
+}
+.icon-console:before {
+  content: "\e001";
+}
+.icon-location-3:before {
+  content: "\e023";
+}
+.icon-move:before {
+  content: "\e02e";
+}
+.icon-gift-2:before {
+  content: "\e02f";
+}
+.icon-monitor:before {
+  content: "\e030";
+}
+.icon-mobile-2:before {
+  content: "\e049";
+}
+.icon-switch:before {
+  content: "\e04a";
+}
+.icon-star-4:before {
+  content: "\e04b";
+}
+.icon-address-book:before {
+  content: "\e056";
+}
+.icon-shit:before {
+  content: "\e057";
+}
+.icon-cone:before {
+  content: "\e058";
+}
+.icon-credit-card:before {
+  content: "\e059";
+}
+.icon-type:before {
+  content: "\e04c";
+}
+.icon-volume:before {
+  content: "\e04d";
+}
+.icon-volume-2:before {
+  content: "\e07c";
+}
+.icon-locked-2:before {
+  content: "\e07e";
+}
+.icon-warning:before {
+  content: "\e081";
+}
+.icon-info:before {
+  content: "\e082";
+}
+.icon-filter:before {
+  content: "\e083";
+}
+.icon-bookmark-3:before {
+  content: "\e086";
+}
+.icon-bookmark-4:before {
+  content: "\e087";
+}
+.icon-stats:before {
+  content: "\e08a";
+}
+.icon-compass-3:before {
+  content: "\e08b";
+}
+.icon-keyboard:before {
+  content: "\e08d";
+}
+/*
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -748,7 +1837,7 @@ table {
   width: 20px;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -785,19 +1874,6 @@ table {
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/K88pR3goAWT7BTt32Z01mz8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
-/*
-@baseFontUI: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-@baseFontText: 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
-
-.font-ui          {font-family: @baseFontUI;}
-.font-text        {font-family: @baseFontText;}
-
-.light-text            {font-weight: 200;}
-.semilight-text        {font-weight: 300;}
-.regular-text          {font-weight: 400;}
-.semibold-text         {font-weight: 600;}
-.bold-text             {font-weight: 700;}
-*/
 .text-rest-state {
   color: #000000;
 }
@@ -1225,7 +2301,7 @@ ol.unstyled,
   list-style: none;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -1430,6 +2506,22 @@ ol.unstyled,
 .page.fixed-header .page-region {
   padding-top: 140px;
 }
+.page.with-sidebar .page-region {
+  margin-left: 220px;
+  width: auto;
+  *zoom: 1;
+}
+.page.with-sidebar .page-region .page-region-content {
+  padding-left: 20px;
+}
+.page.with-sidebar .page-region:before,
+.page.with-sidebar .page-region:after {
+  display: table;
+  content: "";
+}
+.page.with-sidebar .page-region:after {
+  clear: both;
+}
 .app-bar {
   position: absolute;
   bottom: 0;
@@ -1481,7 +2573,7 @@ ol.unstyled,
   background-color: #2d89ef !important;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -1521,24 +2613,38 @@ button,
   font-size: 9pt;
   min-width: 90px;
   min-height: 32px;
+  height: 32px;
   background-color: #ccc;
   border: 1px transparent solid;
   color: #353535;
   margin-right: 10px;
   margin-bottom: 10px;
   border-raduis: 0;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 4px 10px;
+}
+button.standart,
+.button.standart {
+  min-width: 90px;
+  min-height: 32px;
 }
 button:active,
 .button:active,
 button.default:active,
 .button.default:active {
-  background-color: #000;
+  background-color: #000 !important;
   color: #fff;
 }
 button:disabled,
-.button:disabled {
+.button:disabled,
+button.disabled,
+.button.disabled {
   background-color: #eaeaea;
   color: #bebebe;
+  cursor: not-allowed;
 }
 button.default,
 .button.default {
@@ -1549,6 +2655,42 @@ button:focus,
 .button:focus {
   outline: 0;
   border: 1px #353535 dotted;
+}
+button.mini,
+.button.mini,
+.tool-button.mini {
+  min-height: 24px;
+  min-width: 24px;
+  height: 26px;
+  font-size: .8em;
+}
+button.big,
+.button.big,
+.tool-button.big {
+  min-height: 48px;
+  height: 48px;
+  font-size: 1.2em;
+}
+button.big [class*=icon-],
+.button.big [class*=icon-],
+.tool-button.big [class*=icon-] {
+  margin-top: 6px;
+  zoom: 1;
+}
+.tool-button [class*=icon-] {
+  margin-top: 2px !important;
+}
+.tool-button.mini {
+  min-width: 22px;
+  width: 22px;
+}
+.tool-button.big {
+  min-width: 48px;
+  width: 48px;
+}
+.tool-button.big [class*=icon-] {
+  margin-top: 2px !important;
+  margin-left: 15px !important;
 }
 .command-button {
   width: 330px;
@@ -1577,30 +2719,393 @@ button:focus,
   color: #ccc;
 }
 .tool-button {
+  font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 9pt;
+  min-width: 90px;
+  min-height: 32px;
+  height: 32px;
+  background-color: #ccc;
+  border: 1px transparent solid;
+  color: #353535;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-raduis: 0;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 4px 10px;
   min-width: 32px;
   min-height: 32px;
   width: 32px;
   height: 32px;
-  padding-top: 3px;
+  text-align: center;
+  position: relative;
+  padding: 0;
+}
+.tool-button.standart {
+  min-width: 90px;
+  min-height: 32px;
+}
+.tool-button:active,
+.tool-button.default:active {
+  background-color: #000 !important;
+  color: #fff;
+}
+.tool-button:disabled,
+.tool-button.disabled {
+  background-color: #eaeaea;
+  color: #bebebe;
+  cursor: not-allowed;
+}
+.tool-button.default {
+  background-color: #008287;
+  color: #fff;
+}
+.tool-button:focus {
+  outline: 0;
+  border: 1px #353535 dotted;
+}
+.tool-button.mini {
+  min-height: 24px;
+  min-width: 24px;
+  height: 26px;
+  font-size: .8em;
+}
+.tool-button.big {
+  min-height: 48px;
+  height: 48px;
+  font-size: 1.2em;
+}
+.tool-button.big [class*=icon-] {
+  margin-top: 6px;
+  zoom: 1;
 }
 .tool-button img {
   width: 16px;
   height: 16px;
-  margin: 0;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+.toolbar {
+  *zoom: 1;
+}
+.toolbar a,
+.toolbar button {
+  font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 9pt;
+  min-width: 90px;
+  min-height: 32px;
+  height: 32px;
+  background-color: #ccc;
+  border: 1px transparent solid;
+  color: #353535;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-raduis: 0;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 4px 10px;
+  min-width: 32px;
+  min-height: 32px;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  position: relative;
   padding: 0;
-  display: inline;
-  float: none;
+  margin-right: 0px;
+}
+.toolbar a.mini,
+.toolbar button.mini {
+  min-height: 24px;
+  min-width: 24px;
+  height: 26px;
+  font-size: .8em;
+}
+.toolbar a.big,
+.toolbar button.big {
+  min-height: 48px;
+  height: 48px;
+  font-size: 1.2em;
+}
+.toolbar a.big [class*=icon-],
+.toolbar button.big [class*=icon-] {
+  margin-top: 6px;
+  zoom: 1;
+}
+.toolbar a [class*=icon-],
+.toolbar button [class*=icon-] {
+  margin-top: 2px !important;
+}
+.toolbar a.mini,
+.toolbar button.mini {
+  min-width: 22px;
+  width: 22px;
+}
+.toolbar a.big,
+.toolbar button.big {
+  min-width: 48px;
+  width: 48px;
+}
+.toolbar a.big [class*=icon-],
+.toolbar button.big [class*=icon-] {
+  margin-top: 2px !important;
+  margin-left: 15px !important;
+}
+.toolbar a.standart,
+.toolbar button.standart {
+  min-width: 90px;
+  min-height: 32px;
+}
+.toolbar a:active,
+.toolbar button:active,
+.toolbar a.default:active,
+.toolbar button.default:active {
+  background-color: #000 !important;
+  color: #fff;
+}
+.toolbar a:disabled,
+.toolbar button:disabled,
+.toolbar a.disabled,
+.toolbar button.disabled {
+  background-color: #eaeaea;
+  color: #bebebe;
+  cursor: not-allowed;
+}
+.toolbar a.default,
+.toolbar button.default {
+  background-color: #008287;
+  color: #fff;
+}
+.toolbar a:focus,
+.toolbar button:focus {
+  outline: 0;
+  border: 1px #353535 dotted;
+}
+.toolbar a.mini,
+.toolbar button.mini {
+  min-height: 24px;
+  min-width: 24px;
+  height: 26px;
+  font-size: .8em;
+}
+.toolbar a.big,
+.toolbar button.big {
+  min-height: 48px;
+  height: 48px;
+  font-size: 1.2em;
+}
+.toolbar a.big [class*=icon-],
+.toolbar button.big [class*=icon-] {
+  margin-top: 6px;
+  zoom: 1;
+}
+.toolbar a img,
+.toolbar button img {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+.toolbar a {
+  padding: 5px 0;
+}
+.toolbar:before,
+.toolbar:after {
+  display: table;
+  content: "";
+}
+.toolbar:after {
   clear: both;
 }
+.toolbar .toolbar-group {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  float: left;
+}
+.toolbar-vertical {
+  width: 33px;
+  float: left;
+  margin-right: 10px;
+  *zoom: 1;
+}
+.toolbar-vertical a,
+.toolbar-vertical button {
+  font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 9pt;
+  min-width: 90px;
+  min-height: 32px;
+  height: 32px;
+  background-color: #ccc;
+  border: 1px transparent solid;
+  color: #353535;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-raduis: 0;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 4px 10px;
+  min-width: 32px;
+  min-height: 32px;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  position: relative;
+  padding: 0;
+  margin-bottom: 5px;
+}
+.toolbar-vertical a.mini,
+.toolbar-vertical button.mini {
+  min-height: 24px;
+  min-width: 24px;
+  height: 26px;
+  font-size: .8em;
+}
+.toolbar-vertical a.big,
+.toolbar-vertical button.big {
+  min-height: 48px;
+  height: 48px;
+  font-size: 1.2em;
+}
+.toolbar-vertical a.big [class*=icon-],
+.toolbar-vertical button.big [class*=icon-] {
+  margin-top: 6px;
+  zoom: 1;
+}
+.toolbar-vertical a [class*=icon-],
+.toolbar-vertical button [class*=icon-] {
+  margin-top: 2px !important;
+}
+.toolbar-vertical a.mini,
+.toolbar-vertical button.mini {
+  min-width: 22px;
+  width: 22px;
+}
+.toolbar-vertical a.big,
+.toolbar-vertical button.big {
+  min-width: 48px;
+  width: 48px;
+}
+.toolbar-vertical a.big [class*=icon-],
+.toolbar-vertical button.big [class*=icon-] {
+  margin-top: 2px !important;
+  margin-left: 15px !important;
+}
+.toolbar-vertical a.standart,
+.toolbar-vertical button.standart {
+  min-width: 90px;
+  min-height: 32px;
+}
+.toolbar-vertical a:active,
+.toolbar-vertical button:active,
+.toolbar-vertical a.default:active,
+.toolbar-vertical button.default:active {
+  background-color: #000 !important;
+  color: #fff;
+}
+.toolbar-vertical a:disabled,
+.toolbar-vertical button:disabled,
+.toolbar-vertical a.disabled,
+.toolbar-vertical button.disabled {
+  background-color: #eaeaea;
+  color: #bebebe;
+  cursor: not-allowed;
+}
+.toolbar-vertical a.default,
+.toolbar-vertical button.default {
+  background-color: #008287;
+  color: #fff;
+}
+.toolbar-vertical a:focus,
+.toolbar-vertical button:focus {
+  outline: 0;
+  border: 1px #353535 dotted;
+}
+.toolbar-vertical a.mini,
+.toolbar-vertical button.mini {
+  min-height: 24px;
+  min-width: 24px;
+  height: 26px;
+  font-size: .8em;
+}
+.toolbar-vertical a.big,
+.toolbar-vertical button.big {
+  min-height: 48px;
+  height: 48px;
+  font-size: 1.2em;
+}
+.toolbar-vertical a.big [class*=icon-],
+.toolbar-vertical button.big [class*=icon-] {
+  margin-top: 6px;
+  zoom: 1;
+}
+.toolbar-vertical a img,
+.toolbar-vertical button img {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+.toolbar-vertical a {
+  padding: 5px 0;
+}
+.toolbar-vertical:before,
+.toolbar-vertical:after {
+  display: table;
+  content: "";
+}
+.toolbar-vertical:after {
+  clear: both;
+}
+.toolbar-vertical .toolbar-group {
+  margin-bottom: 20px;
+}
+.image-button {
+  position: relative;
+  border: 0;
+  padding-right: 45px;
+}
+.image-button img,
+.image-button:active img {
+  position: absolute;
+  right: 0;
+  margin-left: 32px;
+  padding: 5px;
+  height: 100%;
+  top: 0px;
+  margin-left: 0px;
+  box-sizing: border-box;
+  border: 1px transparent solid;
+  z-index: 2;
+}
+.button-set a,
 .button-set button {
   margin-right: 0;
+  text-align: center;
+}
+.button-set a img,
+.button-set button img {
+  background-color: transparent;
+}
+.button-set a {
+  padding: 5px 0;
 }
 .button-set button.active {
   background-color: #008287;
   color: #fff;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -1610,9 +3115,11 @@ button:focus,
 table {
   width: 100%;
   border-collapse: separate;
-  margin: 20px 0;
+  margin: 0 0 20px;
 }
-table thead tr th {
+table thead tr th,
+table thead tr td {
+  display: table-cell;
   vertical-align: bottom;
   padding-bottom: 5px;
   padding-top: 10px;
@@ -1629,14 +3136,17 @@ table thead tr th {
   color: rgba(0, 0, 0, 0.6);
   text-align: left;
 }
-table thead tr th.right {
+table thead tr th.right,
+table thead tr td.right {
   text-align: right;
   padding-right: 10px;
 }
-table thead tr th.last {
+table thead tr th.last,
+table thead tr td.last {
   border-right: 1px transparent solid;
 }
-table thead tr th:last-child {
+table thead tr th:last-child,
+table thead tr td:last-child {
   border-right: 1px transparent solid;
 }
 table tbody tr {
@@ -1696,7 +3206,8 @@ table.striped tbody tr:nth-child(odd) {
 table.hovered {
   border-collapse: separate !important;
 }
-table.hovered thead tr th:hover {
+table.hovered thead tr th:hover,
+table.hovered thead tr td:hover {
   border: 1px #1c98cc solid;
   background: rgba(28, 183, 236, 0.1);
 }
@@ -1721,7 +3232,7 @@ table.bordered tbody tr:last-child td {
   border-bottom: 0;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -1850,6 +3361,9 @@ table.bordered tbody tr:last-child td {
 }
 .grid {
   margin: 0 0 20px;
+  display: block;
+  height: auto;
+  width: 100%;
   *zoom: 1;
 }
 .grid.no-margin {
@@ -1896,7 +3410,7 @@ table.bordered tbody tr:last-child td {
   clear: both;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -1905,7 +3419,7 @@ table.bordered tbody tr:last-child td {
  */
 .hero-unit {
   position: relative;
-  margin: 20px 0;
+  margin: 0 0 10px;
   padding: 20px;
   background-color: #f1f1f1;
   width: 100%;
@@ -1920,40 +3434,34 @@ table.bordered tbody tr:last-child td {
   clear: both;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
  * Menus.less
  *
  */
-.header-bar,
 .navigation-bar {
   width: 100%;
   min-height: 40px;
   background: #464646;
   z-index: 10000;
 }
-.header-bar .header-bar-inner,
-.navigation-bar .header-bar-inner,
-.header-bar .navigation-bar-inner,
 .navigation-bar .navigation-bar-inner {
-  padding: 5px 20px;
+  padding: 5px 20px 2px 20px;
   color: #fff;
   font-size: 11pt;
   margin: auto;
+  position: relative;
 }
-.header-bar .header-bar-inner  > .brand,
-.navigation-bar .header-bar-inner  > .brand,
-.header-bar .navigation-bar-inner  > .brand,
 .navigation-bar .navigation-bar-inner  > .brand {
   float: left;
   margin-right: 20px;
   margin-top: 3px;
 }
-.header-bar .header-bar-inner  > .brand .icon,
-.navigation-bar .header-bar-inner  > .brand .icon,
-.header-bar .navigation-bar-inner  > .brand .icon,
+.navigation-bar .navigation-bar-inner  > .brand:hover {
+  background-color: transparent;
+}
 .navigation-bar .navigation-bar-inner  > .brand .icon {
   width: 24px;
   height: 24px;
@@ -1961,9 +3469,6 @@ table.bordered tbody tr:last-child td {
   margin-right: 10px;
   margin-top: 3px;
 }
-.header-bar .header-bar-inner  > .brand .name,
-.navigation-bar .header-bar-inner  > .brand .name,
-.header-bar .navigation-bar-inner  > .brand .name,
 .navigation-bar .navigation-bar-inner  > .brand .name {
   font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
   font-weight: 200;
@@ -1971,26 +3476,41 @@ table.bordered tbody tr:last-child td {
   letter-spacing: 0.01em;
   line-height: 24pt;
   font-size: 16pt;
+  color: #fff;
 }
-.header-bar .header-bar-inner  > ul,
-.navigation-bar .header-bar-inner  > ul,
-.header-bar .navigation-bar-inner  > ul,
 .navigation-bar .navigation-bar-inner  > ul {
   margin-left: 0;
   list-style: none;
   padding-top: 5px;
+  margin-top: 2px;
 }
-.header-bar .header-bar-inner  > ul  > li,
-.navigation-bar .header-bar-inner  > ul  > li,
-.header-bar .navigation-bar-inner  > ul  > li,
 .navigation-bar .navigation-bar-inner  > ul  > li {
   display: inline-block;
   line-height: 32px;
   position: relative;
 }
-.header-bar .header-bar-inner  > ul  > li  > a,
-.navigation-bar .header-bar-inner  > ul  > li  > a,
-.header-bar .navigation-bar-inner  > ul  > li  > a,
+.navigation-bar .navigation-bar-inner  > ul  > li.sub-menu {
+  padding-right: 20px;
+}
+.navigation-bar .navigation-bar-inner  > ul  > li.sub-menu:after {
+  position: absolute;
+  content: "\3009";
+  display: inline-block;
+  font-size: 10pt;
+  font-family: Helvetica, sans-serif, sans;
+  letter-spacing: 0px;
+  top: 3px;
+  right: 10px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+.navigation-bar .navigation-bar-inner  > ul  > li.sub-menu:hover:after {
+  color: #1e1e1e;
+}
 .navigation-bar .navigation-bar-inner  > ul  > li  > a {
   color: #fff;
   font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
@@ -1999,65 +3519,47 @@ table.bordered tbody tr:last-child td {
   letter-spacing: 0.01em;
   line-height: 14pt;
   padding: 5px 10px;
+  cursor: pointer;
 }
-.header-bar .header-bar-inner  > ul  > li.active,
-.navigation-bar .header-bar-inner  > ul  > li.active,
-.header-bar .navigation-bar-inner  > ul  > li.active,
 .navigation-bar .navigation-bar-inner  > ul  > li.active,
-.header-bar .header-bar-inner  > ul  > li:hover,
-.navigation-bar .header-bar-inner  > ul  > li:hover,
-.header-bar .navigation-bar-inner  > ul  > li:hover,
 .navigation-bar .navigation-bar-inner  > ul  > li:hover {
   background-color: #fff;
 }
-.header-bar .header-bar-inner  > ul  > li.active a,
-.navigation-bar .header-bar-inner  > ul  > li.active a,
-.header-bar .navigation-bar-inner  > ul  > li.active a,
 .navigation-bar .navigation-bar-inner  > ul  > li.active a,
-.header-bar .header-bar-inner  > ul  > li:hover a,
-.navigation-bar .header-bar-inner  > ul  > li:hover a,
-.header-bar .navigation-bar-inner  > ul  > li:hover a,
 .navigation-bar .navigation-bar-inner  > ul  > li:hover a {
   color: #1e1e1e;
 }
-.header-bar .header-bar-inner  > ul  > li.pull,
-.navigation-bar .header-bar-inner  > ul  > li.pull,
-.header-bar .navigation-bar-inner  > ul  > li.pull,
-.navigation-bar .navigation-bar-inner  > ul  > li.pull {
-  float: right;
-  cursor: pointer;
-  margin-top: 5px;
-  display: none;
+.navigation-bar .navigation-bar-inner  > ul  > li  > .dropdown-menu {
+  border: 0;
 }
-.header-bar .header-bar-inner  > ul  > li.pull  > a,
-.navigation-bar .header-bar-inner  > ul  > li.pull  > a,
-.header-bar .navigation-bar-inner  > ul  > li.pull  > a,
-.navigation-bar .navigation-bar-inner  > ul  > li.pull  > a {
-  display: block;
-  height: 24px;
-  width: 24px;
-  position: relative;
-  background: url(../images/row24.png) no-repeat;
+.navigation-bar .navigation-bar-inner  > ul  > li.no-hover:hover {
+  background-color: transparent;
 }
-.header-bar .header-bar-inner  > ul  > li.pull:hover,
-.navigation-bar .header-bar-inner  > ul  > li.pull:hover,
-.header-bar .navigation-bar-inner  > ul  > li.pull:hover,
-.navigation-bar .navigation-bar-inner  > ul  > li.pull:hover {
-  background: transparent;
-}
-.header-bar.fixed-top,
 .navigation-bar.fixed-top {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
 }
-.header-bar.fixed-bottom,
 .navigation-bar.fixed-bottom {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
+}
+.menu-pull {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: none;
+  cursor: pointer;
+  z-index: 10001;
+  background: url(../images/row24.png) no-repeat;
+  background-size: cover;
+  height: 24px;
+  width: 24px;
+  margin: 0;
+  padding: 0;
 }
 .dropdown-menu {
   position: absolute;
@@ -2065,7 +3567,7 @@ table.bordered tbody tr:last-child td {
   margin-left: 0;
   list-style: none;
   top: 100%;
-  z-index: 1001;
+  z-index: 1101;
   float: left;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -2090,6 +3592,7 @@ table.bordered tbody tr:last-child td {
   padding: 3px 20px;
   white-space: nowrap;
   font-size: 14px;
+  cursor: pointer;
 }
 .dropdown-menu a:hover {
   color: rgba(0, 0, 0, 0.8);
@@ -2335,7 +3838,168 @@ table.bordered tbody tr:last-child td {
   transform: rotate(90deg);
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
+ * Copyright 2012 Sergey Pimenov
+ * Licensed under the MIT Lilcense
+ *
+ * Sidebar.less
+ */
+.page-sidebar {
+  display: block;
+  width: 213px;
+  float: left;
+  min-height: 100% !important;
+  height: auto;
+  background-color: #EBEBEB;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 7px;
+}
+.page-sidebar a {
+  font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 11pt;
+  letter-spacing: 0.01em;
+  line-height: 14pt;
+  color: #000000;
+  display: block;
+  width: 100%;
+  padding: 5px 20px 5px 10px;
+  white-space: nowrap;
+  font-size: 14px;
+  cursor: pointer;
+}
+.page-sidebar a:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.page-sidebar a:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+.page-sidebar a:hover {
+  background-color: #2d89ef !important;
+  color: #ffffff !important;
+}
+.page-sidebar li {
+  display: list-item;
+  line-height: 20px;
+  position: relative;
+}
+.page-sidebar  > ul > li > a {
+  font-size: 1.1em;
+}
+.page-sidebar  > ul > li a.lead,
+.page-sidebar  > ul > li.lead a,
+.page-sidebar  > ul > li.lead {
+  font-weight: bold;
+}
+.page-sidebar  > ul > li.sticker:before {
+  content: ".";
+  position: absolute;
+  width: 7px;
+  height: 28px;
+  left: -7px;
+  text-indent: -9999px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #ebebeb;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-blue:before {
+  background-color: #2d89ef;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-blueLight:before {
+  background-color: #44a3aa;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-blueDark:before {
+  background-color: #2b5797;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-green:before {
+  background-color: #00a300 !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-greenLight:before {
+  background-color: #99b433 !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-greenDark:before {
+  background-color: #1e7145 !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-red:before {
+  background-color: #b91d47 !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-yellow:before {
+  background-color: #ffc40d !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-orange:before {
+  background-color: #e3a21a !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-orangeDark:before {
+  background-color: #da532c !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-pink:before {
+  background-color: #9f00a7 !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-pinkDark:before {
+  background-color: #7e3878 !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-purple:before {
+  background-color: #603cba !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-darken:before {
+  background-color: #1d1d1d !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-white:before {
+  background-color: #ffffff !important;
+}
+.page-sidebar  > ul > li.sticker.sticker-color-grayDark:before {
+  background-color: #525252 !important;
+}
+.page-sidebar .divider {
+  height: 1px;
+  margin: 9px 1px;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.page-sidebar ul {
+  margin-left: 0;
+  list-style: none;
+  background-color: #EBEBEB;
+}
+.page-sidebar ul.sub-menu {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.page-sidebar ul.sub-menu a {
+  padding: 5px 20px 5px 25px;
+}
+.page-sidebar ul.sub-menu.light {
+  background-color: #f9f9f9 !important;
+}
+.page-sidebar .sidebar-dropdown-menu {
+  display: none;
+}
+.page-sidebar .sidebar-dropdown-menu.open {
+  display: block;
+}
+.page-sidebar  > ul > li.dropdown {
+  position: relative;
+}
+.page-sidebar  > ul > li.dropdown:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 100%;
+  margin-left: -20px;
+  width: 16px;
+  height: 16px;
+  background: no-repeat;
+  background-position: 0 -1586px;
+  z-index: 200;
+}
+.page-sidebar  > ul > li.dropdown.active:after {
+  background-position: 0 -676px;
+}
+/*
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -2447,7 +4111,7 @@ table.bordered tbody tr:last-child td {
 .replies  > div .sticker.sticker-color-blueDark,
 .replies  > li .sticker.sticker-color-blueDark,
 .replies  > span .sticker.sticker-color-blueDark {
-  border-color: #0a5ac2 !important;
+  border-color: #2b5797 !important;
 }
 .replies  > div .sticker.sticker-color-green,
 .replies  > li .sticker.sticker-color-green,
@@ -2462,7 +4126,7 @@ table.bordered tbody tr:last-child td {
 .replies  > div .sticker.sticker-color-greenDark,
 .replies  > li .sticker.sticker-color-greenDark,
 .replies  > span .sticker.sticker-color-greenDark {
-  border-color: #005200 !important;
+  border-color: #1e7145 !important;
 }
 .replies  > div .sticker.sticker-color-red,
 .replies  > li .sticker.sticker-color-red,
@@ -2487,12 +4151,12 @@ table.bordered tbody tr:last-child td {
 .replies  > div .sticker.sticker-color-pink,
 .replies  > li .sticker.sticker-color-pink,
 .replies  > span .sticker.sticker-color-pink {
-  border-color: #c3325f !important;
+  border-color: #9f00a7 !important;
 }
 .replies  > div .sticker.sticker-color-pinkDark,
 .replies  > li .sticker.sticker-color-pinkDark,
 .replies  > span .sticker.sticker-color-pinkDark {
-  border-color: #9f00a7 !important;
+  border-color: #7e3878 !important;
 }
 .replies  > div .sticker.sticker-color-purple,
 .replies  > li .sticker.sticker-color-purple,
@@ -2530,7 +4194,7 @@ table.bordered tbody tr:last-child td {
 .notices  > li,
 .notices  > span,
 .notices  > a {
-  width: 385px;
+  width: 100%;
   height: 90px;
   display: block;
   overflow: hidden;
@@ -2626,6 +4290,7 @@ table.bordered tbody tr:last-child td {
 .notices  > li .close,
 .notices  > span .close,
 .notices  > a .close {
+  z-index: 2;
   position: absolute;
   top: 5px;
   right: 10px;
@@ -2659,7 +4324,7 @@ table.bordered tbody tr:last-child td {
   height: 88px;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -2693,26 +4358,27 @@ table.bordered tbody tr:last-child td {
   letter-spacing: 0.02em;
   line-height: 20px;
   margin: 0 10px 10px 0;
+  overflow: hidden;
 }
 .tile * {
   color: #ffffff;
 }
 .tile .tile-content {
-  width: 150px;
-  height: 110px;
+  width: 100%;
+  height: 100%;
   padding: 0;
+  padding-bottom: 30px;
   vertical-align: top;
   padding: 10px 15px;
   overflow: hidden;
   text-overflow: ellipsis;
+  position: relative;
   font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 9pt;
   color: #000000;
   color: #ffffff;
   line-height: 16px;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .tile .tile-content:hover {
   color: rgba(0, 0, 0, 0.8);
@@ -2762,80 +4428,65 @@ table.bordered tbody tr:last-child td {
 .tile .tile-content p:hover {
   color: #ffffff;
 }
-.tile .tile-content.icon {
-  padding-top: 20px;
-  display: table-cell !important;
-  vertical-align: middle !important;
-  text-align: center;
+.tile.icon  > .tile-content {
+  padding: 0;
 }
-.tile .tile-content.icon img {
+.tile.icon  > .tile-content  > img {
+  position: absolute;
   width: 64px;
   height: 64px;
+  top: 50%;
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
 }
-.tile .tile-content.image {
+.tile.image  > .tile-content,
+.tile.image-slider  > .tile-content {
   padding: 0;
-  margin: 0;
-  height: 100%;
-  text-align: center;
 }
-.tile .tile-content.image img {
+.tile.image  > .tile-content  > img,
+.tile.image-slider  > .tile-content  > img {
   width: 100%;
   height: auto;
   min-height: 100%;
   max-width: 100%;
 }
-.tile .tile-content.images-set {
-  padding: 0;
+.tile.image-set  > .tile-content {
   margin: 0;
-  height: 100%;
-  max-height: 150px;
-}
-.tile .tile-content.images-set img {
-  width: 25%;
-  min-height: 50%;
+  padding: 0;
+  width: 25% !important;
+  height: 50%;
   float: left;
   border: 1px #1e1e1e solid;
 }
-.tile .tile-content.images-set img:first-child {
-  float: left;
-  width: 50%;
+.tile.image-set  > .tile-content  > img {
+  min-width: 100%;
+  width: 100%;
+  height: auto;
   min-height: 100%;
 }
-.tile.double {
-  width: 310px;
+.tile.image-set .tile-content:first-child {
+  width: 50% !important;
+  float: left;
+  height: 100%;
 }
-.tile.double .tile-content {
+.tile.double {
   width: 310px;
 }
 .tile.triple {
   width: 470px;
 }
-.tile.triple .tile-content {
-  width: 470px;
-}
 .tile.quadro {
-  width: 630px;
-}
-.tile.quadro .tile-content {
   width: 630px;
 }
 .tile.double-vertical {
   height: 310px;
 }
-.tile.double-vertical .tile-content {
-  height: 270px;
-}
 .tile.triple-vertical {
   height: 470px;
 }
-.tile.triple-vertical .tile-content {
-  height: 430px;
-}
 .tile.quadro-vertical {
   height: 630px;
-}
-.tile.quadro-vertical .tile-content {
-  height: 590px;
 }
 .tile .brand,
 .tile .tile-status {
@@ -2976,7 +4627,7 @@ table.bordered tbody tr:last-child td {
   outline: 3px #3a3a3a solid;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -3230,6 +4881,9 @@ table.bordered tbody tr:last-child td {
   background: #e0e0e0;
 }
 .input-control > input[type=text],
+.input-control > input[type=email],
+.input-control > input[type=url],
+.input-control > input[type=phone],
 .input-control > input[type=password],
 .input-control > select,
 .input-control > textarea {
@@ -3243,12 +4897,18 @@ table.bordered tbody tr:last-child td {
   width: 100%;
 }
 .input-control > input[type=text]:disabled,
+.input-control > input[type=email]:disabled,
+.input-control > input[type=url]:disabled,
+.input-control > input[type=phone]:disabled,
 .input-control > input[type=password]:disabled,
 .input-control > select:disabled,
 .input-control > textarea:disabled {
   background-color: #eaeaea;
 }
 .input-control > input[type=text]:focus,
+.input-control > input[type=email]:focus,
+.input-control > input[type=url]:focus,
+.input-control > input[type=phone]:focus,
 .input-control > input[type=password]:focus,
 .input-control > select:focus,
 .input-control > textarea:focus {
@@ -3264,19 +4924,37 @@ table.bordered tbody tr:last-child td {
 .input-control.text input[type=text]:not(:focus) + .helper,
 .input-control.password input[type=text]:not(:focus) + .helper,
 .input-control.text input[type=password]:not(:focus) + .helper,
-.input-control.password input[type=password]:not(:focus) + .helper {
+.input-control.password input[type=password]:not(:focus) + .helper,
+.input-control.text input[type=email]:not(:focus) + .helper,
+.input-control.password input[type=email]:not(:focus) + .helper,
+.input-control.text input[type=phone]:not(:focus) + .helper,
+.input-control.password input[type=phone]:not(:focus) + .helper,
+.input-control.text input[type=url]:not(:focus) + .helper,
+.input-control.password input[type=url]:not(:focus) + .helper {
   display: none;
 }
 .input-control.text input[type=text]:focus + .helper,
 .input-control.password input[type=text]:focus + .helper,
 .input-control.text input[type=password]:focus + .helper,
-.input-control.password input[type=password]:focus + .helper {
+.input-control.password input[type=password]:focus + .helper,
+.input-control.text input[type=email]:focus + .helper,
+.input-control.password input[type=email]:focus + .helper,
+.input-control.text input[type=phone]:focus + .helper,
+.input-control.password input[type=phone]:focus + .helper,
+.input-control.text input[type=url]:focus + .helper,
+.input-control.password input[type=url]:focus + .helper {
   display: block;
 }
 .input-control.text input[type=text]:not(:focus) + .helper:active,
 .input-control.password input[type=text]:not(:focus) + .helper:active,
 .input-control.text input[type=password]:not(:focus) + .helper:active,
-.input-control.password input[type=password]:not(:focus) + .helper:active {
+.input-control.password input[type=password]:not(:focus) + .helper:active,
+.input-control.text input[type=email]:not(:focus) + .helper:active,
+.input-control.password input[type=email]:not(:focus) + .helper:active,
+.input-control.text input[type=phone]:not(:focus) + .helper:active,
+.input-control.password input[type=phone]:not(:focus) + .helper:active,
+.input-control.text input[type=url]:not(:focus) + .helper:active,
+.input-control.password input[type=url]:not(:focus) + .helper:active {
   display: block;
 }
 .input-control {
@@ -3364,13 +5042,25 @@ input[type=submit] {
   font-size: 9pt;
   min-width: 90px;
   min-height: 32px;
+  height: 32px;
   background-color: #ccc;
   border: 1px transparent solid;
   color: #353535;
   margin-right: 10px;
   margin-bottom: 10px;
   border-raduis: 0;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 4px 10px;
   border-radius: 0;
+}
+input[type=button].standart,
+input[type=reset].standart,
+input[type=submit].standart {
+  min-width: 90px;
+  min-height: 32px;
 }
 input[type=button]:active,
 input[type=reset]:active,
@@ -3378,14 +5068,18 @@ input[type=submit]:active,
 input[type=button].default:active,
 input[type=reset].default:active,
 input[type=submit].default:active {
-  background-color: #000;
+  background-color: #000 !important;
   color: #fff;
 }
 input[type=button]:disabled,
 input[type=reset]:disabled,
-input[type=submit]:disabled {
+input[type=submit]:disabled,
+input[type=button].disabled,
+input[type=reset].disabled,
+input[type=submit].disabled {
   background-color: #eaeaea;
   color: #bebebe;
+  cursor: not-allowed;
 }
 input[type=button].default,
 input[type=reset].default,
@@ -3399,12 +5093,33 @@ input[type=submit]:focus {
   outline: 0;
   border: 1px #353535 dotted;
 }
+input[type=button].mini,
+input[type=reset].mini,
+input[type=submit].mini {
+  min-height: 24px;
+  min-width: 24px;
+  height: 26px;
+  font-size: .8em;
+}
+input[type=button].big,
+input[type=reset].big,
+input[type=submit].big {
+  min-height: 48px;
+  height: 48px;
+  font-size: 1.2em;
+}
+input[type=button].big [class*=icon-],
+input[type=reset].big [class*=icon-],
+input[type=submit].big [class*=icon-] {
+  margin-top: 6px;
+  zoom: 1;
+}
 input[type=submit] {
   background-color: #008287;
   color: #fff;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -3515,7 +5230,7 @@ input[type=submit] {
   color: #1e1e1e;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -3668,7 +5383,7 @@ input[type=submit] {
   color: red;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -3699,7 +5414,6 @@ pre {
   display: block;
   padding: 10px;
   margin: 0;
-  font-size: 10pt;
   line-height: 14pt;
   word-break: break-all;
   word-wrap: break-word;
@@ -3718,7 +5432,7 @@ pre code {
   border: 0;
 }
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
@@ -3742,7 +5456,7 @@ pre code {
   list-style: none;
   *zoom: 1;
   position: absolute;
-  z-index: 9000;
+  z-index: 5;
   width: 100%;
   background-color: rgba(217, 217, 217, 0.16);
   height: 30px;
@@ -3814,6 +5528,21 @@ pre code {
 .page-control .frames .frame.active {
   display: block;
 }
+.page-control ul {
+  display: block;
+  overflow: visible;
+}
+.page-control .menu-pull,
+.page-control .menu-pull-bar {
+  display: none;
+}
+/*
+ * Metro UI CSS
+ * Copyright 2012 Sergey Pimenov
+ * Licensed under the MIT Lilcense
+ *
+ * Accordion.less
+ */
 .accordion {
   margin-left: 0;
   list-style: none;
@@ -3866,4 +5595,373 @@ pre code {
 .accordion.dark  > li.active  > a {
   background-color: #1e1e1e;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHpSURBVEhLtZavT8JRFMXBGQgEg5FAYNNgIBAMBhpsEowEIpFgYLMYMBsMFht/gRNHgRn8EzDoCBY2CAQ3g4GAAz/ncUW+ym++nu3swnn3nfu47/se32BgDobDYRie8DEFozAiHXRhB9aDwWAFvjl1CqYWkDGhSDwjykgmL8QW1LgK7cEMPIA3jF/MKzTGYDBIwLYxbfJMkHMIm/B9YT4JWdiDZVa5Y/JCkBtizqXNPTXZCwa0ciXkTFoZFEoyvw/Vuh8wEEZUS8omrQ28Svh8wO8HYiy2iUu3ZRbw2MarMV6srV6tWbihywLPOH5qVUy9z8FXG/MNeD7A8y0+6xBVnOov7mFKBaJ2iHwFns+EqApot90JnQR9XAk2bRItikRUYBt+OukfoAIdFqCLzAOqrwSbNokIvl1XAOri8hWY7xM6KlCH3qPtD45hTZV2eV51KBIjfXOo5fj1iHEn8OUaNhFCTtgQeD3Cqn11FfUrdJ9fmrQ28CjAPp7agx8gpqF+VtKklSFTPHST5k3ygoEiVPUS1PlYGszTymV+ZdJ0kJCxxAZFRps0B+RoQ9VzPSjTV/4bJEZgGeoa161YwCgpM+MRWh7eWU4Vzdtzw9zXFibGCFnoXls4sO5fCrPv15Ya2i18kv4XgcAXTr+7IYi7bgIAAAAASUVORK5CYII%3D);
+}
+/*
+ * Metro UI CSS
+ * Copyright 2012 Sergey Pimenov
+ * Licensed under the MIT Lilcense
+ *
+ * rating.less
+ */
+.static-rating {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAABOCAYAAADRl20RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUMwOUI4NjQxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUMwOUI4NjUxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzAwNDIyNjFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzAwNDIyNzFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmSPr8EAAASsSURBVHjavFlpiFNXFE6eMWaqcaGjMSOtrfpLrYpLcSqKqKh16kKeMg6jiFNLR4SCIEp/tBSFUmhBwQX/uNA/LpWWYq1iW1CxWLQVFRxkHNzTwaWdcamijsbvpCdwfd68d89N3hz4SPK27517z/Ldm2hVVVVEaFHgLeCy9EYnIrdK4G2L+6zIaCi6A73DJqPr0/x9QNhkfYGuiofRMMlUbxLA62GRdQFSmvkLhawfENOQOWGQ6QKiK8+jkcUEF6eKHB8IPDe4/xmRJYGh0sjyvEQq4JqHwCkiuwTcBcYA3SLlt1vAaeBpYc7+AY4BbWUmugicJKJ8OCeTycKJDuAGe9e7RJKn7M0Vb4CoRhN9DmgH3rGsnfdpfoD/dNGos2vAPWAsUCEg+hs4y6MkyjPyrklA1MFD12Gb1CkBWSyoVjoB51LC+UrbklUq7cTU+vsVB8fiLSlJzwCPNeeo7fTxG+dioqa/JneaOFLJbgLDNQWaXvJfiWc00XHl923gqEJE9oSj70+Pl2mpZ2klnM97SLzWyuWu4GUFV6B2E7Iok5E3Z1sbVz4yCIy8l+mt6ympR3BTfYUsqhGpPWmSQXI1IIq1PQyENPyDgAsmc0Zl6mqAFllRdEwbVz4BLmjnLJvN6l993TfFnjcF+ATY6DeuuufaVPWFwBDg3bBFKs1Hhr/Xhk02Q2msC6X3OxZDqGrGSWGRvQbM8RyrC4usBujhOeZKOoNjOYRqDZ1uvGSNrv16mmEX/oFbiNcOABsMnvGQHjIS+MqnKJsMb03ANSSEM9FcLkfVYjJ+7JUsEgR2EKh//tmqtvyc4csRfIxm9VouywHrgA+IKD9n5JlSD7txzfuoRCJaOywGyf6XAkQlU0g/xMdmy4UGNdsMiJqNQh8XbsPHROC6kIjmfTzQLM0z0uurBUTUB+uBB7ZJXSMg6xlUK/3IaL5mC4cxY0s2FehlQebYkLlFjh8CGlgZ6yRgtYgMoU+la64mdygl3gd2AMOAPYKXLOrZZM/y5xCvRLcrx+5wJ3BZiqtkUQmZq4TzMmCWT859z2p4N/9+k1eswfIbQ0gvMA84TESDqqtNEpu8rLt04sR3+NwCzOc8DfSM5PPnwEwfIu2I4PqCl4+1zVNXG8mG/Pp7MS9IBnwMbPJztWXahLKIVJIBy21agQ1ZLe91jQqbLMHB0ymKuIZ38QqaMdQ9YlXODfQrTaWSJTm5O0URz2EJrtoCXhx2iiJO8eLQTBEP/uW4iSKOsyKOa879GJTgbA9irBe/lAyHx+Zq2pHXaEfVzZcrlKapXLUrQ1DEP5GGRPlqd7iO/Rb5f0P6rzKS0NbFFxRYRPRKIYaHCRanDSUS0cPrQfJzYNUHaSMvg2wUMe0xuyBqMQp9XLiVpUFWSLQLeI8eIc2zP4BPBUS0UlkU0ex6h6GIaVNzgm0FSQjJSlLEMzS7A0HmRiz3iF2fJCV5d1tz7g1gnIgMoR/XLCooAJbw8W2sovZpbp8v9WxK5OU/fw6wIv5WOXaLW0ytx8uMlGyBUgmW0iLcJ+f2erwcXEwMOZohjHGjPMgP2WkQGF4vXVPP6K3WsASQVpCCl9r94xcCDACHgA63y6lwZwAAAABJRU5ErkJggg%3D%3D) top left repeat-x;
+  height: 26px;
+  width: 134px;
+  margin-bottom: 10px;
+  *zoom: 1;
+}
+.static-rating .rating-value {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAABOCAYAAADRl20RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUMwOUI4NjQxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUMwOUI4NjUxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzAwNDIyNjFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzAwNDIyNzFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmSPr8EAAASsSURBVHjavFlpiFNXFE6eMWaqcaGjMSOtrfpLrYpLcSqKqKh16kKeMg6jiFNLR4SCIEp/tBSFUmhBwQX/uNA/LpWWYq1iW1CxWLQVFRxkHNzTwaWdcamijsbvpCdwfd68d89N3hz4SPK27517z/Ldm2hVVVVEaFHgLeCy9EYnIrdK4G2L+6zIaCi6A73DJqPr0/x9QNhkfYGuiofRMMlUbxLA62GRdQFSmvkLhawfENOQOWGQ6QKiK8+jkcUEF6eKHB8IPDe4/xmRJYGh0sjyvEQq4JqHwCkiuwTcBcYA3SLlt1vAaeBpYc7+AY4BbWUmugicJKJ8OCeTycKJDuAGe9e7RJKn7M0Vb4CoRhN9DmgH3rGsnfdpfoD/dNGos2vAPWAsUCEg+hs4y6MkyjPyrklA1MFD12Gb1CkBWSyoVjoB51LC+UrbklUq7cTU+vsVB8fiLSlJzwCPNeeo7fTxG+dioqa/JneaOFLJbgLDNQWaXvJfiWc00XHl923gqEJE9oSj70+Pl2mpZ2klnM97SLzWyuWu4GUFV6B2E7Iok5E3Z1sbVz4yCIy8l+mt6ympR3BTfYUsqhGpPWmSQXI1IIq1PQyENPyDgAsmc0Zl6mqAFllRdEwbVz4BLmjnLJvN6l993TfFnjcF+ATY6DeuuufaVPWFwBDg3bBFKs1Hhr/Xhk02Q2msC6X3OxZDqGrGSWGRvQbM8RyrC4usBujhOeZKOoNjOYRqDZ1uvGSNrv16mmEX/oFbiNcOABsMnvGQHjIS+MqnKJsMb03ANSSEM9FcLkfVYjJ+7JUsEgR2EKh//tmqtvyc4csRfIxm9VouywHrgA+IKD9n5JlSD7txzfuoRCJaOywGyf6XAkQlU0g/xMdmy4UGNdsMiJqNQh8XbsPHROC6kIjmfTzQLM0z0uurBUTUB+uBB7ZJXSMg6xlUK/3IaL5mC4cxY0s2FehlQebYkLlFjh8CGlgZ6yRgtYgMoU+la64mdygl3gd2AMOAPYKXLOrZZM/y5xCvRLcrx+5wJ3BZiqtkUQmZq4TzMmCWT859z2p4N/9+k1eswfIbQ0gvMA84TESDqqtNEpu8rLt04sR3+NwCzOc8DfSM5PPnwEwfIu2I4PqCl4+1zVNXG8mG/Pp7MS9IBnwMbPJztWXahLKIVJIBy21agQ1ZLe91jQqbLMHB0ymKuIZ38QqaMdQ9YlXODfQrTaWSJTm5O0URz2EJrtoCXhx2iiJO8eLQTBEP/uW4iSKOsyKOa879GJTgbA9irBe/lAyHx+Zq2pHXaEfVzZcrlKapXLUrQ1DEP5GGRPlqd7iO/Rb5f0P6rzKS0NbFFxRYRPRKIYaHCRanDSUS0cPrQfJzYNUHaSMvg2wUMe0xuyBqMQp9XLiVpUFWSLQLeI8eIc2zP4BPBUS0UlkU0ex6h6GIaVNzgm0FSQjJSlLEMzS7A0HmRiz3iF2fJCV5d1tz7g1gnIgMoR/XLCooAJbw8W2sovZpbp8v9WxK5OU/fw6wIv5WOXaLW0ytx8uMlGyBUgmW0iLcJ+f2erwcXEwMOZohjHGjPMgP2WkQGF4vXVPP6K3WsASQVpCCl9r94xcCDACHgA63y6lwZwAAAABJRU5ErkJggg%3D%3D) top left repeat-x;
+  background-position: left -26px;
+  height: 26px;
+  width: 0;
+}
+.static-rating.small {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAnCAYAAAA/63kvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUMwOUI4NkMxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUMwOUI4NkQxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzA5Qjg2QTFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzA5Qjg2QjFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu4JKw4AAAILSURBVHjavJRPSFRRFIfnjUM22hiFTM4YlNhSIQKjaCdRCYlki2jjqsEgN4FbN7rUdtHKhbhrkdBsWigUVKtwaRakxuj8IUMYC9xMTt/B895Mj3vfzKh04ePd+879nXfvub93nWQyGbK085CDfVMwHLK3CxC3BW3CKJyFzkaFruAcREwT5GVLgLBJ9/rDFy+J8DRctmWm9frGP2FZJufhF/TBqVBwW4NVKLt7/A3voWARlOQr8FlE/uJIcMUi3NYztVa1wyKMa6GswoQ+9+ATfK+qbtx/HG47CWcgo0su6Z5zWvWEFvIgUywWc/vtsAXrPn/uabI22DEVp1B90PnHT0egWYd/4Et1wkg2mzV7cWpmlEeR+Ou6vYpI/ozr8LBRkz8ABwZJYnST40xOd+mk6vZKKyltDN744kU5jiswF+DT577xW1lReH9iXLJfha81DC7H8Axuodl2yuWyWxA5p3kYMojkJ3iE4KW3R1eo4os8NgzCBUT3g6p6z7LM2ySNBgndrJu65Be6t1YYMArJKBfsNZiFHpaWhif0+3X5w7YvytVxl8kp2HVf0n+n906G5CcqNaY4JroXP4xAsy0edJOLye805NVLSx+PbnKSmE3OPv6zyb/dvNGwydFUTM5eapocgdnkiK0mR3Q4k5P0mE1Oxn9MztLSUL/JmZwCz+T0PZOT3DP5XwEGAJj+1ghmlpwuAAAAAElFTkSuQmCC) top left repeat-x;
+  height: 12px;
+  width: 70px;
+  margin-bottom: 5px;
+}
+.static-rating.small .rating-value {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAnCAYAAAA/63kvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUMwOUI4NkMxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUMwOUI4NkQxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzA5Qjg2QTFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzA5Qjg2QjFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu4JKw4AAAILSURBVHjavJRPSFRRFIfnjUM22hiFTM4YlNhSIQKjaCdRCYlki2jjqsEgN4FbN7rUdtHKhbhrkdBsWigUVKtwaRakxuj8IUMYC9xMTt/B895Mj3vfzKh04ePd+879nXfvub93nWQyGbK085CDfVMwHLK3CxC3BW3CKJyFzkaFruAcREwT5GVLgLBJ9/rDFy+J8DRctmWm9frGP2FZJufhF/TBqVBwW4NVKLt7/A3voWARlOQr8FlE/uJIcMUi3NYztVa1wyKMa6GswoQ+9+ATfK+qbtx/HG47CWcgo0su6Z5zWvWEFvIgUywWc/vtsAXrPn/uabI22DEVp1B90PnHT0egWYd/4Et1wkg2mzV7cWpmlEeR+Ou6vYpI/ozr8LBRkz8ABwZJYnST40xOd+mk6vZKKyltDN744kU5jiswF+DT577xW1lReH9iXLJfha81DC7H8Axuodl2yuWyWxA5p3kYMojkJ3iE4KW3R1eo4os8NgzCBUT3g6p6z7LM2ySNBgndrJu65Be6t1YYMArJKBfsNZiFHpaWhif0+3X5w7YvytVxl8kp2HVf0n+n906G5CcqNaY4JroXP4xAsy0edJOLye805NVLSx+PbnKSmE3OPv6zyb/dvNGwydFUTM5eapocgdnkiK0mR3Q4k5P0mE1Oxn9MztLSUL/JmZwCz+T0PZOT3DP5XwEGAJj+1ghmlpwuAAAAAElFTkSuQmCC) top left repeat-x;
+  background-position: left -13px;
+  height: 12px;
+  width: 0;
+}
+.static-rating:before,
+.static-rating:after {
+  display: table;
+  content: "";
+}
+.static-rating:after {
+  clear: both;
+}
+.rating {
+  *zoom: 1;
+}
+.rating a {
+  float: left;
+  display: block;
+  width: 26px;
+  height: 26px;
+  position: relative;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAABOCAYAAADRl20RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUMwOUI4NjQxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUMwOUI4NjUxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzAwNDIyNjFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzAwNDIyNzFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmSPr8EAAASsSURBVHjavFlpiFNXFE6eMWaqcaGjMSOtrfpLrYpLcSqKqKh16kKeMg6jiFNLR4SCIEp/tBSFUmhBwQX/uNA/LpWWYq1iW1CxWLQVFRxkHNzTwaWdcamijsbvpCdwfd68d89N3hz4SPK27517z/Ldm2hVVVVEaFHgLeCy9EYnIrdK4G2L+6zIaCi6A73DJqPr0/x9QNhkfYGuiofRMMlUbxLA62GRdQFSmvkLhawfENOQOWGQ6QKiK8+jkcUEF6eKHB8IPDe4/xmRJYGh0sjyvEQq4JqHwCkiuwTcBcYA3SLlt1vAaeBpYc7+AY4BbWUmugicJKJ8OCeTycKJDuAGe9e7RJKn7M0Vb4CoRhN9DmgH3rGsnfdpfoD/dNGos2vAPWAsUCEg+hs4y6MkyjPyrklA1MFD12Gb1CkBWSyoVjoB51LC+UrbklUq7cTU+vsVB8fiLSlJzwCPNeeo7fTxG+dioqa/JneaOFLJbgLDNQWaXvJfiWc00XHl923gqEJE9oSj70+Pl2mpZ2klnM97SLzWyuWu4GUFV6B2E7Iok5E3Z1sbVz4yCIy8l+mt6ympR3BTfYUsqhGpPWmSQXI1IIq1PQyENPyDgAsmc0Zl6mqAFllRdEwbVz4BLmjnLJvN6l993TfFnjcF+ATY6DeuuufaVPWFwBDg3bBFKs1Hhr/Xhk02Q2msC6X3OxZDqGrGSWGRvQbM8RyrC4usBujhOeZKOoNjOYRqDZ1uvGSNrv16mmEX/oFbiNcOABsMnvGQHjIS+MqnKJsMb03ANSSEM9FcLkfVYjJ+7JUsEgR2EKh//tmqtvyc4csRfIxm9VouywHrgA+IKD9n5JlSD7txzfuoRCJaOywGyf6XAkQlU0g/xMdmy4UGNdsMiJqNQh8XbsPHROC6kIjmfTzQLM0z0uurBUTUB+uBB7ZJXSMg6xlUK/3IaL5mC4cxY0s2FehlQebYkLlFjh8CGlgZ6yRgtYgMoU+la64mdygl3gd2AMOAPYKXLOrZZM/y5xCvRLcrx+5wJ3BZiqtkUQmZq4TzMmCWT859z2p4N/9+k1eswfIbQ0gvMA84TESDqqtNEpu8rLt04sR3+NwCzOc8DfSM5PPnwEwfIu2I4PqCl4+1zVNXG8mG/Pp7MS9IBnwMbPJztWXahLKIVJIBy21agQ1ZLe91jQqbLMHB0ymKuIZ38QqaMdQ9YlXODfQrTaWSJTm5O0URz2EJrtoCXhx2iiJO8eLQTBEP/uW4iSKOsyKOa879GJTgbA9irBe/lAyHx+Zq2pHXaEfVzZcrlKapXLUrQ1DEP5GGRPlqd7iO/Rb5f0P6rzKS0NbFFxRYRPRKIYaHCRanDSUS0cPrQfJzYNUHaSMvg2wUMe0xuyBqMQp9XLiVpUFWSLQLeI8eIc2zP4BPBUS0UlkU0ex6h6GIaVNzgm0FSQjJSlLEMzS7A0HmRiz3iF2fJCV5d1tz7g1gnIgMoR/XLCooAJbw8W2sovZpbp8v9WxK5OU/fw6wIv5WOXaLW0ytx8uMlGyBUgmW0iLcJ+f2erwcXEwMOZohjHGjPMgP2WkQGF4vXVPP6K3WsASQVpCCl9r94xcCDACHgA63y6lwZwAAAABJRU5ErkJggg%3D%3D) top left;
+}
+.rating a.rated {
+  background-position: 0 -26px;
+}
+.rating a.hover {
+  background-position: 0 -52px;
+}
+.rating.small a {
+  float: left;
+  display: block;
+  width: 12px;
+  height: 12px;
+  position: relative;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAnCAYAAAA/63kvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUMwOUI4NkMxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUMwOUI4NkQxQ0Y1MTFFMjlGOThBQTVDRENEQURDNUQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzA5Qjg2QTFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzA5Qjg2QjFDRjUxMUUyOUY5OEFBNUNEQ0RBREM1RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pu4JKw4AAAILSURBVHjavJRPSFRRFIfnjUM22hiFTM4YlNhSIQKjaCdRCYlki2jjqsEgN4FbN7rUdtHKhbhrkdBsWigUVKtwaRakxuj8IUMYC9xMTt/B895Mj3vfzKh04ePd+879nXfvub93nWQyGbK085CDfVMwHLK3CxC3BW3CKJyFzkaFruAcREwT5GVLgLBJ9/rDFy+J8DRctmWm9frGP2FZJufhF/TBqVBwW4NVKLt7/A3voWARlOQr8FlE/uJIcMUi3NYztVa1wyKMa6GswoQ+9+ATfK+qbtx/HG47CWcgo0su6Z5zWvWEFvIgUywWc/vtsAXrPn/uabI22DEVp1B90PnHT0egWYd/4Et1wkg2mzV7cWpmlEeR+Ou6vYpI/ozr8LBRkz8ABwZJYnST40xOd+mk6vZKKyltDN744kU5jiswF+DT577xW1lReH9iXLJfha81DC7H8Axuodl2yuWyWxA5p3kYMojkJ3iE4KW3R1eo4os8NgzCBUT3g6p6z7LM2ySNBgndrJu65Be6t1YYMArJKBfsNZiFHpaWhif0+3X5w7YvytVxl8kp2HVf0n+n906G5CcqNaY4JroXP4xAsy0edJOLye805NVLSx+PbnKSmE3OPv6zyb/dvNGwydFUTM5eapocgdnkiK0mR3Q4k5P0mE1Oxn9MztLSUL/JmZwCz+T0PZOT3DP5XwEGAJj+1ghmlpwuAAAAAElFTkSuQmCC) top left;
+}
+.rating.small a.rated {
+  background-position: 0 -13px;
+}
+.rating.small a.hover {
+  background-position: 0 -26px;
+}
+.rating:before,
+.rating:after {
+  display: table;
+  content: "";
+}
+.rating:after {
+  clear: both;
+}
+/*
+ * Metro UI CSS
+ * Copyright 2012 Sergey Pimenov
+ * Licensed under the MIT Lilcense
+ *
+ * Progress.less
+ */
+.progress-bar {
+  height: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  *zoom: 1;
+}
+.progress-bar .bar {
+  float: left;
+  width: 0;
+  background-color: #008287;
+  height: 100%;
+}
+.progress-bar:before,
+.progress-bar:after {
+  display: table;
+  content: "";
+}
+.progress-bar:after {
+  clear: both;
+}
+/*
+ * Metro UI CSS
+ * Copyright 2012 Sergey Pimenov
+ * Licensed under the MIT Lilcense
+ *
+ * Carousel.less
+ * Version: 1.0
+ *
+ */
+.carousel {
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+}
+.carousel .slides {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.carousel .slides .slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.carousel .slides .slide.image img {
+  width: 100%;
+  height: 100%;
+}
+.carousel .slides .slide .description {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+.carousel .control {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  width: 40px;
+  height: 45px;
+  margin-top: -20px;
+  font-size: 48pt;
+  font-weight: 100;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  opacity: .75;
+}
+.carousel .control.right {
+  left: auto;
+  right: 15px;
+}
+.carousel .control:hover {
+  opacity: 1;
+}
+.carousel .markers  > ul {
+  margin-left: 0;
+  list-style: none;
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 10px;
+}
+.carousel .markers li {
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+.carousel .markers li a {
+  width: 32px;
+  height: 6px;
+  background-color: red;
+  display: block;
+  float: left;
+}
+.carousel .markers li.active a {
+  background-color: #1e1e1e;
+}
+/*
+ * Metro UI CSS
+ * Copyright 2012 Sergey Pimenov
+ * Licensed under the MIT Lilcense
+ *
+ * ListView.less
+ * Version 1.0
+ */
+.listview {
+  margin-left: 0;
+  list-style: none;
+  *zoom: 1;
+}
+.listview li {
+  margin-bottom: 10px;
+  border: 4px transparent solid;
+  padding: 10px;
+  width: 300px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  *zoom: 1;
+}
+.listview li .icon {
+  width: 48px;
+  height: 48px;
+  float: left;
+}
+.listview li .icon img {
+  width: 100%;
+  height: 100%;
+}
+.listview li .data {
+  margin-left: 55px;
+}
+.listview li .data h4 {
+  margin: 0;
+  padding: 0 0 2px 0;
+}
+.listview li .data p {
+  margin: 0;
+  font-size: 9pt;
+}
+.listview li .data .static-rating.small,
+.listview li .data .progress-bar {
+  margin-bottom: 3px;
+}
+.listview li:hover {
+  outline: 3px #ccc solid;
+}
+.listview li:active {
+  outline: 3px #3e3e3e solid;
+}
+.listview li:before,
+.listview li:after {
+  display: table;
+  content: "";
+}
+.listview li:after {
+  clear: both;
+}
+.listview.image li {
+  width: 380px;
+}
+.listview.image li .icon {
+  width: 100px;
+  height: 100px;
+  border: 1px #ccc solid;
+}
+.listview.image li .data {
+  margin-left: 110px;
+}
+.listview.image li .data h4 {
+  margin-bottom: 4px;
+}
+.listview.image li .data p {
+  line-height: 16px;
+  font-size: 10pt;
+  margin-bottom: 5px;
+}
+.listview.image li .data .static-rating.small,
+.listview.image li .data .progress-bar {
+  margin-bottom: 10px;
+}
+.listview.iconic li .icon {
+  width: 32px;
+  height: 32px;
+  border: 1px #ccc solid;
+}
+.listview.iconic li .data {
+  margin-left: 40px;
+}
+.listview.fluid li {
+  float: left;
+  margin-right: 10px;
+}
+.listview  > li.selected {
+  border: 4px #2d89ef solid;
+}
+.listview  > li.selected:after {
+  width: 0;
+  height: 0;
+  border-top: 40px solid #2d89ef;
+  border-left: 40px solid transparent;
+  position: absolute;
+  display: block;
+  right: 0;
+  content: ".";
+  text-indent: -9999px;
+  top: 0;
+  z-index: 1000;
+}
+.listview  > li.selected:before {
+  position: absolute;
+  content: "\2714";
+  color: #fff;
+  right: 5px;
+  top: 0;
+  font-family: Tahoma;
+  z-index: 2000;
+}
+.listview:before,
+.listview:after {
+  display: table;
+  content: "";
+}
+.listview:after {
+  clear: both;
+}
+/*
+ * Metro UI CSS
+ * Copyright 2012 Sergey Pimenov
+ * Licensed under the MIT Lilcense
+ *
+ * Slider.less
+ *
+ */
+.slider {
+  height: 12px;
+  width: auto;
+  position: relative;
+  background-color: #c6c6c6;
+  margin-bottom: 10px;
+}
+.slider .marker {
+  height: 12px;
+  width: 12px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  z-index: 3;
+}
+.slider .complete {
+  height: 100%;
+  width: auto;
+  background-color: #00828b;
+  z-index: 2;
+}
+.slider.vertical {
+  height: auto;
+  width: 12px;
+}
+.slider.vertical .complete {
+  position: absolute;
+  height: auto;
+  width: 12px;
+  bottom: 0;
+}
+.slider:hover .complete {
+  background-color: #219297;
+}
+.slider:active .complete,
+.slider:active + .marker:active .complete {
+  background-color: #25bbc4;
 }

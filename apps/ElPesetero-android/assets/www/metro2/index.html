@@ -7,6 +7,9 @@
 		<link href="css/modern.css" rel="stylesheet">
 		<link href="css/modern-responsive.css" rel="stylesheet">	
 		<link href="css/custom.css" rel="stylesheet">		
+		<!-- <script type="text/javascript" charset="utf-8" src="js/json_sans_eval.js"></script>-->
+		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/data.js"></script>
 	</head>
 	<body class="bg-color-darken">
 		<div id="inicio" class="page snapped bg-color-darken">
@@ -36,7 +39,7 @@
 					</div>
 					<div class="tile medium-vertical bg-color-orangeDark">
 						<div class="brand">							
-							<div class="badge">-157&euro;</div>
+							<div id="totalBalance" class="badge"></div>
 						</div>													
 						<div class="tile-content">
 							<a href="#fondos">Fondos disponibles</a>
@@ -44,7 +47,7 @@
 					</div>	
 					<div class="tile medium-vertical bg-color-orangeDark">	
 						<div class="brand">
-							<div class="badge">32</div>
+							<div class="badge">--</div>
 						</div>		
 						<div class="tile-content">
 							<a href="#movimientos">Movimientos realizados</a>
@@ -106,7 +109,7 @@
 			
 			<div id="page-region">
 				<div id="page-region-content">
-					<a href="#inicio">Inicio</a>				
+					<div id="funds"></div>
 				</div>
 			</div>
 		</div>
@@ -134,7 +137,8 @@
 			
 			<div id="page-region">
 				<div id="page-region-content">
-					<a href="#inicio">Inicio</a>				
+					<a href="#inicio">Inicio</a>
+					<div id="topCategories"></div>				
 				</div>
 			</div>
 		</div>
@@ -151,7 +155,6 @@
 					<a href="#inicio">Inicio</a>				
 				</div>
 			</div>
-		</div>			
-		<script src="js/animaciones.js"></script>		
+		</div>
 	</body>
 </html>

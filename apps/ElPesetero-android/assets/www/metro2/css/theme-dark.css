@@ -1,11 +1,14 @@
 /*
- * Metro UI CSS v 0.1.1
+ * Metro UI CSS
  * Copyright 2012 Sergey Pimenov
  * Licensed under the MIT Lilcense
  *
  * Threme-dark.less
  *
  */
+body {
+  background: #1d1d1d;
+}
 .text-rest-state {
   color: #ffffff;
 }

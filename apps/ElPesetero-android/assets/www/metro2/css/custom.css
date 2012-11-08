@@ -9,6 +9,16 @@ body{
 	padding:0px !important;
 }
 
+.subCategoriesList{
+	margin-left:30px;
+	padding:0px !important;
+}
+
+.subCategoriesList .icon{
+	height: 30px !important;
+	width: 30px !important;
+}
+
 /* Large desktop */
 @media (min-width: 979px) {
 	  h1, h1:hover {
