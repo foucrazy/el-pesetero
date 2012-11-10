@@ -7,6 +7,7 @@ body{
 	height:100%;
 	overflow: hidden;
 	padding:0px !important;
+	background-color:black;
 }
 
 .subCategoriesList{
@@ -39,7 +40,16 @@ body{
 /* Large desktop */
 @media (min-width: 979px) {
 	  h1, h1:hover {
-		color:red;
+		padding-left:10px;
+		font-size:50px;
+	}
+	
+	.page.snapped {
+		min-height:768px;
+	}
+	.page.fill {
+		min-height:768px;
+		padding-left:15px;
 	}
 }
 
@@ -165,26 +175,21 @@ body{
 }
 
 /* Landscape phones and down and Small phones portrait */
-@media (max-width: 480px) {
-	
-	.back-button.big {
-	    height: 30px;
-	  	top: 10px;
-	  	left: 10px;
-	    width: 30px;
-	}
+@media (max-width: 320px) {
 	
 	.page.snapped {
 	  width: 100%;
 	  border-right: 0px;
-	  min-height:480px;
+	  min-height:460px;
 	  min-width:320px;
+	  max-width:320px;
 	}
 	.page.fill {
-	  width: 100%;
+	   width: 100%;
 	   border-left: 0px;
-	   min-height:480px;
+	   min-height:460px;
 	   min-width:320px;
+	   max-width:320px;
 	}
 	
 	#page-header{
@@ -194,7 +199,8 @@ body{
 	}
 	
 	#page-region{
-		margin-left:50px;
+		padding-top:30px;
+		padding-left:30px;
 	}
 
 	.tile .tile-content {
@@ -233,4 +239,10 @@ body{
 		font-size:12px;
 	}
 
+	.back-button.big {
+	    height: 30px;
+	  	top: 10px;
+	  	left: 10px;
+	    width: 30px;
+	}
 }

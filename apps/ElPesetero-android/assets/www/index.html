@@ -1,45 +1,194 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="es">
 	<head>
 		<title>El Pesetero</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1, target-densityDpi=device-dpi"/>
-		<script type="text/javascript" charset="utf-8" src="js/cordova-2.1.0.js"></script>	
-		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>		
-		<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
-		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
-		<link rel="stylesheet" href="css/el-pesetero.css" />		
-		<link rel="stylesheet" href="css/ajustes.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+		<link href="css/modern.css" rel="stylesheet">
+		<link href="css/modern-responsive.css" rel="stylesheet">	
+		<link href="css/custom.css" rel="stylesheet">
+		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/data.js"></script>
 	</head>
 	<body>
-		<!-- home -->
-		<div data-role="page" id="inicio">
-		
-			<div data-role="header">
-				<h1>El Pesetero</h1>
-				<a href="index.html" data-icon="delete" class="ui-btn-right">Salir</a>
-			</div><!-- /header -->
-		
-			<div data-role="content">				
-				<div id="accesoRapido">				
-					<a class="btnAccesoRapido" href="sacar.html" data-rel="dialog">
-						<img src="css/images/icon_gasto.gif" alt="Nuevo Gasto" title="Nuevo gasto"/>
-					</a>
-					<a class="btnAccesoRapido" href="sacar.html" data-rel="dialog">
-						<img src="css/images/icon_sacar.gif" alt="Sacar dinero" title="Sacar dinero"/>
-					</a>
+		<div id="inicio" class="page snapped">
+			<!--<div id="page-header">
+				<div id="page-header-content">
+					<h1>El pesetero</h1>
 				</div>
-				
-				<div id="panelGestion">
-					<a href="cuentas.html" data-icon="grid" data-role="button" data-transition="flow">Cuentas Bancarias</a>
-					<a href="tarjetas.html" data-icon="grid" data-role="button" data-transition="flow">Tarjetas</a>
-					<a href="movimientos.html" data-icon="grid" data-role="button" data-transition="flow">Movimientos</a>
-					<a href="tipos.html" data-icon="gear" data-role="button" data-transition="flow">Tipos de gasto</a>
-					<a href="configuracion.html" data-icon="gear" data-role="button" data-transition="flow">Configuraci&oacute;n</a>
+			</div>-->
+			<div id="page-region">
+				<div id="page-region-content">
+					<div class="tile bg-color-orange">		
+						<div class="brand">
+							<div class="name">Sacar dinero</div>
+						</div>					
+						<div class="tile-content">
+							<a href="#sacar"><img src="css/images/sacar.png" alt="Sacar dinero" title="Sacar dinero"/></a>
+						</div>
+					</div>
+					<div class="tile bg-color-orange">					
+						<div class="brand">
+							<div class="name">Nuevo gasto</div>
+						</div>					
+						<div class="tile-content">
+							<a href="#gasto"><img src="css/images/gasto_320.png" alt="Nuevo Gasto" title="Nuevo gasto"/></a>
+						</div>
+					</div>
+					<div class="tile bg-color-orangeDark">
+						<div class="brand">							
+							<div id="totalBalance" class="badge"></div>
+						</div>													
+						<div class="tile-content">
+							<a href="#fondos">Fondos disponibles</a>
+						</div>
+					</div>	
+					<div class="tile bg-color-orangeDark">	
+						<div class="brand">
+							<div class="badge">--</div>
+						</div>		
+						<div class="tile-content">
+							<a href="#movimientos">Movimientos realizados</a>
+						</div>
+					</div>	
+					<div class="tile bg-color-orangeDark">								
+						<div class="tile-content">
+							<a href="#tipos">Tipos de gasto</a>
+						</div>
+					</div>	
+					<div class="tile medium-vertical">								
+						<div class="tile-content full">
+							<a href="#configurar"><img src="css/images/configure_320.png" alt="Configurar" title="Configurar"/></a>
+						</div>
+					</div>	
+					<div class="tile medium-vertical">								
+						<div class="tile-content full">
+							<a href="#inicio"><img src="css/images/exit_320.png" alt="Salir" title="Salir"/></a>
+						</div>
+					</div>						
 				</div>
-			</div><!-- /content -->
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		<div id="sacar" class="page fill bg-color-orange">
+			<div id="page-header">
+				<div id="page-header-content">
+					<a href="#inicio" class="back-button big page-back"></a><h1>Sacar dinero</h1>
+				</div>
+			</div>
 			
-			<div data-role="footer">v0.1</div>
-		</div><!-- /home -->
+			<div id="page-region">
+				<div id="page-region-content">		
+					<form>
+						<p>El importe que indiques a continuación pasará a ser parte de tu efectivo.</p> 
+            			<div class="input-control text">
+                            <input type="text" placeholder="Importe a sacar">
+                        </div>
+						<p>de</p>
+						<div id="selectBankFunds" class="input-control select"></div>						
+                        <input type="submit" value="SACAR"/>	
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div id="gasto" class="page fill bg-color-orangeDark">
+			<div id="page-header">
+				<div id="page-header-content">
+					<a href="#inicio" class="back-button big page-back"></a><h1>Nuevo Gasto</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">	
+					<form>
+            			<div class="input-control text">
+                            <input type="text" placeholder="Concepto">
+                        </div>					
+            			<div class="input-control text">
+                            <input type="text" placeholder="Importe a sacar">
+                        </div>						
+						<p>forma de pago</p>
+						<div id="selectFunds" class="input-control select"></div>
+						<p>tipo de gasto</p>
+						<div id="selectCategory" class="input-control select"></div>						
+                        <input type="submit" value="SACAR"/>	
+					</form>						 
+				</div>
+			</div>
+		</div>		
+		
+		<div id="fondos" class="page fill bg-color-orange">
+			<div id="page-header">
+				<div id="page-header-content">
+					<a href="#inicio" class="back-button big page-back"></a><h1>Fondos disponibles</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">
+					<div id="funds"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="movimientos" class="page fill bg-color-orangeDark">
+			<div id="page-header">
+				<div id="page-header-content">
+					<a href="#inicio" class="back-button big page-back"></a><h1>Movimientos</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">			
+				</div>
+			</div>
+		</div>			
+
+		<div id="tipos" class="page fill bg-color-orange">
+			<div id="page-header">
+				<div id="page-header-content">
+					<a href="#inicio" class="back-button big page-back"></a><h1>Tipos de gasto</h1>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content">
+					<div id="topCategories"></div>				
+				</div>
+			</div>
+		</div>
+		
+		<div id="configurar" class="page fill bg-color-orangeDark">
+			<div id="page-header">
+				<div id="page-header-content">
+					<h1>Configurar</h1><a href="#inicio" class="back-button big page-back"></a>
+				</div>
+			</div>
+			
+			<div id="page-region">
+				<div id="page-region-content" class="fg-color-white">					
+					<form>
+						<p>Introduce tu usuario y contraseña</p>
+						<div class="input-control text">
+                            <input type="text" placeholder="Usuario">
+                        </div>	
+            			<div class="input-control text">
+                            <input type="text" placeholder="Constraseña">
+                        </div>
+                        <input type="submit" value="Acceder"/>	
+					</form>
+					<p>o</p>
+					<form>
+                        <button class="image-button bg-color-orangeDark fg-color-white">Accede con google<img src="css/images/connect-google.png"/></button>	
+					</form>					
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
