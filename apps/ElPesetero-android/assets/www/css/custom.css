@@ -228,6 +228,9 @@ body{
 	.tile.medium .tile-content.full{
 	  padding:0px;	
 	}
+	.tile.medium-vertical .tile-content.full{
+	  padding:0px;	
+	}		
 	
 	.tile .brand  > .name{	
 		margin-bottom:0px;
@@ -259,7 +262,7 @@ body{
 	}
 	
 	.page{
-		min-height: 320px;
+		min-height: 480px;
 	}
 	
 	.page.snapped {
@@ -308,6 +311,9 @@ body{
 	.tile.medium .tile-content.full{
 	  padding:0px;	
 	}
+	.tile.medium-vertical .tile-content.full{
+	  padding:0px;	
+	}	
 	
 	.tile .brand  > .name{	
 		margin-bottom:0px;
