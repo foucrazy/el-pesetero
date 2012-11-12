@@ -1,9 +1,15 @@
-/*var myJson = '{"mail":"kortatu@gmail.com","topCategories":[{"name":"Vivienda","subCategories":[{"name":"Alquiler/Hipoteca","subCategories":[]}]}],"totalBalance":8378,"username":"kortatu"}';
-var myJsonObj = jsonParse(myJson);
-alert(myJsonObj.mail);
-for (var k in myJsonObj) {
-  alert(k + '=' + myJsonObj[k]);
-}*/
+function goTo(subpage){	
+	$(subpage).css("display","block");
+	var position=$(subpage).css("width");
+	$('html, body').animate({scrollLeft:position}, 600,function() {		
+	  });	
+}
+
+function back(subpage){	
+	$('html, body').animate({scrollLeft:0}, 300,function() {
+		$(subpage).css("display","none");
+	  });	
+}
 
 var url='data/initial.json';
 //url='http://el-pesetero.cloudfoundry.com/user/show/30.json';

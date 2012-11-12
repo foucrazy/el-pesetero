@@ -3,11 +3,9 @@ h1, h1:hover {
 }
 
 body{
-	width:100%;
-	height:100%;
-	overflow: hidden;
 	padding:0px !important;
 	background-color:black;
+	overflow: hidden;
 }
 
 .subCategoriesList{
@@ -175,21 +173,29 @@ body{
 }
 
 /* Landscape phones and down and Small phones portrait */
-@media (max-width: 320px) {
+@media (min-width: 321px) and (max-width: 480px) {
+	body{
+		width: 960px;
+	}
+	
+	.page{
+		min-height: 320px;
+	}
 	
 	.page.snapped {
-	  width: 100%;
-	  border-right: 0px;
-	  min-height:460px;
-	  min-width:320px;
-	  max-width:320px;
+	  height:100%;
+	  width:480px;
+	  float:left;
 	}
+	
 	.page.fill {
-	   width: 100%;
-	   border-left: 0px;
-	   min-height:460px;
-	   min-width:320px;
-	   max-width:320px;
+	  height:100%;
+	  width:480px;
+	  float:left;
+	}
+	
+	.subpage{
+		display:none;
 	}
 	
 	#page-header{
@@ -245,4 +251,84 @@ body{
 	  	left: 10px;
 	    width: 30px;
 	}
+}
+
+@media (max-width: 320px) {
+	body{
+		width: 640px;
+	}
+	
+	.page{
+		min-height: 320px;
+	}
+	
+	.page.snapped {
+	  height:100%;
+	  width:320px;
+	  float:left;
+	}
+	
+	.page.fill {
+	  height:100%;
+	  width:320px;
+	  float:left;
+	}
+	
+	.subpage{
+		display:none;
+	}
+	
+	#page-header{
+		margin-top:15px;
+		margin-left:10px;
+		margin-bottom:30px;
+	}
+	
+	#page-region{
+		padding-top:30px;
+		padding-left:30px;
+	}
+
+	.tile .tile-content {
+		padding-top:8px;
+		padding-left:8px;
+	}
+	.tile.medium {
+	  width: 55px;
+	}
+	.tile.medium .tile-content {
+	  width: 55px;
+	}
+	.tile.medium-vertical {
+	  height: 55px;
+	}
+	.tile.medium-vertical .tile-content {
+	  height: 55px;
+	}
+	.tile.medium .tile-content.full{
+	  padding:0px;	
+	}
+	
+	.tile .brand  > .name{	
+		margin-bottom:0px;
+		margin-left:8px;
+	}
+	
+	.tile .brand  > .badge{	
+		margin-right:2px;
+		margin-bottom:0px;
+		padding-bottom:0px;
+		height:20px;
+		width:58px;
+		font-weight:100;
+		text-align: right;
+		font-size:12px;
+	}
+
+	.back-button.big {
+	    height: 30px;
+	  	top: 10px;
+	  	left: 10px;
+	    width: 30px;
+	}	
 }
