@@ -1,0 +1,38 @@
+/*
+	http://www.gsmarena.com
+	Xperia mini pro 	320  x  480
+	HTC Desire			480  x	800
+	Galaxy SII			480  x	800
+	iPhone4 			640  x  960
+	iPhone5 			640  x 1136
+	Galaxy nexus 		720  x 1280
+	Galaxy SIII			720  x 1280
+	Archos 80 G9 		1024 x 768
+*/
+
+h1, h1:hover {
+	color:white;
+}
+
+body{
+	padding:0px !important;
+	background-color:black;
+	overflow: hidden;
+}
+
+#page-header-content h1{
+	margin-left:50px;
+}
+
+.back-button.big {
+    height: 48px;
+  	top: 5px;
+  	left: 5px;
+    width: 48px;
+}
+
+.page-back {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}

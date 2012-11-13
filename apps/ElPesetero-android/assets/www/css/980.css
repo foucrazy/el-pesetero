@@ -1,0 +1,111 @@
+ /* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	body{
+		padding:0px !important;
+		background-color:black;
+		overflow: hidden;
+	}
+	
+
+	#inicio{
+		padding-top:20px;
+		padding-left:2%;		
+	}
+	
+	#inicio #page-region{
+		padding-top:0px;
+		padding-left:0px;
+	}
+
+	body{
+		
+	}
+	
+	.page{
+
+	}
+	
+	.page.snapped {
+		width:29%;
+	}
+	
+	.page.fill {
+		width:71%;
+	}
+	
+	.subpage{
+		display:none;
+	}
+	
+	#page-header-content h1{
+		padding-top:0px;
+		margin-left:60px;
+		line-height:34pt;
+	}	
+	
+	#page-region{
+		padding-top:10px;
+		padding-left:10px;
+	}
+
+	.tile .tile-content {
+		padding-top:5px;
+		padding-left:10px;
+	}
+	.tile.medium {
+	  width: 55px;
+	}
+	.tile.medium .tile-content {
+	  width: 55px;
+	}	
+	.tile.medium .tile-content.full{
+	  padding:0px;	
+	}
+	
+	.tile.medium-vertical {
+	  height: 55px;
+	}
+	.tile.medium-vertical .tile-content {
+	  height: 55px;
+	}
+	.tile.medium-vertical .tile-content.full{
+	  padding:0px;	
+	}	
+	
+	.tile .brand  > .name{	
+		margin-bottom:0px;
+		margin-left:8px;
+	}
+	
+	.tile .brand  > .badge{	
+		margin-right:2px;
+		margin-bottom:0px;
+		padding-bottom:0px;
+		height:20px;
+		width:58px;
+		font-weight:100;
+		text-align: right;
+		font-size:12px;
+	}
+
+	.back-button.big {
+	    height: 45px;
+	  	top: 15px;
+	  	left: 10px;
+	    width: 45px;
+	}	
+	
+	.subCategoriesList{
+		margin-left:15px;
+		padding:0px !important;
+	}
+
+	.subCategoriesList .icon{
+		height: 30px !important;
+		width: 30px !important;
+	}	
+	
+	.listview li{
+		width:90%;
+	}	
+}
