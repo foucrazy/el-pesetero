@@ -1,32 +1,21 @@
-/* Landscape phones and down and Small phones portrait */
 @media (min-width: 321px) and (max-width: 480px) {
 	#inicio{
 		padding-top:5px;
 		padding-left:40px;		
 	}
-
+	
 	body{
 		width: 960px;
 	}
 	
-	.page{
-		min-height: 320px;
-	}
-	
 	.page.snapped {
-	  height:100%;
 	  width:480px;
 	  float:left;
 	}
 	
 	.page.fill {
-	  height:100%;
 	  width:480px;
 	  float:left;
-	}
-	
-	.subpage{
-		display:none;
 	}
 	
 	#page-header h1{
@@ -95,7 +84,4 @@
 		width: 30px !important;
 	}	
 	
-	.listview li{
-		width:410px;
-	}
 }

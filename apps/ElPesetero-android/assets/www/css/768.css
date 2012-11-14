@@ -1,12 +1,4 @@
-/* Landscape phone to portrait tablet 
-480x768 o 768x480
-*/
-@media (min-width: 481px) and (max-width: 767px) {
-	body{
-		padding:0px !important;
-		background-color:gray;
-		overflow: hidden;
-	}
+@media (min-width: 481px) and (max-width: 768px) {
 
 	#inicio{
 		padding-top:20px;
@@ -17,14 +9,6 @@
 		padding-top:0px;
 		padding-left:0px;
 	}
-
-	body{
-		
-	}
-	
-	.page{
-
-	}
 	
 	.page.snapped {
 		width:29%;
@@ -32,10 +16,6 @@
 	
 	.page.fill {
 		width:71%;
-	}
-	
-	.subpage{
-		display:none;
 	}
 	
 	#page-header-content h1{
@@ -106,7 +86,4 @@
 		width: 30px !important;
 	}	
 	
-	.listview li{
-		width:90%;
-	}
 }

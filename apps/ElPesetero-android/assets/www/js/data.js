@@ -1,12 +1,16 @@
 function goTo(subpage){	
 	$(subpage).css("display","block");
-	var position=$(subpage).css("width");
-	$('html, body').animate({scrollLeft:position}, 600,function() {		
-	  });	
+	//var position=$(subpage).css("width");
+	var positionX=$(subpage).offset().left;
+	var positionY=$(subpage).offset().top;
+	$('html, body').animate({scrollLeft:positionX}, 300,function() {
+		$('html, body').animate({scrollTop:positionY}, 500,function() {});
+	});	
 }
 
 function back(subpage){	
-	$('html, body').animate({scrollLeft:0}, 300,function() {
+	$('html, body').animate({scrollTop:0}, 300,function() {
+		$('html, body').animate({scrollLeft:0}, 300,function() {});
 		$(subpage).css("display","none");
 	  });	
 }
