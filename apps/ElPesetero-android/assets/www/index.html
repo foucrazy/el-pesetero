@@ -62,7 +62,7 @@
 					</div>	
 					<div class="tile medium-vertical">								
 						<div class="tile-content full">
-							<a onclick="goTo('#inicio')"><img src="css/images/exit_320.png" alt="Salir" title="Salir"/></a>
+							<a onclick="navigator.app.exitApp();"><img src="css/images/exit_320.png" alt="Salir" title="Salir"/></a>
 						</div>
 					</div>						
 				</div>
@@ -119,7 +119,9 @@
 							<p>forma de pago</p>
 							<div id="selectFunds" class="input-control select"></div>
 							<p>tipo de gasto</p>
-							<div id="selectCategory" class="input-control select"></div>						
+							<div id="selectCategory" class="input-control select"></div>
+							<a onclick="capturePhoto();" class="image-button bg-color-darken fg-color-white">Adjuntar foto</a>
+							<img style="display:none;width:100px;height:100px;" id="adjunto" src="" />						
 	                        <input type="submit" value="SACAR"/>	
 						</form>						 
 					</div>
@@ -193,6 +195,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</body>
 </html>

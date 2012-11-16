@@ -1,6 +1,59 @@
+var pictureSource;   // picture source
+var destinationType; // sets the format of returned value 
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    // Register the event listener
+    document.addEventListener("backbutton", onBackKeyDown, false);
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;
+}
+
+// Handle the back button
+function onBackKeyDown() {
+	goTo('#inicio');
+}
+
+//Called when a photo is successfully retrieved
+function onPhotoDataSuccess(imageData) {
+  // Uncomment to view the base64 encoded image data
+  // console.log(imageData);
+
+  // Get image handle
+  var smallImage = document.getElementById('adjunto');
+
+  // Unhide image elements
+  smallImage.style.display = 'block';
+
+  // Show the captured photo
+  // The inline CSS rules are used to resize the image
+  smallImage.src = "data:image/jpeg;base64," + imageData;
+}
+
+// A button will call this function
+function capturePhoto() {
+  // Take picture using device camera and retrieve image as base64-encoded string
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
+	  quality : 75, 
+	  destinationType : Camera.DestinationType.DATA_URL, 
+	  sourceType : Camera.PictureSourceType.CAMERA, 
+	  allowEdit : true,
+	  encodingType: Camera.EncodingType.JPEG,
+	  targetWidth: 800,
+	  targetHeight: 600,
+	  popoverOptions: CameraPopoverOptions,
+	  saveToPhotoAlbum: false
+	 });
+}
+
+// Called if something bad happens.
+function onFail(message) {
+  alert('Failed because: ' + message);
+}    
+
 function goTo(subpage){	
 	$(subpage).css("display","block");
-	//var position=$(subpage).css("width");
 	var positionX=$(subpage).offset().left;
 	var positionY=$(subpage).offset().top;
 	$('html, body').animate({scrollLeft:positionX}, 300,function() {
