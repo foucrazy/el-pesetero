@@ -80,3 +80,11 @@ body {
 .listview li{
 	width:90%;
 }
+
+.fl{
+	float:left;
+}
+
+.flr{
+	float:right;
+}

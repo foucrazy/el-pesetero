@@ -12,7 +12,7 @@
 		<link href="css/768.css" rel="stylesheet">
 		<link href="css/980.css" rel="stylesheet">
 		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
-		<script type="text/javascript" charset="utf-8" src="js/cordova-2.1.0.js"></script>	
+		<script type="text/javascript" charset="utf-8" src="js/cordova-2.2.0.js"></script>	
 		<script type="text/javascript" charset="utf-8" src="js/data.js"></script>
 	</head>
 	
@@ -44,7 +44,7 @@
 					</div>	
 					<div class="tile bg-color-orangeDark">	
 						<div class="brand">
-							<div class="badge">--</div>
+							<div id="totalExpenses" class="badge"></div>
 						</div>		
 						<div class="tile-content">
 							<a onclick="goTo('#movimientos')"><img src="css/images/movimientos.png" alt="Movimientos realizados" title="Movimientos realizados"/></a>
@@ -120,9 +120,22 @@
 							<div id="selectFunds" class="input-control select"></div>
 							<p>tipo de gasto</p>
 							<div id="selectCategory" class="input-control select"></div>
-							<a onclick="capturePhoto();" class="image-button bg-color-darken fg-color-white">Adjuntar foto</a>
-							<img style="display:none;width:100px;height:100px;" id="adjunto" src="" />						
-	                        <input type="submit" value="SACAR"/>	
+							
+							<div class="tile double image">
+		                        <div class="tile-content">
+		                            <img id="adjunto" src="css/images/4.jpg" alt="imagen adjunta">
+		                        </div>
+		                        <div class="brand bg-color-orange">		                            
+		                            <p class="text">
+		                            	<a onclick="capturePhoto();" class="bg-color-darken fg-color-white">Adjunta una fotografía</a>
+		                            </p>		                            
+		                        </div>
+		                    </div>
+	                        <div class="tile flr">
+	                        	<div class="tile-content">
+	                        		<input type="submit" value="GUARDAR"/>
+                        		</div>
+	                        </div>	
 						</form>						 
 					</div>
 				</div>
@@ -151,6 +164,7 @@
 				
 				<div id="page-region">
 					<div id="page-region-content">
+						<div id="lastExpenses"></div>
 					</div>
 				</div>
 			</div>			
@@ -190,7 +204,7 @@
 						</form>
 						<p>o</p>
 						<form>
-	                        <button class="image-button bg-color-orangeDark fg-color-white">Accede con google<img src="css/images/connect-google.png"/></button>	
+	                        <button class="image-button bg-color-darken fg-color-white">Accede con google<img src="css/images/connect-google.png"/></button>	
 						</form>					
 					</div>
 				</div>

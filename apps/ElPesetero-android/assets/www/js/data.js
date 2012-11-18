@@ -1,13 +1,12 @@
-var pictureSource;   // picture source
-var destinationType; // sets the format of returned value 
+
+var debug=false;
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-    // Register the event listener
+    if (debug)alert("onDeviceReady");
+    var pictureSource=navigator.camera.PictureSourceType;
     document.addEventListener("backbutton", onBackKeyDown, false);
-    pictureSource=navigator.camera.PictureSourceType;
-    destinationType=navigator.camera.DestinationType;
 }
 
 // Handle the back button
@@ -31,8 +30,14 @@ function onPhotoDataSuccess(imageData) {
   smallImage.src = "data:image/jpeg;base64," + imageData;
 }
 
+//Called if something bad happens.
+function onFail(message) {
+  alert('Failed because: ' + message);
+}  
+
 // A button will call this function
 function capturePhoto() {
+	if (debug)alert("capturePhoto");
   // Take picture using device camera and retrieve image as base64-encoded string
   navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
 	  quality : 75, 
@@ -45,14 +50,10 @@ function capturePhoto() {
 	  popoverOptions: CameraPopoverOptions,
 	  saveToPhotoAlbum: false
 	 });
-}
-
-// Called if something bad happens.
-function onFail(message) {
-  alert('Failed because: ' + message);
-}    
+}  
 
 function goTo(subpage){	
+	if (debug)alert("goTo");
 	$(subpage).css("display","block");
 	var positionX=$(subpage).offset().left;
 	var positionY=$(subpage).offset().top;
@@ -61,7 +62,8 @@ function goTo(subpage){
 	});	
 }
 
-function back(subpage){	
+function back(subpage){
+	if (debug)alert("back");
 	$('html, body').animate({scrollTop:0}, 300,function() {
 		$('html, body').animate({scrollLeft:0}, 300,function() {});
 		$(subpage).css("display","none");
@@ -134,6 +136,21 @@ $.getJSON(url, function(data) {
 		categoriesSelect = categoriesSelect + "<option>"+parentCategory.name+"</option>"+subCategoriesList;
 	});	
 	categoriesSelect =categoriesSelect + '</select>'
-	$('#selectCategory').html(categoriesSelect);		
+	$('#selectCategory').html(categoriesSelect);
 	
+	//Ultimos movimientos
+	var totalExpenses=0;
+	var expensesList='<ul class="listview fluid">';
+	$.each(data.lastExpenses, function(k,expense){
+		expensesList = expensesList + "<li class=\"bg-color-blueLight\"><div class=\"icon\"><img src=\"css/images/"+expense.from.type.name+
+			"icon.png\"></div><div class=\"data\"><h4>"+expense.name+"</h4>"+expense.quantity+"&nbsp;&euro;<p>"+expense.expenseDate+"</p></div></li>";
+		totalExpenses=totalExpenses+expense.quantity;
+	});	
+	expensesList = expensesList + '</ul>'
+	$('#lastExpenses').html(expensesList);	
+	
+	//Importe acumulado de los ultimos movimientos	
+	$('#totalExpenses').html(totalExpenses+'&euro;');
+	
+	if (debug)alert("data parsed");
 });
