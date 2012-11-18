@@ -52,6 +52,11 @@ body {
 	display:none;
 }
 
+.tile .tile-content img{
+	width:99%;
+	height: 90%;
+}
+
 .input-control{
 	margin-right:10px;
 }
