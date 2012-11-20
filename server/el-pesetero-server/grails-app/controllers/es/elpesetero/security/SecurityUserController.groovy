@@ -34,7 +34,8 @@ class SecurityUserController {
 		flash.message = message(code: 'default.created.message', args: [message(code: 'securityUser.label', default: 'SecurityUser'), securityUserInstance.id])
         redirect(action: "show", id: securityUserInstance.id)
     }
-
+	
+	@Secured(['ROLE_USER'])
     def show() {
         def securityUserInstance = SecurityUser.get(params.id)
         if (!securityUserInstance) {
@@ -46,6 +47,7 @@ class SecurityUserController {
         [securityUserInstance: securityUserInstance]
     }
 
+	@Secured(['ROLE_USER'])
     def edit() {
         def securityUserInstance = SecurityUser.get(params.id)
         if (!securityUserInstance) {
@@ -57,6 +59,7 @@ class SecurityUserController {
         [securityUserInstance: securityUserInstance]
     }
 
+	@Secured(['ROLE_USER'])
     def update() {
         def securityUserInstance = SecurityUser.get(params.id)
         if (!securityUserInstance) {
@@ -77,7 +80,22 @@ class SecurityUserController {
         }
 
         securityUserInstance.properties = params
-
+		def newPassword = params.newPassword
+		println "New Password $newPassword"
+		if (newPassword) {
+			def newPasswordConfirm = params.newPasswordConfirm
+			println "New PasswordConfirm $newPasswordConfirm"
+			if (newPassword==newPasswordConfirm) {
+				securityUserInstance.password = newPassword
+			} else {
+				securityUserInstance.errors.rejectValue("newPasswordConfirm", "notCoincident",
+				[message(code: 'securityUser.label', default: 'SecurityUser')] as Object[],
+				"Las password no coinciden")
+				render(view: "edit", model: [securityUserInstance: securityUserInstance])
+				return
+			}
+				
+		}
         if (!securityUserInstance.save(flush: true)) {
             render(view: "edit", model: [securityUserInstance: securityUserInstance])
             return

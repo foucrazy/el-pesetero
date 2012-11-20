@@ -10,12 +10,18 @@
 	<g:textField name="username" required="" value="${securityUserInstance?.username}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: securityUserInstance, field: 'password', 'error')} required">
-	<label for="password">
-		<g:message code="securityUser.password.label" default="Password" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: securityUserInstance, field: 'newPassword', 'error')}">
+	<label for="newPassword">
+		<g:message code="securityUser.newPassword.label" default="Nueva Password" />		
 	</label>
-	<g:textField name="password" required="" value="${securityUserInstance?.password}"/>
+	<g:passwordField name="newPassword" required="" value="${newPassword}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: securityUserInstance, field: 'newPasswordConfirm', 'error')}">
+	<label for="newPasswordConfirm">
+		<g:message code="securityUser.newPasswordConfirm.label" default="Nueva Password" />		
+	</label>
+	<g:passwordField name="newPasswordConfirm" required="" value="${newPasswordConfirm}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: securityUserInstance, field: 'accountExpired', 'error')} ">
