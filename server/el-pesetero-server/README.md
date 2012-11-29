@@ -1,8 +1,9 @@
 API JSON de El Pesetero
 =======================
 
-* Si queremos un resumen de la información de usuario vale con invocar la URL de mostrado de usuario: /user/show/1.json . El 1 se sustituirá con el id del usuario actual. Esto devolverá algo como:
-{
+* Si queremos un resumen de la información de usuario vale con invocar la URL de mostrado de usuario: /user/show/1.json . El 1 se sustituirá con el id del usuario actual. Esto devolverá algo como:  
+
+    {
     "topCategories": [
         {
             "name": "Vivienda",
@@ -124,5 +125,4 @@ API JSON de El Pesetero
     ],
     "totalBalance": 8367,
     "username": "kortatu"
-
-}
+    }
