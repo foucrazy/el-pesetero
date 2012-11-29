@@ -1,4 +1,3 @@
-
 var debug=false;
 
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -66,7 +65,9 @@ function back(subpage){
 	if (debug)alert("back");
 	$('html, body').animate({scrollTop:0}, 300,function() {
 		$('html, body').animate({scrollLeft:0}, 300,function() {});
-		$(subpage).css("display","none");
+		if (subpage){
+			$(subpage).css("display","none");
+		}
 	  });	
 }
 

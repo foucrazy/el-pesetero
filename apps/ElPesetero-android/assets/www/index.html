@@ -12,6 +12,8 @@
 		<link href="css/768.css" rel="stylesheet">
 		<link href="css/980.css" rel="stylesheet">
 		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+	    <script src="js/touch/hammer.js"></script>
+	    <script src="js/touch/jquery.specialevent.hammer.js"></script>		
 		<script type="text/javascript" charset="utf-8" src="js/cordova-2.2.0.js"></script>	
 		<script type="text/javascript" charset="utf-8" src="js/data.js"></script>
 	</head>
@@ -19,7 +21,7 @@
 	<body>
 		<div id="inicio" class="page snapped">
 			<div id="page-region">
-				<div id="page-region-content">
+				<div id="page-region-content">											
 					<div class="tile bg-color-orange">		
 						<div class="brand"><div class="name">Sacar dinero</div></div>					
 						<div class="tile-content">
@@ -77,7 +79,12 @@
 		</div>
 		
 		<div class="page fill">
-			<div id="vacio" class="page bg-color-blueLight">			
+			<div id="vacio" class="page bg-color-blueLight subpage">	
+				<div id="page-header">
+					<div id="page-header-content">
+						<a onclick="back('#vacio')" class="back-button big page-back"></a><h1>Selecciona una opción</h1>
+					</div>
+				</div>
 				<div id="page-region">
 					<div id="page-region-content">		
 						<p>Selecciona alguna de las opciones disponibles en el menú.</p>
@@ -217,5 +224,14 @@
 				</div>
 			</div>
 		</div>	
+		    <script>
+        (function ($) {        
+        	$('.subpage').each(function(index) {        	  
+        	    $(this).on('dragend', function (event) {event.preventDefault();if (event.direction=='right'){back();}});
+        	});
+            //$('#vacio').on('dragend', function (event) {event.preventDefault();if (event.direction=='right'){back();}});
+
+        }(jQuery));
+    </script>	
 	</body>
 </html>
