@@ -10,7 +10,8 @@ public class ElPesetero extends DroidGap {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.loadUrl("file:///android_asset/www/metro/index.html");
+        super.setBooleanProperty("keepRunning", false);
+        super.loadUrl("file:///android_asset/www/index.html");
     }
 
     @Override

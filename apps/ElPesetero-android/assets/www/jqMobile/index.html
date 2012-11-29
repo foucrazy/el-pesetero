@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>El Pesetero</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1, target-densityDpi=device-dpi"/>
+		<script type="text/javascript" charset="utf-8" src="js/cordova-2.1.0.js"></script>	
+		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>		
+		<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
+		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="css/el-pesetero.css" />		
+		<link rel="stylesheet" href="css/ajustes.css" />
+	</head>
+	<body>
+		<!-- home -->
+		<div data-role="page" id="inicio">
+		
+			<div data-role="header">
+				<h1>El Pesetero</h1>
+				<a href="index.html" data-icon="delete" class="ui-btn-right">Salir</a>
+			</div><!-- /header -->
+		
+			<div data-role="content">				
+				<div id="accesoRapido">				
+					<a class="btnAccesoRapido" href="sacar.html" data-rel="dialog">
+						<img src="css/images/icon_gasto.gif" alt="Nuevo Gasto" title="Nuevo gasto"/>
+					</a>
+					<a class="btnAccesoRapido" href="sacar.html" data-rel="dialog">
+						<img src="css/images/icon_sacar.gif" alt="Sacar dinero" title="Sacar dinero"/>
+					</a>
+				</div>
+				
+				<div id="panelGestion">
+					<a href="cuentas.html" data-icon="grid" data-role="button" data-transition="flow">Cuentas Bancarias</a>
+					<a href="tarjetas.html" data-icon="grid" data-role="button" data-transition="flow">Tarjetas</a>
+					<a href="movimientos.html" data-icon="grid" data-role="button" data-transition="flow">Movimientos</a>
+					<a href="tipos.html" data-icon="gear" data-role="button" data-transition="flow">Tipos de gasto</a>
+					<a href="configuracion.html" data-icon="gear" data-role="button" data-transition="flow">Configuraci&oacute;n</a>
+				</div>
+			</div><!-- /content -->
+			
+			<div data-role="footer">v0.1</div>
+		</div><!-- /home -->
+	</body>
+</html>

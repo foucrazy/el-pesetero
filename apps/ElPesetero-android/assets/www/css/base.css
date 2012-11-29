@@ -1,0 +1,95 @@
+/*
+	http://www.gsmarena.com
+	Xperia mini pro 	320  x  480
+	HTC Galaxy ACE		320  x  480
+	
+	HTC ChaChaCha		480  x  320
+	HTC Desire			480  x	800
+	Galaxy SII			480  x	800
+	Xperia Arc			480  x  854
+	
+	HTC Sensation		540  x  960
+	iPhone4 			640  x  960
+	iPhone5 			640  x 1136
+	Galaxy nexus 		720  x 1280
+	Galaxy SIII			720  x 1280
+	
+	iMini,iPad2,iPad	768  x 1024
+	Archos 80 G9 		1024 x  768	
+	Motorola Xoom		1280 x  800	
+	iPad3,4				1536 x 2048		
+*/
+h1,h1:hover {
+	color: white;
+}
+
+html,body {
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	padding: 0px !important;
+	background-color: black;
+	overflow: hidden;
+}
+
+.page{
+	min-height:100%;
+	height: auto;
+}
+
+.page.snapped {
+	border:0px;
+}
+
+.page.fill {
+	border:0px;
+}
+
+.subpage{
+	display:none;
+}
+
+.tile .tile-content img{
+	width:99%;
+	height: 90%;
+}
+
+.input-control{
+	margin-right:10px;
+}
+
+.input-control>input[type="text"],.input-control>input[type="email"],.input-control>input[type="url"],.input-control>input[type="phone"],.input-control>input[type="password"],.input-control>select,.input-control>textarea{
+	margin-right:0px;		
+}
+
+#page-header-content h1 {
+	margin-left: 50px;
+}
+
+.back-button.big {
+	height: 48px;
+	top: 5px;
+	left: 5px;
+	width: 48px;
+}
+
+.page-back {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+.listview li{
+	width:90%;
+}
+
+.fl{
+	float:left;
+}
+
+.flr{
+	float:right;
+}
