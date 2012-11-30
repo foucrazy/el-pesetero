@@ -42,7 +42,7 @@ class User {
 		userService.withdrawCash(this, from, to, quantity)
 	}
 	
-	def lastExpenses() {
+	def getLastExpenses() {
 		ExpenseLine.findAllByUser(this).sort {it.expenseDate}
 	}
 	

@@ -647,15 +647,12 @@ a.skip {
 }
 
 .summaryBox {
-	background: none repeat scroll 0 0 #DCDDDE;
-	border-radius: 2px 2px 2px 2px;
-	margin-bottom: 20px;
-	padding: 10px;	
-	height: auto;
-	background-repeat: no-repeat;
-/* 	border-color: darkOrange; */
-	border-style: solid;
-	border-width: 1px 1px;
+	background-color: #EEEEEE;
+    border: 0.2em solid #FFFFFF;
+    border-radius: 0.6em 0.6em 0.6em 0.6em;
+    box-shadow: 0 0 1.25em #CCCCCC;   
+    margin: 1em;
+    padding: 1em;
 }
 .summaryBox ul {
 	padding-top: 5px;
@@ -667,4 +664,11 @@ a.skip {
 .summaryBox .link {
 	float: right;
 	
+}
+
+#status #fast-actions [class*="foundicon-"]:before {
+	text-shadow: 0.1em 0.1em 0.2em gray;
+	margin-right: 0.5em;
+	vertical-align: -0.2em;
+	font-size: 1.3em;
 }

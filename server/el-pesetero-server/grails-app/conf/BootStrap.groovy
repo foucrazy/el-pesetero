@@ -1,5 +1,6 @@
 import es.elpesetero.ExpenseCategory
 import es.elpesetero.Expense
+import es.elpesetero.ExpenseLine
 import es.elpesetero.FrequencyType;
 import es.elpesetero.PeriodicExpense
 import es.elpesetero.User
@@ -23,7 +24,13 @@ class BootStrap {
 			}
 		}		
 		JSON.registerObjectMarshaller(ExpenseCategory) {
-			it.properties.findAll {k,v -> k!='user' && k!='userId' && k!='parent' && k!='parentId'}			
+			it.properties.findAll {k,v -> k!='user' && k!='userId' && k!='parent' && k!='parentId'}
+		}
+		JSON.registerObjectMarshaller(ExpenseLine) {
+			def properties = it.properties.findAll {k,v -> k!='expenseId' && k!='user' && k!='expense'}
+			properties << it.expense.properties << ['class': 'es.elpesetero.ExpenseLine']
+			properties.each {k,v -> print k}
+			properties
 		}
 		if (!User.count()) {
 			ExpenseCategory vivienda = new ExpenseCategory(name: "Vivienda")
@@ -47,9 +54,7 @@ class BootStrap {
 		User kortatu = new User(username: 'kortatu', mail: "kortatu@gmail.com", securityUser: admin)
 		kortatu = userService.addUser(kortatu);
 		initFund(kortatu)
-		//testExpenses(kortatu)
-		
-		//addUser(password, roleUser)
+		addUser(password, roleUser)
 		println kortatu.encodeAsJSON()
 	}
 
@@ -69,18 +74,6 @@ class BootStrap {
 		fund.save(flush: true)
 	}
 
-	private testExpenses(User kortatu) {
-		def fund = kortatu.funds.find {it}		
-		println "Fund $fund"
-		def category = kortatu.categories.find{it}
-		println "Category $category"
-		def expenseInstance = new Expense(name: 'semanal', quantity: 10, from: fund,
-				category: category)		
-		expenseInstance = expenseInstance.save(flush: true)
-		def periodicExpenseInstance = new PeriodicExpense(expense: expenseInstance,
-				frequency: FrequencyType.weekly, day: 4, user: kortatu)
-		periodicExpenseInstance.save(flush: true)
-	}
 	
     def destroy = {
     }

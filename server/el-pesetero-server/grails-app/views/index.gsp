@@ -3,6 +3,7 @@
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Bienvenido a El Pesetero</title>
+<%--		 <r:require modules="dialog, datePicker"/>--%>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -80,14 +81,15 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body >
 		<img class="banner" src="${resource(dir: 'images', file: 'coins-banner3.png')}" alt="Coins"/>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
 			<h1>Acciones rápidas</h1>
-			<ul>
-				<li><i class="foundicon-cart"></i>Nuevo gasto</li>
-			</ul>
+			<ul id="fast-actions">
+				<li><i class="foundicon-cart"><g:link controller='expenseLine' action='create'>Nuevo gasto</g:link></i></li>
+				<li><i class="foundicon-address-book"><g:link controller="securityUser" action="edit" params='[id:"${userInstance.securityUser.id}"]'>Editar perfil</g:link></i></li>
+			</ul>			
 			<h1>Installed Plugins</h1>
 			<ul>
 				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
@@ -123,7 +125,7 @@
 					<div id="expenseSummary" class="summaryBox">
 						<strong>Últimos gastos</strong>			
 						<ul>	
-							<g:each var="line" in="${userInstance.lastExpenses()}">
+							<g:each var="line" in="${userInstance.lastExpenses}">
 								<li class="controller">
 									${line} <g:link elementClass="link" controller="expenseLine" action="show" id="${line.id}">Ver></g:link>
 								</li>
