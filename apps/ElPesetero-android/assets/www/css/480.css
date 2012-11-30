@@ -1,4 +1,17 @@
-@media (min-width: 321px) and (max-width: 480px) {
+@media (min-width: 479px) {
+	body::before{
+		content: ">479 480.css";
+		font-weight: normal;
+		display: block;
+		text-align: left;
+		background: rgba(255,255,0, 0.9); /* Semi-transparent yellow */
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 99;
+	}	
+		
 	#inicio{
 		padding-top:5px;
 		padding-left:40px;		

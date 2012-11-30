@@ -57,18 +57,22 @@ function goTo(subpage){
 	var positionX=$(subpage).offset().left;
 	var positionY=$(subpage).offset().top;
 	$('html, body').animate({scrollLeft:positionX}, 300,function() {
-		$('html, body').animate({scrollTop:positionY}, 500,function() {});
+		//$('html, body').animate({scrollTop:positionY}, 500,function() {});
 	});	
 }
 
 function back(subpage){
 	if (debug)alert("back");
-	$('html, body').animate({scrollTop:0}, 300,function() {
-		$('html, body').animate({scrollLeft:0}, 300,function() {});
-		if (subpage){
-			$(subpage).css("display","none");
-		}
-	  });	
+	
+	$('html, body').animate({scrollLeft:0}, 300,function() {});
+	if (subpage){
+		$(subpage).css("display","none");
+	}else{
+		$('.subpage').each(function(index) {  
+			$(this).css("display","none");
+		});
+	}
+		
 }
 
 var url='data/initial.json';
