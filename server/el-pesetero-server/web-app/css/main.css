@@ -256,6 +256,11 @@ fieldset,
 	border: none;
 }
 
+.ui-widget fieldset, .ui-widget .property-list {
+    margin: 0.6em 0.5em 0;
+    padding: 0.3em 0.5em 1.25em;
+}
+
 .property-list .fieldcontain {
 	list-style: none;
 	overflow: hidden;
@@ -646,6 +651,9 @@ a.skip {
     display: block;        
 }
 
+.ui-dialog, .ui-widget {
+	font-size: 0.7em;
+}
 .summaryBox {
 	background-color: #EEEEEE;
     border: 0.2em solid #FFFFFF;

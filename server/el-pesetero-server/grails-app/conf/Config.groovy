@@ -111,9 +111,19 @@ log4j = {
            'net.sf.ehcache.hibernate'		   
 }
 
+grails.resources.modules = {
+	core {
+		dependsOn 'jquery-ui'
+	}
+	// Define reference to custom jQuery UI theme
+	overrides {
+		'jquery-theme' {
+			resource id: 'theme', url: '/css/ui-lightness/jquery-ui-1.9.1.custom.css'
+		}
+	}
+}
 
-es.elpesetero.openid.google.url='https://www.google.com/accounts/o8/id'
-
+//Spring Security
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'es.elpesetero.security.SecurityUser'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'es.elpesetero.security.UserRole'
@@ -121,6 +131,7 @@ grails.plugins.springsecurity.authority.className = 'es.elpesetero.security.Role
 grails.plugins.springsecurity.rememberMe.persistent = true
 grails.plugins.springsecurity.rememberMe.persistentToken.domainClassName = 'es.elpesetero.security.PersistentLogin'
 grails.plugins.springsecurity.openid.domainClass = 'es.elpesetero.security.OpenID'
-
+//OpenID
 openid.registration.requiredAttributes=[email: 'http://axschema.org/contact/email',language: 'http://axschema.org/pref/language']
 openid.registration.optionalAttributes=[]
+es.elpesetero.openid.google.url='https://www.google.com/accounts/o8/id'

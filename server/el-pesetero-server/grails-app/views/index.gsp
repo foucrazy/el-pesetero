@@ -87,9 +87,19 @@
 		<div id="status" role="complementary">
 			<h1>Acciones rápidas</h1>
 			<ul id="fast-actions">
-				<li><i class="foundicon-cart"><g:link controller='expenseLine' action='create'>Nuevo gasto</g:link></i></li>
+				<li><i class="foundicon-cart"><g:link elementId="add-expense-link" controller='expenseLine' action='create'>Nuevo gasto</g:link></i></li>
 				<li><i class="foundicon-address-book"><g:link controller="securityUser" action="edit" params='[id:"${userInstance.securityUser.id}"]'>Editar perfil</g:link></i></li>
 			</ul>			
+			<div id="expense-dialog-form" class="el-pesetero-dialog" title="Añadir gasto">
+				<g:formRemote name="newExpenseForm" url="[controller: 'expenseLine', action: 'save']" method="post" update="lastExpenses">
+				<fieldset class="form">
+					<g:render template="/expenseLine/form" model="['expenseLineInstance': new es.elpesetero.ExpenseLine()]"/>
+				</fieldset>
+				<fieldset class="expense_form">
+					<g:render template="/expense/form" model="['expenseInstance':new es.elpesetero.Expense()]"/>
+				</fieldset>
+				</g:formRemote>
+			</div>
 			<h1>Installed Plugins</h1>
 			<ul>
 				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
@@ -124,7 +134,7 @@
 					</div>
 					<div id="expenseSummary" class="summaryBox">
 						<strong>Últimos gastos</strong>			
-						<ul>	
+						<ul id="lastExpenses">	
 							<g:each var="line" in="${userInstance.lastExpenses}">
 								<li class="controller">
 									${line} <g:link elementClass="link" controller="expenseLine" action="show" id="${line.id}">Ver></g:link>
@@ -145,5 +155,25 @@
 				</ul>
 			</div>
 		</div>
+		<r:script>
+			var submitNuevoGasto = function() {
+				jQuery("#newExpenseForm").submit();
+				jQuery("#expense-dialog-form").dialog("close");
+			}
+			jQuery(document).ready(function(){
+				jQuery("#expense-dialog-form").dialog({
+					autoOpen: false,					
+					model: true,
+					width: 420,
+					buttons: {
+						"Añadir gasto": submitNuevoGasto
+					}
+				});
+				jQuery( "#add-expense-link" ).click(function() {
+    				jQuery( "#expense-dialog-form" ).dialog( "open" );
+    				return false;
+   				});
+			})
+		</r:script>
 	</body>
 </html>

@@ -42,7 +42,10 @@ grails.project.dependency.resolution = {
 
     plugins {
         runtime ":hibernate:$grailsVersion"
-        runtime ":jquery:1.7.1"
+        runtime ":jquery:1.7.2"
+		//compile ":platform-ui:1.0.RC1"
+		compile ":ember:0.9.8.1"
+		compile ":jquery-ui:1.8.24"
         runtime ":resources:1.1.6"
 
 		compile ":oauth:2.0.3"
