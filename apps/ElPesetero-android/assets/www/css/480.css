@@ -1,28 +1,16 @@
 @media (min-width: 479px) {
-	body::before{
-		content: ">479 480.css";
-		font-weight: normal;
-		display: block;
-		text-align: left;
-		background: rgba(255,255,0, 0.9); /* Semi-transparent yellow */
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 99;
-	}	
-		
+	
 	#menu{
-		padding-top:5px;
-		padding-left:40px;		
+		padding-top:15px;
+		padding-left:15px;		
 	}
 	
 	body{
-		width: 960px;
+		width: 930px;
 	}
 	
 	.page.snapped {
-	  width:480px;
+	  width:450px;
 	  float:left;
 	}
 	
@@ -96,5 +84,20 @@
 		height: 30px !important;
 		width: 30px !important;
 	}	
+	
+	#accesoRapido{
+		height:260px;
+		width: 140px;
+		float:left; 
+	}
+	
+	#listadoDatos{
+		height: 196px;
+		width: 260px;
+		float: left;
+	}
+	
+	#otrasOpciones{
+	}
 	
 }

@@ -8,7 +8,7 @@
 }
 
 body{
-	width: 640px;
+	width: 620px;
 }
 
 .page{
@@ -17,7 +17,7 @@ body{
 
 .page.snapped {
   height:100%;
-  width:320px;
+  width:300px;
   float:left;
 }
 
@@ -83,11 +83,6 @@ body{
     width: 30px;
 }	
 
-.menuList{
-	margin-left:0px;
-	padding:0px !important;
-}
-
 .subCategoriesList{
 	margin-left:15px;
 	padding:0px !important;
@@ -98,6 +93,12 @@ body{
 	width: 30px !important;
 }	
 
-.listview li{
+#listadoDatos .listview li{
 	width:250px;
+	margin-left:0px;
+	padding:0px !important;
+}
+
+#listadoDatos ul:nth-child(1) {
+    margin-left: 0px;
 }

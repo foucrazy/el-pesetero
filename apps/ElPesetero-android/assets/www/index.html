@@ -9,8 +9,8 @@
 		<link href="css/base.css" rel="stylesheet">
 		<link href="css/320.css" rel="stylesheet">
 		<link href="css/480.css" rel="stylesheet">
-		<!--<link href="css/768.css" rel="stylesheet">
-		<link href="css/980.css" rel="stylesheet">-->
+		<link href="css/768.css" rel="stylesheet">
+		<link href="css/980.css" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -25,41 +25,47 @@
 			<div id="page-region">
 				<div id="page-region-content">			
 					<!-- ACCESO RAPIDO -->
-					<div onclick="goTo('#sacar')" class="tile bg-color-orange">		
-						<div class="brand"><div class="name">Sacar dinero</div></div>					
-						<div class="tile-content"><img src="css/images/bookmark-new.svg"/></div>
-					</div>
-					<div onclick="goTo('#gasto')" class="tile bg-color-orange">					
-						<div class="brand"><div class="name">Nuevo gasto</div></div>					
-						<div class="tile-content"><img src="css/images/basket.svg"/></div>
-					</div>
+					<div id="accesoRapido">					
+						<div onclick="goTo('#gasto')" class="tile bg-color-orange">					
+							<div class="brand"><div class="name">Nuevo gasto</div></div>					
+							<div class="tile-content"><img src="css/images/basket.svg"/></div>
+						</div>
+						<div onclick="goTo('#sacar')" class="tile bg-color-orange">		
+							<div class="brand"><div class="name">Sacar dinero</div></div>					
+							<div class="tile-content"><img src="css/images/bookmark-new.svg"/></div>
+						</div>
+					</div>					
 					<!-- FIN ACCESO RAPIDO -->
 					
 					<!-- Listado de  datos -->
-					<ul class="listview fluid">
-						<li onclick="goTo('#fondos')" class="menuList bg-color-orangeDark fg-color-white">
-							<div class="icon"><img src="css/images/system-file-managerA.svg"></div>
-							<div class="data">Fondos<div id="totalBalance"></div></div>
-						</li>
-						
-						<li onclick="goTo('#movimientos')" class="menuList bg-color-orangeDark fg-color-white">
-							<div class="icon"><img src="css/images/keywords.svg"></div>
-							<div class="data">Movimientos<div id="totalExpenses"></div></div>
-						</li>
-
-						<li onclick="goTo('#tipos')" class="menuList bg-color-orangeDark fg-color-white">
-							<div class="icon"><img src="css/images/gtk-index.svg"></div>
-							<div class="data">Tipos de gasto<div id="totalBalance"></div></div>
-						</li>						
-					</ul>
+					<div id="listadoDatos">
+						<ul class="listview fluid">
+							<li onclick="goTo('#fondos')" class="bg-color-orangeDark fg-color-white">
+								<div class="icon"><img src="css/images/system-file-managerA.svg"></div>
+								<div class="data">Fondos<div id="totalBalance"></div></div>
+							</li>
+							
+							<li onclick="goTo('#movimientos')" class="bg-color-orangeDark fg-color-white">
+								<div class="icon"><img src="css/images/keywords.svg"></div>
+								<div class="data">Movimientos<div id="totalExpenses"></div></div>
+							</li>
+	
+							<li onclick="goTo('#tipos')" class="bg-color-orangeDark fg-color-white">
+								<div class="icon"><img src="css/images/gtk-index.svg"></div>
+								<div class="data">Tipos de gasto<div id="totalBalance"></div></div>
+							</li>						
+						</ul>
+					</div>						
 					<!-- Fin listado de datos -->
 					
 					<!-- Otras opciones -->
-					<div onclick="goTo('#configurar')" class="tile medium-vertical medium">								
-						<div class="tile-content full"><img src="css/images/gtk-preferences.svg" /></div>
-					</div>	
-					<div  onclick="navigator.app.exitApp();" class="tile medium-vertical medium">								
-						<div class="tile-content full"><img src="css/images/boot.svg" /></div>
+					<div id="otrasOpciones">
+						<div onclick="goTo('#configurar')" class="tile medium-vertical medium">								
+							<div class="tile-content full"><img src="css/images/gtk-preferences.svg" /></div>
+						</div>	
+						<div  onclick="navigator.app.exitApp();" class="tile medium-vertical medium">								
+							<div class="tile-content full"><img src="css/images/boot.svg" /></div>
+						</div>
 					</div>
 					<!-- Fin otras opciones -->
 				</div>
@@ -68,30 +74,7 @@
 		<!-- FIN MENU PRINCIPAL -->
 		
 		<!-- PANEL DE VISUALIZACION DE INFORMACION -->
-		<div id="panel" class="page fill">
-		
-			<div id="sacar" class="page bg-color-orange subpage">
-				<div id="page-header">
-					<div id="page-header-content">
-						<a onclick="back('#sacar')" class="back-button big page-back"></a><h1>Sacar dinero</h1>
-					</div>
-				</div>
-				
-				<div id="page-region">
-					<div id="page-region-content">		
-						<form>
-							<p>El importe que indiques a continuación pasará a ser parte de tu efectivo.</p> 
-	            			<div class="input-control text">
-	                            <input type="text" placeholder="Importe a sacar">
-	                        </div>
-							<p>de</p>
-							<div id="selectBankFunds" class="input-control select"></div>						
-	                        <input type="submit" value="SACAR"/>	
-						</form>
-					</div>
-				</div>
-			</div>
-			
+		<div id="panel" class="page fill">		
 			<div id="gasto" class="page bg-color-orangeDark subpage">
 				<div id="page-header">
 					<div id="page-header-content">
@@ -123,15 +106,34 @@
 		                            </p>		                            
 		                        </div>
 		                    </div>
-	                        <div class="tile flr">
-	                        	<div class="tile-content">
-	                        		<input type="submit" value="GUARDAR"/>
-                        		</div>
-	                        </div>	
+	                     
+	                        <input type="submit" value="GUARDAR"/>                        	
 						</form>						 
 					</div>
 				</div>
-			</div>		
+			</div>	
+			
+			<div id="sacar" class="page bg-color-orange subpage">
+				<div id="page-header">
+					<div id="page-header-content">
+						<a onclick="back('#sacar')" class="back-button big page-back"></a><h1>Sacar dinero</h1>
+					</div>
+				</div>
+				
+				<div id="page-region">
+					<div id="page-region-content">		
+						<form>
+							<p>El importe que indiques a continuación pasará a ser parte de tu efectivo.</p> 
+	            			<div class="input-control text">
+	                            <input type="text" placeholder="Importe a sacar">
+	                        </div>
+							<p>de</p>
+							<div id="selectBankFunds" class="input-control select"></div>						
+	                        <input type="submit" value="SACAR"/>	
+						</form>
+					</div>
+				</div>
+			</div>				
 			
 			<div id="fondos" class="page bg-color-orange subpage">
 				<div id="page-header">
@@ -210,14 +212,23 @@
 		<script type="text/javascript" charset="utf-8" src="js/data.js"></script>    
 	    <script>
 	        (function ($) {
-	        	$('#menu').on('drag swipe', function (event) {event.preventDefault();});
+	        	$('#menu').on('dragend', function (event) {
+	        		//event.preventDefault();
+	        		if (event.direction=='left'){
+	        			goTo(actualSubPage);
+	        		}}
+	        	);
 	        	
-	        	$('.subpage').each(function(index) {        	  
+	        	$('#panel').on('dragend', function (event) {
+	        		//event.preventDefault();
+	        		if (event.direction=='right'){
+	        			back();
+	        		}}
+	        	);
+	        	
+	        	/*$('.subpage').each(function(index) {        	  
 	        	    $(this).on('dragend', function (event) {event.preventDefault();if (event.direction=='right'){back();}});
-	        	});
-	        	
-	            //$('#vacio').on('dragend', function (event) {event.preventDefault();if (event.direction=='right'){back();}});
-	
+	        	});*/
 	        }(jQuery));
 	    </script>	
 	</body>
