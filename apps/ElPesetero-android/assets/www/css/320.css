@@ -1,19 +1,10 @@
-body::before{
-	content: "320.css";
-	font-weight: normal;
-	display: block;
-	text-align: left;
-	background: rgba(255,255,0, 0.9); /* Semi-transparent yellow */
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 99;
-}	
-
-#inicio{
-	padding-top:10px;
+#menu{
+	padding-top:0px;
 	padding-left:20px;		
+}
+
+#menu #page-header{
+	display:none;
 }
 
 body{
@@ -21,7 +12,7 @@ body{
 }
 
 .page{
-	min-height: 480px;
+	
 }
 
 .page.snapped {
@@ -56,7 +47,7 @@ body{
   width: 55px;
 }	
 .tile.medium .tile-content.full{
-  padding:0px;	
+  padding:5px;	
 }
 
 .tile.medium-vertical {
@@ -66,7 +57,7 @@ body{
   height: 55px;
 }
 .tile.medium-vertical .tile-content.full{
-  padding:0px;	
+  padding:5px;	
 }	
 
 .tile .brand  > .name{	
@@ -91,6 +82,11 @@ body{
   	left: 10px;
     width: 30px;
 }	
+
+.menuList{
+	margin-left:0px;
+	padding:0px !important;
+}
 
 .subCategoriesList{
 	margin-left:15px;

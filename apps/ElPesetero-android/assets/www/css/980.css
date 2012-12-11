@@ -12,12 +12,12 @@
 		z-index: 99;
 	}		
 	
-	#inicio{
+	#menu{
 		padding-top:20px;
 		padding-left:2%;		
 	}
 	
-	#inicio #page-region{
+	#menu #page-region{
 		padding-top:0px;
 		padding-left:0px;
 	}

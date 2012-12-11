@@ -3,77 +3,72 @@
 	<head>
 		<title>El Pesetero</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
-		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">	
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">	
 		<link href="css/modern.css" rel="stylesheet">
 		<link href="css/modern-responsive.css" rel="stylesheet">
 		<link href="css/base.css" rel="stylesheet">
 		<link href="css/320.css" rel="stylesheet">
 		<link href="css/480.css" rel="stylesheet">
-		<link href="css/768.css" rel="stylesheet">
-		<link href="css/980.css" rel="stylesheet">
+		<!--<link href="css/768.css" rel="stylesheet">
+		<link href="css/980.css" rel="stylesheet">-->
 	</head>
 	
 	<body>
-		<div id="inicio" class="page snapped">
+		<!-- MENU PRINCIPAL -->
+		<div id="menu" class="page snapped">
+			<div id="page-header">
+				<div id="page-header-content">
+					<h1>El pesetero</h1>
+				</div>
+			</div>
+			
 			<div id="page-region">
-				<div id="page-region-content">											
-					<div class="tile bg-color-orange">		
+				<div id="page-region-content">			
+					<!-- ACCESO RAPIDO -->
+					<div onclick="goTo('#sacar')" class="tile bg-color-orange">		
 						<div class="brand"><div class="name">Sacar dinero</div></div>					
-						<div class="tile-content">
-							<a onclick="goTo('#sacar')" data-transition="slide"><img src="css/images/bookmark-new.svg" alt="Sacar dinero" title="Sacar dinero"/></a>
-						</div>
+						<div class="tile-content"><img src="css/images/bookmark-new.svg"/></div>
 					</div>
-					<div class="tile bg-color-orange">					
-						<div class="brand">
-							<div class="name">Nuevo gasto</div>
-						</div>					
-						<div class="tile-content">
-							<a onclick="goTo('#gasto')"><img src="css/images/basket.svg" alt="Nuevo Gasto" title="Nuevo gasto"/></a>
-						</div>
+					<div onclick="goTo('#gasto')" class="tile bg-color-orange">					
+						<div class="brand"><div class="name">Nuevo gasto</div></div>					
+						<div class="tile-content"><img src="css/images/basket.svg"/></div>
 					</div>
-					<div class="tile bg-color-orangeDark">
-						<div class="brand">							
-							<div class="name">Fondos</div>
-							<div id="totalBalance" class="badge"></div>
-						</div>													
-						<div class="tile-content">
-							<a onclick="goTo('#fondos')"><img src="css/images/system-file-managerA.svg" alt="Fondos disponibles" title="Fondos disponibles"/></a>
-						</div>
+					<!-- FIN ACCESO RAPIDO -->
+					
+					<!-- Listado de  datos -->
+					<ul class="listview fluid">
+						<li onclick="goTo('#fondos')" class="menuList bg-color-orangeDark fg-color-white">
+							<div class="icon"><img src="css/images/system-file-managerA.svg"></div>
+							<div class="data">Fondos<div id="totalBalance"></div></div>
+						</li>
+						
+						<li onclick="goTo('#movimientos')" class="menuList bg-color-orangeDark fg-color-white">
+							<div class="icon"><img src="css/images/keywords.svg"></div>
+							<div class="data">Movimientos<div id="totalExpenses"></div></div>
+						</li>
+
+						<li onclick="goTo('#tipos')" class="menuList bg-color-orangeDark fg-color-white">
+							<div class="icon"><img src="css/images/gtk-index.svg"></div>
+							<div class="data">Tipos de gasto<div id="totalBalance"></div></div>
+						</li>						
+					</ul>
+					<!-- Fin listado de datos -->
+					
+					<!-- Otras opciones -->
+					<div onclick="goTo('#configurar')" class="tile medium-vertical medium">								
+						<div class="tile-content full"><img src="css/images/gtk-preferences.svg" /></div>
 					</div>	
-					<div class="tile bg-color-orangeDark">	
-						<div class="brand">
-							<div class="name">Movimientos</div>
-							<div id="totalExpenses" class="badge"></div>
-						</div>		
-						<div class="tile-content">
-							<a onclick="goTo('#movimientos')">															
-								<img src="css/images/keywords.svg" alt="Movimientos realizados" title="Movimientos realizados"/>
-							</a>
-						</div>
-					</div>	
-					<div class="tile bg-color-orangeDark">
-						<div class="brand">
-							<div class="name">Tipos de gasto</div>						
-						</div>													
-						<div class="tile-content">
-							<a onclick="goTo('#tipos')"><img src="css/images/gtk-index.svg" alt="Tipos de gasto" title="Tipos de gasto"/></a>
-						</div>
-					</div>	
-					<div class="tile medium-vertical">								
-						<div class="tile-content full">
-							<a onclick="goTo('#configurar')"><img src="css/images/gtk-preferences.svg" alt="Configurar" title="Configurar"/></a>
-						</div>
-					</div>	
-					<div class="tile medium-vertical">								
-						<div class="tile-content full">
-							<a onclick="navigator.app.exitApp();"><img src="css/images/boot.svg" alt="Salir" title="Salir"/></a>
-						</div>
-					</div>						
+					<div  onclick="navigator.app.exitApp();" class="tile medium-vertical medium">								
+						<div class="tile-content full"><img src="css/images/boot.svg" /></div>
+					</div>
+					<!-- Fin otras opciones -->
 				</div>
 			</div>
 		</div>
+		<!-- FIN MENU PRINCIPAL -->
 		
-		<div class="page fill">
+		<!-- PANEL DE VISUALIZACION DE INFORMACION -->
+		<div id="panel" class="page fill">
 		
 			<div id="sacar" class="page bg-color-orange subpage">
 				<div id="page-header">
@@ -207,7 +202,7 @@
 				</div>
 			</div>
 		</div>	
-    
+				
 		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
 	    <script src="js/touch/hammer.js"></script>
 	    <script src="js/touch/jquery.specialevent.hammer.js"></script>		
@@ -215,7 +210,7 @@
 		<script type="text/javascript" charset="utf-8" src="js/data.js"></script>    
 	    <script>
 	        (function ($) {
-	        	$('#inicio').on('drag swipe', function (event) {event.preventDefault();});
+	        	$('#menu').on('drag swipe', function (event) {event.preventDefault();});
 	        	
 	        	$('.subpage').each(function(index) {        	  
 	        	    $(this).on('dragend', function (event) {event.preventDefault();if (event.direction=='right'){back();}});

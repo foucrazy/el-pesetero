@@ -25,12 +25,13 @@ h1,h1:hover {
 
 html,body {
 	margin: 0px;
+	padding: 0px;
 	height: 100%;
 	width: 100%;
 }
 
 body {
-	padding: 0px !important;
+	padding: 0px !important; /*Necesario para que se ajusten los anchos*/
 	background-color: black;
 	overflow: hidden;
 }
@@ -53,7 +54,7 @@ body {
 }
 
 .tile .tile-content img{
-	width:99%;
+	width:90%;
 	height: 90%;
 }
 

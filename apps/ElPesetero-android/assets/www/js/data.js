@@ -10,7 +10,7 @@ function onDeviceReady() {
 
 // Handle the back button
 function onBackKeyDown() {
-	goTo('#inicio');
+	goTo('#menu');
 }
 
 //Called when a photo is successfully retrieved
@@ -56,15 +56,16 @@ function goTo(subpage){
 	$(subpage).css("display","block");
 	var positionX=$(subpage).offset().left;
 	var positionY=$(subpage).offset().top;
-	$('html, body').animate({scrollLeft:positionX}, 300,function() {
-		//$('html, body').animate({scrollTop:positionY}, 500,function() {});
+	$('html, body').animate({scrollLeft:positionX}, 400,function() {
+		$('html, body').animate({scrollTop:positionY}, 400,function() {});
 	});	
 }
 
 function back(subpage){
 	if (debug)alert("back");
-	
-	$('html, body').animate({scrollLeft:0}, 300,function() {});
+	$('html, body').animate({scrollLeft:0}, 350,function() {
+		$('html, body').animate({scrollTop:0}, 350,function() {});
+	});
 	if (subpage){
 		$(subpage).css("display","none");
 	}else{
@@ -72,7 +73,6 @@ function back(subpage){
 			$(this).css("display","none");
 		});
 	}
-		
 }
 
 var url='data/initial.json';
