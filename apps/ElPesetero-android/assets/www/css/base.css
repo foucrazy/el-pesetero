@@ -19,9 +19,6 @@
 	Motorola Xoom		1280 x  800	
 	iPad3,4				1536 x 2048		
 */
-h1,h1:hover {
-	color: white;
-}
 
 html,body {
 	margin: 0px;
@@ -39,18 +36,35 @@ body {
 .page{
 	min-height:100%;
 	height: auto;
+	width:100%;
 }
 
+/*MENU*/
 .page.snapped {
-	border:0px;
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0px;
+  left:0px;
+  border:0px;
 }
 
+/*PANEL*/
 .page.fill {
-	border:0px;
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0px;
+  left:95%;
+  border:0px;
 }
 
 .subpage{
 	display:none;
+}
+
+h1,h1:hover {
+	color: white;
 }
 
 .tile .tile-content img{

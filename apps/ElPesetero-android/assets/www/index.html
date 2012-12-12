@@ -60,10 +60,10 @@
 					
 					<!-- Otras opciones -->
 					<div id="otrasOpciones">
-						<div onclick="goTo('#configurar')" class="tile medium-vertical medium">								
+						<div onclick="goTo('#configurar')" class="tile bg-color-pinkDark medium-vertical medium">								
 							<div class="tile-content full"><img src="css/images/gtk-preferences.svg" /></div>
 						</div>	
-						<div  onclick="navigator.app.exitApp();" class="tile medium-vertical medium">								
+						<div  onclick="navigator.app.exitApp();" class="tile bg-color-pinkDark medium-vertical medium">								
 							<div class="tile-content full"><img src="css/images/boot.svg" /></div>
 						</div>
 					</div>
@@ -75,7 +75,7 @@
 		
 		<!-- PANEL DE VISUALIZACION DE INFORMACION -->
 		<div id="panel" class="page fill">		
-			<div id="gasto" class="page bg-color-orangeDark subpage">
+			<div id="gasto" class="page bg-color-orange subpage">
 				<div id="page-header">
 					<div id="page-header-content">
 						<a onclick="back('#gasto')" class="back-button big page-back"></a><h1>Nuevo gasto</h1>
@@ -135,7 +135,7 @@
 				</div>
 			</div>				
 			
-			<div id="fondos" class="page bg-color-orange subpage">
+			<div id="fondos" class="page bg-color-orangeDark subpage">
 				<div id="page-header">
 					<div id="page-header-content">
 						<a onclick="back('#fondos')" class="back-button big page-back"></a><h1>Fondos</h1>
@@ -163,7 +163,7 @@
 				</div>
 			</div>			
 	
-			<div id="tipos" class="page bg-color-orange subpage">
+			<div id="tipos" class="page bg-color-orangeDark subpage">
 				<div id="page-header">
 					<div id="page-header-content">
 						<a onclick="back('#tipos')" class="back-button big page-back"></a><h1>Tipos de gasto</h1>
@@ -177,7 +177,7 @@
 				</div>
 			</div>
 			
-			<div id="configurar" class="page bg-color-orangeDark subpage">
+			<div id="configurar" class="page bg-color-pinkDark subpage">
 				<div id="page-header">
 					<div id="page-header-content">
 						<a onclick="back('#configurar')" class="back-button big page-back"></a><h1>Configurar</h1>
@@ -206,11 +206,11 @@
 		</div>	
 				
 		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
-	    <script src="js/touch/hammer.js"></script>
-	    <script src="js/touch/jquery.specialevent.hammer.js"></script>		
+	    <!-- <script src="js/touch/hammer.js"></script>
+	    <script src="js/touch/jquery.specialevent.hammer.js"></script>-->		
 		<script type="text/javascript" charset="utf-8" src="js/cordova-2.2.0.js"></script>	
 		<script type="text/javascript" charset="utf-8" src="js/data.js"></script>    
-	    <script>
+	    <!-- <script>
 	        (function ($) {
 	        	$('#menu').on('dragend', function (event) {
 	        		//event.preventDefault();
@@ -230,6 +230,7 @@
 	        	    $(this).on('dragend', function (event) {event.preventDefault();if (event.direction=='right'){back();}});
 	        	});*/
 	        }(jQuery));
-	    </script>	
+	    </script>
+	     -->	
 	</body>
 </html>
