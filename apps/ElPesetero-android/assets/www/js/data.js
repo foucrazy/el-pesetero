@@ -75,7 +75,7 @@ function goTo(subpage){
 	});*/	
 	
 	var posicionPanel=$("#panel").offset().left;
-	$("#panel").animate({"left": "-="+posicionPanel}, "slow");
+	$("#panel").animate({"left": "-="+posicionPanel}, {queue: false,duration:500});
 	actualSubPage=subpage;
 }
 
@@ -88,7 +88,7 @@ function back(subpage){
 	});*/
 	
 	var anchoMenu=$("#menu").width();
-	$("#panel").animate({"left": "+="+anchoMenu}, "slow");
+	$("#panel").animate({"left": "+="+anchoMenu}, {queue: false,duration:500});
 }
 
 var url='data/initial.json';
