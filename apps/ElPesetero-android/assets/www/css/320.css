@@ -1,4 +1,4 @@
-@media (max-width: 321px) {
+@media (max-width: 479px) {
 	body::before{
 		content: "<=321";
 		font-weight: normal;
