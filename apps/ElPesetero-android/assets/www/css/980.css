@@ -1,26 +1,41 @@
-@media (min-width: 768px) and (max-width: 979px) {
-	#inicio{
-		padding-top:20px;
-		padding-left:2%;		
-	}
+@media (min-width: 768px) {
+	body::before{
+		content: ">=768";
+		font-weight: normal;
+		display: block;
+		text-align: left;
+		background: orange; /* Semi-transparent yellow */
+		position: absolute;
+		top: 0;
+		left: 60px;
+		right: 0;
+		z-index: 99;
+		width: 100px;
+	}		
 	
-	#inicio #page-region{
-		padding-top:0px;
-		padding-left:0px;
-	}
-
 	.page.snapped {
-		width:29%;
+	  width:400px;
 	}
 	
 	.page.fill {
-		width:71%;
+	  left:400px;
+	}		
+	
+	#menu{
+		padding-top:20px;		
+		padding-left:2%;		
+	}
+	
+	#menu #page-region{
+		padding-top:0px;
+		padding-left:0px;
 	}
 	
 	#page-header-content h1{
 		padding-top:0px;
 		margin-left:60px;
 		line-height:34pt;
+		padding-bottom:20px;
 	}	
 	
 	#page-region{
@@ -83,6 +98,14 @@
 	.subCategoriesList .icon{
 		height: 30px !important;
 		width: 30px !important;
+	}	
+	
+	#listadoDatos .listview li{
+		width: 310px;
+	}	
+	
+	#listadoDatos ul:nth-child(1) {
+	    margin-left: 0px;
 	}	
 
 }

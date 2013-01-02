@@ -1,16 +1,21 @@
 var debug=false;
+var actualSubPage="#gasto";
 
 document.addEventListener("deviceready", onDeviceReady, false);
+
+$(document).ready(function() {
+	$(actualSubPage).css("display","block");	
+});
 
 function onDeviceReady() {
     if (debug)alert("onDeviceReady");
     var pictureSource=navigator.camera.PictureSourceType;
-    document.addEventListener("backbutton", onBackKeyDown, false);
+    document.addEventListener("backbutton", onBackKeyDown, false);    
 }
 
 // Handle the back button
 function onBackKeyDown() {
-	goTo('#inicio');
+	back(null);
 }
 
 //Called when a photo is successfully retrieved
@@ -53,22 +58,37 @@ function capturePhoto() {
 
 function goTo(subpage){	
 	if (debug)alert("goTo");
+	
+	//Ocultamos las posibles subpaginas visibles
+	$('.subpage').each(function(index) {  
+		$(this).css("display","none");
+	});
+	
+	//Mostramos la seleccionada
 	$(subpage).css("display","block");
-	var positionX=$(subpage).offset().left;
+	
+	//Desplazamos la ventana
+	/*var positionX=$(subpage).offset().left;
 	var positionY=$(subpage).offset().top;
-	$('html, body').animate({scrollLeft:positionX}, 300,function() {
-		$('html, body').animate({scrollTop:positionY}, 500,function() {});
-	});	
+	$('html, body').animate({scrollLeft:positionX}, 400,function() {
+		$('html, body').animate({scrollTop:positionY}, 400,function() {});
+	});*/	
+	
+	var posicionPanel=$("#panel").offset().left;
+	$("#panel").animate({"left": "-="+posicionPanel}, {queue: false,duration:500});
+	actualSubPage=subpage;
 }
 
 function back(subpage){
 	if (debug)alert("back");
-	$('html, body').animate({scrollTop:0}, 300,function() {
-		$('html, body').animate({scrollLeft:0}, 300,function() {});
-		if (subpage){
-			$(subpage).css("display","none");
-		}
-	  });	
+	
+	/*$('html, body').animate({scrollLeft:0}, 350,function() {
+		$('html, body').animate({scrollTop:0}, 350,function() {					
+		});
+	});*/
+	
+	var anchoMenu=$("#menu").width();
+	$("#panel").animate({"left": "+="+anchoMenu}, {queue: false,duration:500});
 }
 
 var url='data/initial.json';

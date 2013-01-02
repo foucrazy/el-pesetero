@@ -1,26 +1,25 @@
-@media (min-width: 321px) and (max-width: 480px) {
-	#inicio{
-		padding-top:5px;
-		padding-left:40px;		
+@media (min-width: 479px) and (max-width: 480px) {
+	body::before{
+		content: "479-480";
+		font-weight: normal;
+		display: block;
+		text-align: left;
+		background: yellow;
+		position: absolute;
+		top: 0;
+		left: 20px;
+		right: 0;
+		width: 100px;
+	}		
+	
+	#menu{
+		padding-top:15px;
+		padding-left:15px;		
 	}
 	
-	body{
-		width: 960px;
-	}
-	
-	.page.snapped {
-	  width:480px;
-	  float:left;
-	}
-	
-	.page.fill {
-	  width:480px;
-	  float:left;
-	}
-	
-	#page-header h1{
-		padding-top:10px;
-	}
+	#menu #page-header{
+		display:none;
+	}	
 	
 	#page-region{
 		padding-top:20px;
@@ -83,5 +82,30 @@
 		height: 30px !important;
 		width: 30px !important;
 	}	
+	
+	#accesoRapido{
+		height:260px;
+		width: 140px;
+		float:left; 
+	}
+	
+	#listadoDatos{
+		height: 196px;
+		width: 260px;
+		float: left;
+	}
+	
+	#listadoDatos .listview li{
+		width:250px;
+		margin-left:0px;
+		padding:0px !important;
+	}
+	
+	#listadoDatos ul:nth-child(1) {
+	    margin-left: 0px;
+	}	
+	
+	#otrasOpciones{
+	}
 	
 }

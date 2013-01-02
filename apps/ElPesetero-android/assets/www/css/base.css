@@ -1,36 +1,38 @@
 /*
-	http://www.gsmarena.com
-	Xperia mini pro 	320  x  480
-	HTC Galaxy ACE		320  x  480
-	
+	http://www.gsmarena.com			
+	Xperia mini pro 	320  x  480 (320x403)v (480x243)h
+	HTC Galaxy ACE		320  x  480 (800x1003)v (800x402)h
+	htc explorer  					(320x426)v (480x266)h
+	samsung galaxy mini 1 			(320x341)v (427x235)h
+	Galaxy I						(800x1130)v (800x350)h
+	Galaxy S plus					(800x1130)v (800x389)h
 	HTC ChaChaCha		480  x  320
-	HTC Desire			480  x	800
-	Galaxy SII			480  x	800
+	HTC Desire S		480  x	800 [320x473](320x473)v [533x260](533x260)h || [800x1183](800x1183)v [800x480](800x480)h
+	Galaxy SII			480  x	800 (320x456)v (533x243)h || (480x684)v (320x240)h
+	Google nexus S		480  x  800 (320x456)v (533x243)h
 	Xperia Arc			480  x  854
 	
-	HTC Sensation		540  x  960
-	iPhone4 			640  x  960
+	HTC Sensation		540  x  960 (359x587)v 
+	iPhone4 			640  x  960 [320x480](320x356)v [480x320](480x208)h
 	iPhone5 			640  x 1136
-	Galaxy nexus 		720  x 1280
-	Galaxy SIII			720  x 1280
+	Google nexus 		720  x 1280 (360x556)v (598x335)h	
+	Galaxy SIII			720  x 1280 (320x240)v (320x240)h
 	
 	iMini,iPad2,iPad	768  x 1024
 	Archos 80 G9 		1024 x  768	
 	Motorola Xoom		1280 x  800	
-	iPad3,4				1536 x 2048		
+	iPad3				1536 x 2048	[768x1024](768x928)v [768x1024](1024x672)h
 */
-h1,h1:hover {
-	color: white;
-}
 
 html,body {
 	margin: 0px;
+	padding: 0px;
 	height: 100%;
-	width: 100%;
+	width: 100%;	
 }
 
 body {
-	padding: 0px !important;
+	padding: 0px !important; /*Necesario para que se ajusten los anchos*/
 	background-color: black;
 	overflow: hidden;
 }
@@ -38,22 +40,39 @@ body {
 .page{
 	min-height:100%;
 	height: auto;
+	width:100%;
 }
 
+/*MENU*/
 .page.snapped {
-	border:0px;
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0px;
+  left:0px;
+  border:0px;
 }
 
+/*PANEL*/
 .page.fill {
-	border:0px;
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0px;
+  left:95%;
+  border:0px;
 }
 
 .subpage{
 	display:none;
 }
 
+h1,h1:hover {
+	color: white;
+}
+
 .tile .tile-content img{
-	width:99%;
+	width:90%;
 	height: 90%;
 }
 

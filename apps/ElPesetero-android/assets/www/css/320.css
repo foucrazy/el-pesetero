@@ -1,27 +1,24 @@
-@media (max-width: 320px) {
-	#inicio{
-		padding-top:10px;
+@media (max-width: 479px) {
+	body::before{
+		content: "<=321";
+		font-weight: normal;
+		display: block;
+		text-align: left;
+		background: red;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100px;
+	}	
+		
+	#menu{
+		padding-top:0px;
 		padding-left:20px;		
 	}
-
-	body{
-		width: 640px;
-	}
 	
-	.page{
-		min-height: 480px;
-	}
-	
-	.page.snapped {
-	  height:100%;
-	  width:320px;
-	  float:left;
-	}
-	
-	.page.fill {
-	  height:100%;
-	  width:320px;
-	  float:left;
+	#menu #page-header{
+		display:none;
 	}
 	
 	#page-header h1{
@@ -32,7 +29,7 @@
 		padding-top:20px;
 		padding-left:10px;
 	}
-
+	
 	.tile .tile-content {
 		padding-top:5px;
 		padding-left:10px;
@@ -44,7 +41,7 @@
 	  width: 55px;
 	}	
 	.tile.medium .tile-content.full{
-	  padding:0px;	
+	  padding:5px;	
 	}
 	
 	.tile.medium-vertical {
@@ -54,7 +51,7 @@
 	  height: 55px;
 	}
 	.tile.medium-vertical .tile-content.full{
-	  padding:0px;	
+	  padding:5px;	
 	}	
 	
 	.tile .brand  > .name{	
@@ -72,7 +69,7 @@
 		text-align: right;
 		font-size:12px;
 	}
-
+	
 	.back-button.big {
 	    height: 30px;
 	  	top: 10px;
@@ -84,13 +81,19 @@
 		margin-left:15px;
 		padding:0px !important;
 	}
-
+	
 	.subCategoriesList .icon{
 		height: 30px !important;
 		width: 30px !important;
 	}	
 	
-	.listview li{
+	#listadoDatos .listview li{
 		width:250px;
+		margin-left:0px;
+		padding:0px !important;
+	}
+	
+	#listadoDatos ul:nth-child(1) {
+	    margin-left: 0px;
 	}
 }

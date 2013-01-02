@@ -1,22 +1,40 @@
-@media (min-width: 481px) and (max-width: 768px) {
-
-	#inicio{
-		padding-top:20px;
-		padding-left:2%;		
+@media (min-width: 481px) and (max-width: 767px){
+	body::before{
+		content: "481-767";
+		font-weight: normal;
+		display: block;
+		text-align: left;
+		background: white;
+		position: absolute;
+		top: 0;
+		left: 40px;
+		right: 0;
+		width: 100px;
+	}	
+		
+	.page.snapped {
+	  width:340px;
 	}
 	
-	#inicio #page-region{
+	.page.fill {
+	  left:340px;
+	}		
+		
+	#menu{
+		padding-top:0px;
+		padding-left:5%;		
+	}
+	
+	#menu #page-region{
 		padding-top:0px;
 		padding-left:0px;
 	}
 	
-	.page.snapped {
-		width:29%;
-	}
-	
-	.page.fill {
-		width:71%;
-	}
+	#menu #page-header-content h1{
+		padding-top:0px;
+		margin-left:0px;
+		line-height:34pt;
+	}	
 	
 	#page-header-content h1{
 		padding-top:0px;
@@ -86,4 +104,11 @@
 		width: 30px !important;
 	}	
 	
+	#listadoDatos .listview li{
+		width: 250px;
+	}	
+	
+	#listadoDatos ul:nth-child(1) {
+	    margin-left: 0px;
+	}	
 }
