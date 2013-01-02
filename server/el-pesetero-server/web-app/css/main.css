@@ -680,3 +680,23 @@ a.skip {
 	vertical-align: -0.2em;
 	font-size: 1.3em;
 }
+
+/* Ember lists*/
+ul.table-list label {
+	width: 45%;
+	text-align: right;
+	display: inline-block;
+}
+
+ul.table-list span {
+	width: 15%;
+	text-align: right;
+	display: inline-block;
+}
+
+ul.table-list li.total {
+	border-top: 1px solid black;
+}
+ul.table-list li.total label, ul.table-list li.total span {
+	font-weight: bold;
+}

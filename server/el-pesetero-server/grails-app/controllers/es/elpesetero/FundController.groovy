@@ -4,6 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 import grails.converters.XML
 import grails.plugins.springsecurity.Secured;
+import groovy.json.JsonBuilder;
 
 
 @Secured(['ROLE_USER'])
@@ -80,16 +81,33 @@ class FundController extends BaseAuthController {
 		
 		if (checkOwnership(fundInstance)) {				
 			withFormat {
-				html {
-					[fundInstance: fundInstance]
-				}
-				json {
-					render fundInstance as JSON
+				html { [fundInstance: fundInstance] }
+				json {									
+					render buildFund(fundInstance) as JSON
 				}
 			}
 		}
         
     }
+	
+	def buildFund(fundInstance) {
+		def builder = new JsonBuilder()
+		builder(quantity:fundInstance.quantity,
+			name: fundInstance.name,
+			type: fundInstance.type,
+			user: fundInstance.user.id,
+			lastExpenses :	fundInstance.fundLastExpenses.collect {
+					[
+					id:it.id,
+						expenseDate:it.expenseDate,
+						name:it.expense.name,
+						quantity:it.expense.quantity,
+						category:it.expense.category,
+						proRateType:it.expense.proRateType
+					]
+		})
+		builder.content
+	}
 
     def edit() {
         def fundInstance = Fund.get(params.id)

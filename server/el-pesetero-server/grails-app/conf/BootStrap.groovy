@@ -22,16 +22,22 @@ class BootStrap {
 			it.properties.findAll {k,v -> 
 				k != 'securityUser' && k != 'securityUserId' && k!= 'categories' && k != 'userService' 
 			}
-		}		
+		}
+		JSON.registerObjectMarshaller(Fund) {
+			it.properties.findAll {k,v ->
+				k != 'securityIdentity' && k != 'securityInfo' && k!= 'userId' && k!='fundLastExpenses'
+			} << ['id':it.id] 						
+		}
 		JSON.registerObjectMarshaller(ExpenseCategory) {
-			it.properties.findAll {k,v -> k!='user' && k!='userId' && k!='parent' && k!='parentId'}
+			it.properties.findAll {k,v -> k!='user' && k!='userId' && k!='parent' && k!='parentId'} + ['id': it.id]
 		}
 		JSON.registerObjectMarshaller(ExpenseLine) {
 			def properties = it.properties.findAll {k,v -> k!='expenseId' && k!='user' && k!='expense'}
-			properties << it.expense.properties << ['class': 'es.elpesetero.ExpenseLine']
-			properties.each {k,v -> print k}
-			properties
+			properties << it.expense.properties << ['class': 'es.elpesetero.ExpenseLine', 'id':it.id]			
 		}
+		JSON.registerObjectMarshaller(Date) {
+			return it?.format("dd/MM/yyyy")
+		 }
 		if (!User.count()) {
 			ExpenseCategory vivienda = new ExpenseCategory(name: "Vivienda")
 			vivienda.subCategories = [new ExpenseCategory(parent: vivienda, name: "Alquiler/Hipoteca")]

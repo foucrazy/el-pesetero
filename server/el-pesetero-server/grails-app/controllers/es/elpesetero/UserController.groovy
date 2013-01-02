@@ -60,7 +60,7 @@ class UserController extends BaseAuthController{
 
 	@Secured(['ROLE_USER'])
     def show() {
-        def userInstance = User.get(params.id)
+		def userInstance = userFromParams(params)
         if (!userInstance) {
         	def flashMessage = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
 			withFormat {
@@ -69,14 +69,14 @@ class UserController extends BaseAuthController{
 					redirect(action: "list")
 				}
 				json {
-					def jsonError = [flashMessage]
+					def jsonError = [error: flashMessage]
 					render jsonError as JSON
 				}
 			}
             return
         }
 		
-		if (userInstance == authenticatedUser() || isAdmin()) {
+		if (isAdmin() || userInstance == authenticatedUser()) {
 			withFormat {
 				html {
 					[userInstance: userInstance]
@@ -91,6 +91,13 @@ class UserController extends BaseAuthController{
 		} else redirect(controller:'login', action: 'denied')
         
     }
+	
+	private userFromParams(params) {
+		if (params.id=='0')
+			authenticatedUser()
+		else
+			User.get(params.id)
+	}
 
 	private authenticatedUser() {
 		def securityUserName = springSecurityService.authentication.name

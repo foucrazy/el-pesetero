@@ -80,6 +80,7 @@
 				}
 			}
 		</style>
+		
 	</head>
 	<body >
 		<img class="banner" src="${resource(dir: 'images', file: 'coins-banner3.png')}" alt="Coins"/>
@@ -112,18 +113,21 @@
 				<p>Bienvenido al pesetero si tienes una cuenta en google puedes <g:link controller="openId">logarte</g:link> en El Pesetero</p>				
 			</g:if>
 			<g:if test="${userInstance}">
-				<h1>Bienvenido, ${userInstance.username}</h1>
-				<div id="summary">
-					<div id="userData" class="summaryBox">
-						<strong>Balance</strong> <g:formatNumber number="${userInstance?.totalBalance}" type="currency" currencyCode="EUR" />
-						<p><strong>Fondos:</strong>
-						<ul>						
-							<g:each var="fund" in="${userInstance.funds}">
-							<li>${fund} <g:link elementClass="link" controller="fund" action="show" id="${fund.id}">Ver></g:link></li>
-							</g:each>
-						</ul>
-						</p>
+				<div id="appHolder"></div>
+				<script type="text/x-handlebars" data-template-name="application">
+					<h1>Bienvenido, {{currentUser.username}}</h1>
+					{{#if IndexApp.lastMessage}}
+					<div class="message" role="status">{{IndexApp.lastMessage}}</div>
+					{{/if}}
+					{{#if IndexApp.lastError}}
+					<div class="errors" role="status">{{IndexApp.lastError}}</div>
+					{{/if}}
+					<div id="summary">
+					{{outlet}}
 					</div>
+				</script>
+				<script type="text/x-handlebars" data-template-name="me">
+					{{view IndexApp.FundsView}}
 					<div  class="summaryBox">
 						<strong>Categorías:</strong>
 							<ul>
@@ -132,20 +136,78 @@
 								</g:each>
 							</ul>
 					</div>
+					{{view IndexApp.ExpensesView}}														
+				</script>
+				<script type="text/x-handlebars" data-template-name="funds">
+					<div id="userData" class="summaryBox">
+						{{#unless IndexApp.isMain}}
+						<a {{action goToMe href=true}} class="foundicon-left-arrow"></a>
+					    {{/unless}}
+						<p><strong>Fondos: </strong><a {{action withdraw href=true}} class="foundicon-inbox link">Sacar dinero</a>
+						{{outlet}}
+						<ul class="table-list">	
+							{{#each fund in me.funds}}												
+							<li><label>{{fund.name}} : </label><span>{{fund.quantity}}€</span> 
+								<a {{action goToFund fund href=true}} class="foundicon-right-arrow"></a>
+							</li>
+							{{/each}}
+							<li class="total"><label>Balance : </label><span>{{me.totalBalance}}€</span></li>
+						</ul>
+						</p>
+					</div>
+				</script>
+				<script type="text/x-handlebars" data-template-name="expenses">
 					<div id="expenseSummary" class="summaryBox">
-						<strong>Últimos gastos</strong>			
-						<ul id="lastExpenses">	
-							<g:each var="line" in="${userInstance.lastExpenses}">
-								<li class="controller">
-									${line} <g:link elementClass="link" controller="expenseLine" action="show" id="${line.id}">Ver></g:link>
-								</li>
-							</g:each>
+						{{#unless IndexApp.isMain}}
+						<a {{action goToMe href=true}} class="foundicon-left-arrow"></a>
+					    {{/unless}}
+						<strong>Últimos gastos:</strong><a {{action addExpense href=true}} class="foundicon-plus link">Nuevo gasto</a>
+						{{outlet expenseEdit}}
+						<ul class="table-list" id="lastExpenses">
+							{{#each expense in me.lastExpenses}}
+								{{view IndexApp.ExpenseView}}															
+							{{/each}}
 						</ul>
 					</div>
-				</div>								
-				 
+				</script>
+				<script type="text/x-handlebars" data-template-name="expense">
+					<li>
+						<label>{{expense.expenseDate}} - {{expense.name}} : </label><span>{{expense.quantity}}€</span> from <a {{action goToFund expense.from href=true}}>{{expense.from.name}}</a>						
+					</li>
+				</script>
+				<script type="text/x-handlebars" data-template-name="expenseAdd">
+					<hr/>
+					<fieldset class="form">
+						<g:render template="/expenseLine/form_ember" model="['expenseLineInstance': new es.elpesetero.ExpenseLine()]"/>
+					</fieldset>
+					<fieldset class="expense_form">
+						<g:render template="/expense/form_ember" model="['expenseInstance':new es.elpesetero.Expense()]"/>
+						<input type="submit" {{action submitExpense on="click"}} value="Añadir gasto"/>
+					</fieldset>
+					<hr/>					
+				</script>
+				<script type="text/x-handlebars" data-template-name="withdraw">
+					<hr/>					
+					<fieldset class="form">
+						<g:render template="/fund/withdraw_form_ember"/>						
+						<input type="submit" {{action submitWithdraw on="click"}} value="Sacar Dinero"/>
+					</fieldset>
+					<hr/>					
+				</script>
 			</g:if>
-			
+			<script type="text/x-handlebars" data-template-name="fund">
+				<div {{bindAttr id="fundElementId"}} class="summaryBox">
+					<a {{action goToMe href=true}} class="foundicon-left-arrow"></a>
+					<strong>{{content.name}}</strong>
+					Saldo: {{content.quantity}}€
+					<ul class="table-list">Últimos gastos:
+						{{#each expense in content.lastExpenses}}
+							<li><label>{{expense.expenseDate}} - {{expense.name}} : </label><span>{{expense.quantity}}€</span> </li>
+				
+						{{/each}}
+					</ul>
+				</div>
+			</script>
 			<div id="controller-list" role="navigation">
 				<h2>Available Controllers:</h2>
 				<ul>
@@ -156,11 +218,12 @@
 			</div>
 		</div>
 		<r:script>
+			
 			var submitNuevoGasto = function() {
 				jQuery("#newExpenseForm").submit();
 				jQuery("#expense-dialog-form").dialog("close");
 			}
-			jQuery(document).ready(function(){
+			jQuery(document).ready(function(){				
 				jQuery("#expense-dialog-form").dialog({
 					autoOpen: false,					
 					model: true,
@@ -175,5 +238,6 @@
    				});
 			})
 		</r:script>
+		<g:javascript library="index"/>
 	</body>
 </html>

@@ -43,7 +43,10 @@ class User {
 	}
 	
 	def getLastExpenses() {
-		ExpenseLine.findAllByUser(this).sort {it.expenseDate}
+		ExpenseLine.createCriteria().list (max:10) {
+			eq("user",this)
+			order("expenseDate","desc")
+		}.reverse()
 	}
 	
 }

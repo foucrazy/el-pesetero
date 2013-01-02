@@ -17,7 +17,7 @@
 <%--		<link rel="stylesheet" href="${resource(dir: 'css', file: 'general_enclosed_foundicons.css')}" type="text/css">--%>
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'general_foundicons.css')}" type="text/css">			
 		<g:layoutHead/>
-		<r:require modules="jquery-ui,ember"></r:require>
+		<r:require modules="jquery-ui"></r:require>
         <r:layoutResources />
 	</head>
 	<body>

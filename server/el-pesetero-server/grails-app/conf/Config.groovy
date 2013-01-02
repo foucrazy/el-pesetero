@@ -81,6 +81,7 @@ grails.gorm.default.mapping = {
 environments {
     development {
         grails.logging.jul.usebridge = true
+		grails.resources.debug=true
     }
     production {
         grails.logging.jul.usebridge = false
@@ -113,7 +114,7 @@ log4j = {
 
 grails.resources.modules = {
 	core {
-		dependsOn 'jquery-ui'
+		dependsOn 'jquery-ui'		
 	}
 	// Define reference to custom jQuery UI theme
 	overrides {

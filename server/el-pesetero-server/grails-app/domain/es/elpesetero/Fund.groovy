@@ -23,7 +23,16 @@ class Fund {
 	}
 	
 	public String toString() {
-		"$name [$quantity]€"
+		"$name [$quantity]"
+	}
+	
+	public Collection<ExpenseLine> getFundLastExpenses() {
+		ExpenseLine.createCriteria().list (max:10) {
+			expense {
+				eq("from",this)				
+			}
+			order("expenseDate","desc")
+		}.reverse()
 	}
 	
 	private validateFundForWithdraw(User expenseUser, double expenseQuantity) {		

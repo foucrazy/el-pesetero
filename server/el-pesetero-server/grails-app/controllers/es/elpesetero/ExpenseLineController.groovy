@@ -70,7 +70,7 @@ class ExpenseLineController extends BaseAuthController {
 					redirect(action: "show", id: expenseLineInstance.id)
 				}
 				json {
-					render jsonSuccess(message(code: 'default.created.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), expenseLineInstance.id]), 'expenseLine',expenseLineInstance)
+					render jsonSuccess(message(code: 'expenseLine.created.message', args: [message(code: 'expenseLine.label', default: 'ExpenseLine'), expenseLineInstance.expense.name]), 'expenseLine',expenseLineInstance)
 				}
 			}		
 		} catch (RuntimeException e) {

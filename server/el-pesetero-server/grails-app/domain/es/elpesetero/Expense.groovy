@@ -4,6 +4,7 @@ class Expense {
 
     static constraints = {
 		proRateType nullable: true
+		category nullable: true
     }
 	
 	String name

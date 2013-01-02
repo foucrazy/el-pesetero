@@ -12,7 +12,6 @@ class UserService {
 		if (springSecurityService.isLoggedIn()) {
 			SecurityUser securityUser = SecurityUser.findByUsername(springSecurityService.authentication.name)
 			user = User.findBySecurityUser(securityUser)
-			println "Usuario $user.mail"
 		}
 		return user
 	}
