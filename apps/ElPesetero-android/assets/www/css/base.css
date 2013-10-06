@@ -34,7 +34,8 @@ html,body {
 body {
 	padding: 0px !important; /*Necesario para que se ajusten los anchos*/
 	background-color: black;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: visible;
 }
 
 .page{
@@ -59,7 +60,7 @@ body {
   width:100%;
   position:absolute;
   top:0px;
-  left:95%;
+  left:100%;/*Posicion lateral respecto al menu*/
   border:0px;
 }
 
@@ -71,9 +72,13 @@ h1,h1:hover {
 	color: white;
 }
 
+.tile  {
+	box-shadow:none;
+}
+
 .tile .tile-content img{
 	width:90%;
-	height: 90%;
+	height: 90%;	
 }
 
 .input-control{
@@ -111,4 +116,27 @@ h1,h1:hover {
 
 .flr{
 	float:right;
+}
+
+.debtor{
+	padding:3px;;
+}
+
+.debtor .debtorPicture img{
+	width:45%;
+	float:left;
+}
+
+.debtor .debtorName{
+    float: left;
+    font-size: 11px;
+    line-height: 11px;
+    padding: 3px;
+    width: 45%;
+}
+
+.debtor .expense{
+    color: #000000;
+    font-size: 14px;
+    margin: 5px;	
 }

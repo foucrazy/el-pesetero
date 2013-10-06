@@ -103,12 +103,4 @@
 		height: 30px !important;
 		width: 30px !important;
 	}	
-	
-	#listadoDatos .listview li{
-		width: 250px;
-	}	
-	
-	#listadoDatos ul:nth-child(1) {
-	    margin-left: 0px;
-	}	
 }

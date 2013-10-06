@@ -83,29 +83,4 @@
 		width: 30px !important;
 	}	
 	
-	#accesoRapido{
-		height:260px;
-		width: 140px;
-		float:left; 
-	}
-	
-	#listadoDatos{
-		height: 196px;
-		width: 260px;
-		float: left;
-	}
-	
-	#listadoDatos .listview li{
-		width:250px;
-		margin-left:0px;
-		padding:0px !important;
-	}
-	
-	#listadoDatos ul:nth-child(1) {
-	    margin-left: 0px;
-	}	
-	
-	#otrasOpciones{
-	}
-	
 }

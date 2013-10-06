@@ -1,6 +1,6 @@
 @media (max-width: 479px) {
 	body::before{
-		content: "<=321";
+		
 		font-weight: normal;
 		display: block;
 		text-align: left;
@@ -87,13 +87,4 @@
 		width: 30px !important;
 	}	
 	
-	#listadoDatos .listview li{
-		width:250px;
-		margin-left:0px;
-		padding:0px !important;
-	}
-	
-	#listadoDatos ul:nth-child(1) {
-	    margin-left: 0px;
-	}
 }

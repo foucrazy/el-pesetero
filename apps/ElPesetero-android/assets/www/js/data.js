@@ -1,13 +1,24 @@
 var debug=false;
 var actualSubPage="#gasto";
+var showingMenu=true;
 
+checkSVG();
 document.addEventListener("deviceready", onDeviceReady, false);
+
+window.onorientationchange = function () {    
+    setTimeout(changeOrientation, 200);
+}
+
+function changeOrientation() {
+	showingMenu=false;
+	back(null);
+}
 
 $(document).ready(function() {
 	$(actualSubPage).css("display","block");	
 });
 
-function onDeviceReady() {
+function onDeviceReady() {	
     if (debug)alert("onDeviceReady");
     var pictureSource=navigator.camera.PictureSourceType;
     document.addEventListener("backbutton", onBackKeyDown, false);    
@@ -58,25 +69,28 @@ function capturePhoto() {
 
 function goTo(subpage){	
 	if (debug)alert("goTo");
-	
-	//Ocultamos las posibles subpaginas visibles
-	$('.subpage').each(function(index) {  
-		$(this).css("display","none");
-	});
-	
-	//Mostramos la seleccionada
-	$(subpage).css("display","block");
-	
-	//Desplazamos la ventana
-	/*var positionX=$(subpage).offset().left;
-	var positionY=$(subpage).offset().top;
-	$('html, body').animate({scrollLeft:positionX}, 400,function() {
-		$('html, body').animate({scrollTop:positionY}, 400,function() {});
-	});*/	
-	
-	var posicionPanel=$("#panel").offset().left;
-	$("#panel").animate({"left": "-="+posicionPanel}, {queue: false,duration:500});
-	actualSubPage=subpage;
+	//if (showingMenu){
+		//Ocultamos las posibles subpaginas visibles
+		$('.subpage').each(function(index) {  
+			$(this).css("display","none");
+		});
+		
+		//Mostramos la seleccionada
+		$(subpage).css("display","block");
+		
+		//Desplazamos la ventana
+		/*var positionX=$(subpage).offset().left;
+		var positionY=$(subpage).offset().top;
+		$('html, body').animate({scrollLeft:positionX}, 400,function() {
+			$('html, body').animate({scrollTop:positionY}, 400,function() {});
+		});*/	
+		
+		var posicionPanel=$("#panel").offset().left;
+		$("#panel").animate({"left": "-="+posicionPanel}, {queue: false,duration:500});
+		actualSubPage=subpage;
+		showingMenu=false;
+		//$("body").css({"overflow-y":"visible"});
+	//}
 }
 
 function back(subpage){
@@ -86,9 +100,65 @@ function back(subpage){
 		$('html, body').animate({scrollTop:0}, 350,function() {					
 		});
 	});*/
+	if (!showingMenu){
+		//$("body").css({"overflow-y":"hidden"});
+		var anchoMenu=$("#menu").outerWidth(true);
+		$("#panel").animate({"left": "+="+anchoMenu}, {queue: false,duration:500});
+		showingMenu=true;		
+	}
+}
+
+function checkSVG(){
+	//Detectar sistema utilizado
+	var mobileOS;
+	var mobileOSver;
+	var e = navigator.userAgent;		
+	var t;
+	if (e.match(/iPad/i) || e.match(/iPhone/i)) {
+		mobileOS = "iOS";
+		t = e.indexOf("OS ")
+	} else if (e.match(/Android/i)) {
+		mobileOS = "Android";
+		t = e.indexOf("Android ")
+	} else if (e.match(/Mozilla/i)) {
+		mobileOS = "Mozilla";
+		t = e.indexOf("Mozilla ") 
+	}else {
+		mobileOS = "unknown"
+	}
 	
-	var anchoMenu=$("#menu").width();
-	$("#panel").animate({"left": "+="+anchoMenu}, {queue: false,duration:500});
+	if (mobileOS === "iOS" && t > -1) {
+		mobileOSver = e.substr(t + 3, 3).replace("_", ".")
+	} else if (mobileOS === "Android" && t > -1) {
+		mobileOSver = e.substr(t + 8, 3)
+	} else {
+		mobileOSver = "unknown"
+	}
+	
+	if (mobileOS == "unknown" || (mobileOS === 'Android' && Number(mobileOSver.charAt(0)) < 3)) {
+		if (debug)alert("Reemplazo SVG");
+		$('img').each(
+			function() {
+				$(this).attr('src',
+					$(this).attr('src').replace('.svg', '.png'));
+			});
+	}
+}
+
+function switchDebt(){
+	if($("#debt").attr("disabled")=="disabled"){
+		$("#debt").removeAttr("disabled");
+	}else{
+		$("#debt").attr("disabled","disabled");
+	}
+}
+
+function searchExpense(){
+	if($("#searchExpenseButton").attr("disabled")=="disabled"){
+		$("#searchExpenseButton").removeAttr("disabled");
+	}else{
+		$("#searchExpenseButton").attr("disabled","disabled");
+	}	
 }
 
 var url='data/initial.json';
@@ -100,7 +170,7 @@ $.getJSON(url, function(data) {
 	//Fondos disponibles en seccion fondos
 	var fundList='<ul class="listview fluid">';
 	$.each(data.funds, function(k,fund){
-		fundList = fundList + "<li class=\"bg-color-blueLight\"><div class=\"icon\"><img src=\"css/images/"+fund.type.name+
+		fundList = fundList + "<li onclick=\"goTo('#fondos-detalles')\" class=\"bg-color-blueLight\"><div class=\"icon\"><img src=\"css/images/"+fund.type.name+
 			"icon.png\"></div><div class=\"data\"><h4>"+fund.name+"</h4>"+fund.quantity+"&nbsp;&euro;<p>"+fund.type.name+"</p></div></li>";
 	});	
 	fundList = fundList + '</ul>'
@@ -116,6 +186,8 @@ $.getJSON(url, function(data) {
 	fundSelect = fundSelect + '</select>'	
 	$('#selectFunds').html(fundSelect);
 	$('#selectBankFunds').html(fundSelect);
+	$('#selectBankFundsTo').html(fundSelect);
+	$('#selectBankFundsToMove').html(fundSelect);
 	
 	//Tipos de gasto en seccion tipos de gasto
 	var categoriesList='<ul class="listview fluid">';

@@ -1,0 +1,135 @@
+{
+   "funds":[
+      {
+         "class":"es.elpesetero.Fund",
+         "id":13,
+         "name":"Cuenta COMPARTIDA",
+         "quantity":5380,
+         "type":{
+            "enumType":"es.elpesetero.FundType",
+            "name":"bankAccount"
+         },
+         "user":{
+            "class":"User",
+            "id":7
+         }
+      },
+      {
+         "class":"es.elpesetero.Fund",
+         "id":9,
+         "name":"Efectivo",
+         "quantity":3,
+         "type":{
+            "enumType":"es.elpesetero.FundType",
+            "name":"cash"
+         },
+         "user":{
+            "class":"User",
+            "id":7
+         }
+      },
+      {
+         "class":"es.elpesetero.Fund",
+         "id":12,
+         "name":"Cuenta NOMINA",
+         "quantity":2995,
+         "type":{
+            "enumType":"es.elpesetero.FundType",
+            "name":"bankAccount"
+         },
+         "user":{
+            "class":"User",
+            "id":7
+         }
+      }
+   ],
+    "lastExpenses" : [ 
+    	{ 
+    		"category" : 
+    			{ 
+    				"name" : "Vivienda",
+            		"subCategories" : [
+            		 {
+            		 	 "name" : "Alquiler/Hipoteca",
+                  		 "subCategories" : [  ]
+                     } ]
+          		},
+        	"categoryId" : 3,
+        	"class" : "es.elpesetero.ExpenseLine",
+        	"expenseDate" : "2012-11-14T22:00:00Z",
+        	"from" : { 
+        		"class" : "es.elpesetero.Fund",
+            	"id" : 1,
+            	"name" : "Efectivo",
+            	"quantity" : 14,
+            	"type" : { "enumType" : "es.elpesetero.FundType",
+                	"name" : "cash"
+              	},
+            	"user" : { "class" : "User",
+                	"id" : 1
+              	}
+          	},
+        	"fromId" : 1,
+        	"name" : "Prueba",
+        	"proRateType" : null,
+        	"quantity" : 1,
+        	"userId" : 1
+      },
+      { "category" : { "name" : "Alquiler/Hipoteca",
+            "subCategories" : [  ]
+          },
+        "categoryId" : 4,
+        "class" : "es.elpesetero.ExpenseLine",
+        "expenseDate" : "2012-11-14T22:00:00Z",
+        "from" : { "class" : "es.elpesetero.Fund",
+            "id" : 1,
+            "name" : "Efectivo",
+            "quantity" : 14,
+            "type" : { "enumType" : "es.elpesetero.FundType",
+                "name" : "cash"
+              },
+            "user" : { "class" : "User",
+                "id" : 1
+              }
+          },
+        "fromId" : 1,
+        "name" : "Tontada",
+        "proRateType" : null,
+        "quantity" : 5,
+        "userId" : 1
+      }
+    ],
+   "mail":"kortatu@gmail.com",
+   "topCategories":[
+      {
+         "name":"Vivienda",
+         "subCategories":[
+            {
+               "name":"Alquiler/Hipoteca",
+               "subCategories":[
+
+               ]
+            },
+            {
+               "name":"Alquile2r/Hipoteca2",
+               "subCategories":[
+
+               ]
+            }            
+         ]
+      },
+      {
+         "name":"Vivienda2",
+         "subCategories":[
+            {
+               "name":"Alquiler/Hipoteca",
+               "subCategories":[
+
+               ]
+            }
+         ]
+      }      
+   ],
+   "totalBalance":8378,
+   "username":"kortatu"
+}

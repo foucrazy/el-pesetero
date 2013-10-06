@@ -1,0 +1,70 @@
+.ui-mobile .ui-page{
+	height:100%;	
+}
+
+.ui-mobile .ui-header{
+	margin:0px;
+	padding:0px;	
+	height:9%;
+	min-height: 40px;
+	width:100%;	
+}
+
+.ui-mobile .ui-header img{
+	height:90%;
+}
+
+.ui-body-c, .ui-overlay-c{
+	background:#ccc;
+}
+
+.ui-content{
+	margin:0px;
+	padding:0px;	
+	height:90%;
+	width:100%;	
+}
+
+.custom-content{
+	padding:5%;
+	width:90%;
+}
+
+.ui-grid-a{
+	text-align:center;
+	height:100%;
+	width:100%;
+}
+
+.ui-grid-a .ui-block-a{		
+	margin-top:2%;
+	height:30%;
+}
+
+.ui-grid-a .ui-block-b{
+	margin-top:2%;
+	height:30%;
+}
+
+.ui-grid-a  .icon {	
+	height:80%;
+}
+
+.ui-grid-a  .icon img{	
+	height:100%;
+}
+
+.ui-grid-a  .legend{
+	height:20%;
+	font-size:11px;
+	text-align:center;
+	padding-top:2%;
+}
+
+#footer{
+	bottom: 0;
+    left: 0;
+    margin: 0;
+    position: absolute;
+	width: 100%;
+}

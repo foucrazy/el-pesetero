@@ -10,22 +10,32 @@
 	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" href="css/pesetero.css" />
 </head>
-	<body>	
-		<div data-role="page" id="nuevaCuenta">
+	<body>
+		<div data-role="page" id="nuevaTarjeta">
 			<div data-role="header">
-				<a href="cuentas.html" data-transition="slide" data-icon="back">Cuentas</a>
-				<h1>&nbsp;A&ntilde;adir cuenta</h1>
+				<a href="tipos.html" data-transition="slide" data-icon="back">Tipos</a>
+				<h1>A&ntilde;adir tipo</h1>
 			</div><!-- /header -->
 		
 			<div data-role="content" class="custom-content">
-				<form action="cuentas.html" method="post">
+				<form action="tarjetas.html" method="post">
 					<label for="nombre">Nombre:</label>
 					<input type="text" name="nombre" id="nombre" value=""  />
-					<label for="saldo">Saldo actual:</label>
-					<input type="number" name="saldo" id="saldo" value=""  />		
-					<input type="submit" title="Añadir cuenta" value="Añadir cuenta" />
+					
+					<label for="tipo">Tipo de gasto:</label>
+					<select name="tipo" id="tipo" data-native-menu="false" tabindex="-1">
+						<option value="0">Casa</option>
+						<option value="1">Coche</option>
+						<option value="2">Comida</option>
+					</select>	
+					
+					<div id="divSaldo">
+						<label for="saldo">Saldo actual:</label>
+						<input type="number" name="saldo" id="saldo" value=""  />		
+					</div>
+					<input type="submit" title="Añadir tarjeta" value="Añadir tarjeta" />
 				</form>
 			</div>
 		</div>	
-	</body>
+	</body>		
 </html>

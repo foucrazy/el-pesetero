@@ -1,45 +1,75 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>El Pesetero</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1, target-densityDpi=device-dpi"/>
-		<script type="text/javascript" charset="utf-8" src="js/cordova-2.1.0.js"></script>	
-		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>		
-		<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
-		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
-		<link rel="stylesheet" href="css/el-pesetero.css" />		
-		<link rel="stylesheet" href="css/ajustes.css" />
-	</head>
-	<body>
-		<!-- home -->
-		<div data-role="page" id="inicio">
-		
-			<div data-role="header">
-				<h1>El Pesetero</h1>
-				<a href="index.html" data-icon="delete" class="ui-btn-right">Salir</a>
-			</div><!-- /header -->
-		
-			<div data-role="content">				
-				<div id="accesoRapido">				
-					<a class="btnAccesoRapido" href="sacar.html" data-rel="dialog">
-						<img src="css/images/icon_gasto.gif" alt="Nuevo Gasto" title="Nuevo gasto"/>
-					</a>
-					<a class="btnAccesoRapido" href="sacar.html" data-rel="dialog">
-						<img src="css/images/icon_sacar.gif" alt="Sacar dinero" title="Sacar dinero"/>
-					</a>
+<head>
+	<title>El Pesetero</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<script type="text/javascript" charset="utf-8" src="js/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.animate-enhanced.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/pesetero.js"></script>
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
+	<link rel="stylesheet" href="css/pesetero.css" />
+</head>
+<body>
+	<!-- home -->
+	<div data-role="page" id="inicio">
+		<div data-role="header">
+			<img src="css/images/logo.png" />
+		</div>
+		<!-- /header -->
+
+		<div data-role="content">
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<div class="icon">
+						<a href="gastar.html" data-transition="flow"><img
+							src="css/images/gastar.svg" /></a>
+					</div>
+					<div class="legend">Gastar</div>
+				</div>
+				<div class="ui-block-b">
+					<div class="icon">
+						<a href="ingresar.html" data-transition="flow"><img
+							src="css/images/ingresar.svg" /></a>
+					</div>
+					<div class="legend">Ingresar</div>
+				</div>
+
+				<div class="ui-block-a">
+					<div class="icon">
+						<a href="cuentas.html" data-transition="flow"><img
+							src="css/images/cuentas.svg" /></a>
+					</div>
+					<div class="legend">Cuentas</div>
+				</div>
+				<div class="ui-block-b">
+					<div class="icon">
+						<a href="tarjetas.html" data-transition="flow"><img
+							src="css/images/tarjetas.svg" /></a>
+					</div>
+					<div class="legend">Tarjetas</div>
+				</div>
+
+				<div class="ui-block-a">
+					<div class="icon">
+						<a href="tipos.html" data-transition="flow"><img
+							src="css/images/categorias.svg" /></a>
+					</div>
+					<div class="legend">Categorias</div>
 				</div>
 				
-				<div id="panelGestion">
-					<a href="cuentas.html" data-icon="grid" data-role="button" data-transition="flow">Cuentas Bancarias</a>
-					<a href="tarjetas.html" data-icon="grid" data-role="button" data-transition="flow">Tarjetas</a>
-					<a href="movimientos.html" data-icon="grid" data-role="button" data-transition="flow">Movimientos</a>
-					<a href="tipos.html" data-icon="gear" data-role="button" data-transition="flow">Tipos de gasto</a>
-					<a href="configuracion.html" data-icon="gear" data-role="button" data-transition="flow">Configuraci&oacute;n</a>
+				<div class="ui-block-b">
+					<div class="icon">
+						<a href="movimientos.html" data-transition="flow"><img
+							src="css/images/movimientos.svg" /></a>
+					</div>
+					<div class="legend">Movimientos</div>
 				</div>
-			</div><!-- /content -->
-			
-			<div data-role="footer">v0.1</div>
-		</div><!-- /home -->
-	</body>
+			</div>
+		</div>
+		<!-- /content -->
+	</div>
+	<!-- /home -->
+</body>
 </html>
